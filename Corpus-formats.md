@@ -31,9 +31,10 @@ format](https://code.google.com/archive/p/maui-indexer/wikis/Usage.wiki).
 
 ### Extended subject file format
 
-This is otherwise similar to the simple subject file format, but the `.key`
-file is now a UTF-8 encoded TSV (tab separated values) file where the first
-column contains a subject URI and the second column its label. For example:
+This is otherwise similar to the simple subject file format, but the subject
+file is now a UTF-8 encoded TSV (tab separated values) file with the file 
+extension `.tsv`, where the first column contains a subject URI and the second 
+column its label. For example:
 
 ```
 <http://example.org/thesaurus/subj1>	networking
@@ -48,7 +49,7 @@ the labels. Since URIs are more persistent than labels, this ensures that
 subjects can be matched even if the labels have changed in the subject
 vocabulary.
 
-## Subjet corpus
+## Subject corpus
 
 TBD
 
