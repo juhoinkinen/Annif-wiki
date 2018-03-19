@@ -51,7 +51,20 @@ vocabulary.
 
 ## Subject corpus
 
-TBD
+A subject corpus lists the available subjects (typically defined in a controlled vocabulary) together with text that is representative of that subject. The text may be gathered e.g. from metadata records. A subject corpus is represented as a directory with UTF-8 encoded text files with the extension `.txt`. Each file has the following structure:
+
+* The first line contains the URI and label of the subject, separated by a single space
+* Starting with the second line, there is some text related to the subject. It is recommended that the text starts with the label of the concept itself on the first line (second line of the file) and further lines are each based on a single document.
+
+Here is an example from the YSO/Finna.fi corpus:
+
+```
+http://www.yso.fi/onto/yso/p10088 municipal boards
+municipal boards
+Content of municipal strategy papers : comparison of five Finnish and five Canadian municipalities' strategies
+The Swedish local government act
+When municipalities lead co-production : Lessons from a Danish case study
+```
 
 ## Metadata only corpus
 
