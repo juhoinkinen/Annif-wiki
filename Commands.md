@@ -61,12 +61,10 @@ data associated with the subject will be preserved.
 
 ### Load all subjects from a directory
 
-    annif load <projectid> <directory> [--clear=CLEAR]
+    annif load <projectid> <directory>
 
 Parameters:
 * `directory`: path to a directory containing text files in the corpus format
-* `clear`: Boolean flag that indicates whether the existing subjects should be
-  removed first. Defaults to false.
 
 This will load all the subjects from the given directory in a single batch
 operation. It is equivalent to executing `create-subject` on each file
