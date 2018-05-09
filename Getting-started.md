@@ -4,7 +4,7 @@ First you need to install Annif. Clone this repository and follow the instructio
 
 # Define projects and backends
 
-Projects and backends are defined in the `projects.cfg` file. The default file already contains some projects, you can use them to get started.
+Projects and their backends are defined in the `projects.cfg` file. The default file already contains some projects, you can use them to get started.
 
 It's easiest to start with one of the predefined TF-IDF projects. If you use these, you will not need to touch the configuration files. Further down we will assume that you are using the `tfidf-en` project.
 
