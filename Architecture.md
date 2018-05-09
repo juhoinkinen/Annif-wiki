@@ -19,8 +19,4 @@ combine their analysis results.
 
 ## Software architecture
 
-Annif has a core application (using Flask), which provides both a REST API
-(when run as a web application) and a command line interface. 
-
-In addition, there are separate, independent command line utilities for
-corpus management, quality evaluation and other auxiliary functions.
+Annif has a core application (using Flask and Connexion), which provides both a REST API (when run as a web application) and a command line interface. The command line interface supports administrative functionalities such as corpus management, quality evaluation and other auxiliary functions.
