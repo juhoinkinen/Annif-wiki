@@ -29,36 +29,6 @@ REST equivalent:
 
 ## Subject index administration
 
-### Show all subjects for a project
-
-    annif list-subjects <projectid>
-
-REST equivalent:
-
-    GET /projects/<projectid>/subjects
-
-### Show information about a subject
-
-    annif show-subject <projectid> <subjectid>
-
-REST equivalent:
-
-    GET /projects/<projectid>/subjects/<subjectid>
-
-### Create a new subject, or update an existing one
-
-    annif create-subject <projectid> <subjectid> <subject.txt
-
-REST equivalent:
-
-    PUT /projects/<projectid>/subjects/<subjectid>
-
-This will create a subject from a text file in the corpus format.
-
-If you try to create a subject that already exists, the new subject
-definition will overwrite the existing one. However, training and tuning
-data associated with the subject will be preserved.
-
 ### Load all subjects from a directory
 
     annif load <projectid> <directory>
@@ -71,17 +41,6 @@ operation. It is equivalent to executing `create-subject` on each file
 separately.
 
 REST equivalent: N/A
-
-### Delete a subject
-
-    annif drop-subject <projectid> <subjectid>
-
-REST equivalent:
-
-    DELETE /projects/<projectid>/subjects/<subjectid>
-
-This will remove all information about a subject, including training and
-tuning data.
 
 ## Automatic subject indexing
 
