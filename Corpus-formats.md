@@ -49,7 +49,7 @@ the labels. Since URIs are more persistent than labels, this ensures that
 subjects can be matched even if the labels have changed in the subject
 vocabulary.
 
-## Subject corpus
+## Subject corpus as a directory
 
 A subject corpus lists the available subjects (typically defined in a controlled vocabulary) together with text that is representative of that subject. The text may be gathered e.g. from metadata records. A subject corpus is represented as a directory with UTF-8 encoded text files with the extension `.txt`. Each file has the following structure:
 
@@ -66,6 +66,29 @@ The Swedish local government act
 When municipalities lead co-production : Lessons from a Danish case study
 ```
 
-## Metadata only corpus
+## Subject vocabulary as TSV
 
-TBD
+A subject vocabulary lists the available subjects in a controlled vocabulary. The simple format only specifies URIs and labels for concepts. The vocabulary file file is UTF-8 encoded TSV (tab separated values) file with the file 
+extension `.tsv`, where the first column contains a subject URI and the second column its label. The format is the same as the extended subject file format for documents, specified above. For example:
+
+```
+<http://example.org/thesaurus/subj1>	networking
+<http://example.org/thesaurus/subj2>	computer science
+<http://example.org/thesaurus/subj3>	Internet Protocol
+```
+
+## Subject vocabulary as SKOS
+
+A subject vocabulary can also be given as a SKOS/RDF file. All common RDF serializations (i.e. those supported by rdflib) are supported, including RDF/XML, Turtle and N-Triples.
+
+## Document corpus as a TSV file
+
+A document corpus can be given in a single UTF-8 encoded TSV file. This format is especially useful for metadata about documents, when only titles are known, or for very short documents. The first column contains the text of the document (e.g. title or title + abstract) while the second column contains a whitespace-separated list of subject URIs for that document. For example:
+
+```
+RFC 791: Internet Protocol	<http://example.org/thesaurus/subj1> <http://example.org/thesaurus/subj3>
+RFC 1925: The Twelve Networking Truths	<http://example.org/thesaurus/subj1> <http://example.org/thesaurus/subj2>
+Go To Statement Considered Harmful	<http://example.org/thesaurus/subj2>
+```
+
+Note that it is also possible to separate the subjects with tabs, thus creating a variable number of columns.
