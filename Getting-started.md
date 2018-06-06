@@ -24,11 +24,11 @@ This will take a few minutes. Now your Annif is ready for action!
 
 # Test with an example document
 
-You can test by piping a UTF-encoded text file into Annif like this:
+You can test by piping a UTF-8-encoded text file into Annif like this:
 
     cat document.txt | annif analyze tfidf-en
 
-After a while you should get a tab-separated list of subjects. This is a very inefficient way of using Annif since the model has to be loaded each time, which takes tens of seconds, but good to test that everything works.
+After a while you should get a tab-separated list of subjects. This is a very inefficient way of using Annif since the model has to be loaded each time, which takes tens of seconds, but good for testing that everything works.
 
 # Evaluate with a directory full of files
 
@@ -50,4 +50,4 @@ The REST API is at http://localhost:5000/v1/
 
 The Swagger UI documentation for the REST API is at http://localhost:5000/v1/ui/
 
-For production use you should run Annif in a WSGI server (not tested yet).
+For production use you should run Annif in a WSGI server (TBD).
