@@ -59,7 +59,7 @@ REST equivalent:
 
 ## Evaluate on a directory of manually indexed files
 
-    annif evaldir <projectid> [--limit=MAX] [--threshold=THRESHOLD] directory
+    annif eval <projectid> [--limit=MAX] [--threshold=THRESHOLD] directory
 
 First you need to place the documents as text files in a directory and store the subjects in TSV files with the same basename. This command will read each .txt file from the directory, assign subjects to it, and compare them with the gold standard subjects given in the corresponding .tsv file. The output is a list of statistical measures.
 
