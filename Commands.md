@@ -58,23 +58,25 @@ REST equivalent:
 
 ## Evaluate on a directory of manually indexed files
 
-    annif eval <projectid> [--limit=MAX] [--threshold=THRESHOLD] directory
+    annif eval <projectid> [--limit=MAX] [--threshold=THRESHOLD] <path> [<path2> ...]
 
 First you need to place the documents as text files in a directory and store the subjects in TSV files with the same basename. This command will read each .txt file from the directory, assign subjects to it, and compare them with the gold standard subjects given in the corresponding .tsv file. The output is a list of statistical measures.
 
 Parameters:
 * `limit`: maximum number of subjects to return
 * `threshold`: minimum score threshold, below which results will not be returned
+* `path`: path(s) to a directory containing text files in the corpus format or a TSV file (possibly gzipped)
 
 REST equivalent: N/A
 
 ## Find the optimum limit and threshold for a directory of manually indexed files
 
-    annif optimize <projectid> directory
+    annif optimize <projectid> <path> [<path2> ...]
 
 As with `evaldir`, you need to place the documents as text files in a directory and store the subjects in TSV files with the same basename. This command will read each .txt file from the directory, assign subjects to it using different limit and threshold values, and compare the results with the gold standard subjects given in the corresponding .tsv file. The output is a list of parameter combinations and their scores.
 
-Parameters: N/A
+Parameters:
+* `path`: path(s) to a directory containing text files in the corpus format or a TSV file (possibly gzipped)
 
 REST equivalent: N/A
 
