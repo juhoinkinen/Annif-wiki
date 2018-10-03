@@ -29,16 +29,15 @@ REST equivalent:
 
 ## Subject index administration
 
-### Load all subjects from a directory
+### Train a project by loading all documents from directories or files
 
-    annif load <projectid> <directory>
+    annif train <projectid> <path> [<path2> ...]
 
 Parameters:
-* `directory`: path to a directory containing text files in the corpus format
+* `path`: path(s) to a directory containing text files in the corpus format or a TSV file (possibly gzipped)
 
-This will load all the subjects from the given directory in a single batch
-operation. It is equivalent to executing `create-subject` on each file
-separately.
+This will train the project using all the documents from the given directory or TSV file in a single batch
+operation.
 
 REST equivalent: N/A
 
