@@ -29,7 +29,7 @@ REST equivalent:
 
 ## Subject index administration
 
-### Train a project by loading all documents from directories or files
+### Train a project on documents from directories or files
 
     annif train <projectid> <path> [<path2> ...]
 
