@@ -16,13 +16,13 @@ To get started, you can clone the [Annif-corpora](https://github.com/NatLibFi/An
 
 Of course you can also create your own vocabulary. The format is explained on the page [[Corpus formats]].
 
-You now have to load the vocabulary into the project:
+You now have to load the vocabulary that the project will use (note that the project is defined to use the `yso-en` vocabulary in `projects.cfg`):
 
-    annif loadvoc tfidf-en /path/to/Annif-corpora/vocab/yso-en.tsv
+    annif loadvoc yso-en /path/to/Annif-corpora/vocab/yso-en.tsv
 
-This will take only a few seconds.
+This will take a few seconds.
 
-Then you need to load some training data. We will train the model using the the English language training data generated from Finna.fi metadata:
+Then you need some training data. We will train the model using the the English language training data generated from Finna.fi metadata:
 
     annif train tfidf-en /path/to/Annif-corpora/training/yso-finna-en.tsv.gz
 
