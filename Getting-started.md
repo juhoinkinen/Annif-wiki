@@ -10,7 +10,7 @@ It's easiest to start with one of the predefined TF-IDF projects. If you use the
 
 # Prepare and load a subject vocabulary
 
-Most Annif backends require a subject vocabulary. 
+Most Annif backends require a subject vocabulary and some training data.
 
 To get started, you can clone the [Annif-corpora](https://github.com/NatLibFi/Annif-corpora) repository which contains subject vocabularies and training documents in three languages created from Finna.fi metadata.
 
