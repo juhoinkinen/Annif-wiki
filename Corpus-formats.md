@@ -69,3 +69,5 @@ Go To Statement Considered Harmful	<http://example.org/thesaurus/subj2>
 ```
 
 Note that it is also possible to separate the subjects with tabs, thus creating a variable number of columns.
+
+The TSV file may be compressed using gzip compression. The compressed file must have the extension `.gz`.
