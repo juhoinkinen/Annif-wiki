@@ -16,9 +16,9 @@ To get started, you can clone the [Annif-corpora](https://github.com/NatLibFi/An
 
 Of course you can also create your own vocabulary. The format is explained on the page [[Corpus formats]].
 
-You now have to load the vocabulary that the project will use (note that the project is defined to use the `yso-en` vocabulary in `projects.cfg`):
+You now have to load the vocabulary that the project will use:
 
-    annif loadvoc yso-en /path/to/Annif-corpora/vocab/yso-en.tsv
+    annif loadvoc tfidf-en /path/to/Annif-corpora/vocab/yso-en.tsv
 
 This will take a few seconds.
 
