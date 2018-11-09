@@ -10,4 +10,6 @@ Welcome to the Annif wiki!
   * [[Backend: TF-IDF]]
   * [[Backend: fastText]]
   * [[Backend: MauiService via HTTP]]
+  * [[Backend: Ensemble]]
+
 
