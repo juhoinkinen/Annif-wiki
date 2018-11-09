@@ -17,8 +17,7 @@ supported subject formats.
 Further, there can be several independent **backends** that provide analysis
 functionality. Backends can be integrated into Annif itself, or external
 services queried via APIs. A project can make use of several backends and
-combine their analysis results. See [[Project configuration]] for more
-details about how to configure projects and backends.
+combine their analysis results.
 
 ## Software architecture
 
