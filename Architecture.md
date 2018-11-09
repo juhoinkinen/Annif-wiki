@@ -6,16 +6,19 @@ An installation of Annif may contain multiple independent **projects**, each
 of which specifies a set of settings (e.g. language and indexing
 vocabulary). Projects are limited to a single language; multilingual
 indexing can be performed by defining multiple projects, one per language.
+See [[Project configuration]] for more details.
 
 Each project defines a (typically large) number of **subjects**, which
 reflect concepts from an indexing vocabulary. Subjects are typically created
 from a corpus extracted from existing metadata records and/or indexed
-documents.
+documents. See [[Subject vocabulary formats]] for more information about the
+supported subject formats.
 
 Further, there can be several independent **backends** that provide analysis
 functionality. Backends can be integrated into Annif itself, or external
 services queried via APIs. A project can make use of several backends and
-combine their analysis results.
+combine their analysis results. See [[Project configuration]] for more
+details about how to configure projects and backends.
 
 ## Software architecture
 
