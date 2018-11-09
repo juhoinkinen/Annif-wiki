@@ -6,7 +6,7 @@ Welcome to the Annif wiki!
 * [[Corpus formats]]
   * [[Document corpus formats]]
   * [[Subject vocabulary formats]]
-* [[Backend configuration]]
+* [[Project configuration]]
   * [[Backend: TF-IDF]]
   * [[Backend: fastText]]
   * [[Backend: MauiService via HTTP]]
