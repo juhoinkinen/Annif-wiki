@@ -21,9 +21,17 @@ Maui is a Java application and MauiService is a servlet designed to run within a
 
     apt install tomcat8
 
-The Maui and MauiService
+The Maui and MauiService versions developed at the National Library of Finland also support a [Voikko](https://voikko.puimula.org/)-based Finnish language "stemmer" (actually a lemmatizer) called `FinnishStemmer`, which relies on the `libvoikko` native library. It can be installed from a Ubuntu package:
+
+    apt install libvoikko1
 
 ### Installing Maui and MauiService
+
+The easiest way to install Maui and MauiService is to download the pre-built packages from [Maven Central](https://search.maven.org/search?q=g:fi.nationallibrary). You should download the newest `maui` JAR and newest `mauiservice` WAR.
+
+### Preparing a vocabulary for Maui
+
+Maui requires the vocabulary to be in a SKOS file in RDF/XML syntax.
 
 ### Creating a model for Maui
 
