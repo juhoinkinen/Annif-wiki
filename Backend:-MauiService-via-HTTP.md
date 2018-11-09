@@ -1,0 +1,46 @@
+The HTTP backend can be used to access an external automated indexing service that provides an API similar to the Annif REST API. The main use of this backend is to integrate Annif with [MauiService](https://github.com/NatLibFi/mauiservice), which is a microservice wrapper around the [Maui](http://www.medelyan.com/software) automated indexing tool. Maui was originally created by Alyona Medelyan and described in her PhD thesis ["Human-competitive automated topic indexing"](http://www.medelyan.com/files/phd2009.pdf?attredirects=0&d=1). We will use a forked, enhanced version of Maui and the microservice wrapper MauiService that were developed by Spatineo Inc. for the National Library of Finland.
+
+Maui is very good at detecting topics of text based on comparing terms in a controlled vocabulary to terms that appear in the document text. However, it cannot detect more abstract topics whose labels do not appear in text. For example, a topic such as "local history" would not be suggested for a document that describes the history of a village, unless that phrase is used in the document itself. Thus Maui works best when combined with another algorithm that relies on statistical associations.
+
+Configuration of the `http` backend is rather simple, but MauiService has to be set up separately.
+
+## Example configuration for Annif
+
+```
+[maui-en]
+name=Maui English
+language=en
+backends=http
+endpoint=http://localhost:8080/maui/jyu-eng/analyze
+vocab=yso-en
+```
+
+## Setting up MauiService
+
+Maui is a Java application and MauiService is a servlet designed to run within a servlet container such as Apache Tomcat, so you will need to install these first. On Ubuntu 16.04 and 18.04, you can install the Java environment and Tomcat like this:
+
+    apt install tomcat8
+
+The Maui and MauiService
+
+### Installing Maui and MauiService
+
+### Creating a model for Maui
+
+### Configuring MauiService
+
+## Usage
+
+Load a vocabulary:
+
+    annif loadvoc maui-en /path/to/Annif-corpora/vocab/yso-en.tsv
+
+Training the model on the Annif side is not necessary. However, a Maui model needs to be built for MauiService, see below.
+
+Test the model with a single document:
+
+    cat document.txt | annif analyze maui-en
+
+Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
+
+    annif eval maui-en /path/to/documents/
