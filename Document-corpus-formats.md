@@ -1,4 +1,4 @@
-A document corpus (or several) is needed for training statistical or machine learning based models as well as for evaluating how well those models work. Annif supports two document corpus formats: one that is more suitable for longer documents (full text or long abstracts) and another that is better suited for short texts such as when you only have document titles, not their full texts.
+A document corpus (or several) is needed for training statistical or machine learning based models as well as for evaluating how well those models work. Annif supports two document corpus formats: one that is more suitable for longer documents (full text or long abstracts) and another that is better suited for short texts such as when you only have document titles.
 
 ## Full-text document corpus (directory)
 
