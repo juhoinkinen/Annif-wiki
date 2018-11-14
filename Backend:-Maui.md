@@ -4,16 +4,7 @@ Maui is very good at detecting topics of text based on comparing terms in a cont
 
 Configuration of the `http` backend is rather simple, but MauiService has to be set up separately.
 
-## Example configuration for Annif
 
-```
-[maui-en]
-name=Maui English
-language=en
-backends=http
-endpoint=http://localhost:8080/maui/jyu-eng/analyze
-vocab=yso-en
-```
 ## Setting up MauiService
 
 Maui is a Java application and MauiService is a servlet designed to run within a servlet container such as Apache Tomcat, so you will need to install these first. On Ubuntu 16.04 and 18.04, you can install the Java environment and Tomcat like this:
@@ -26,7 +17,7 @@ The Maui and MauiService versions developed at the National Library of Finland a
 
 ### Installing Maui and MauiService
 
-The easiest way to install Maui and MauiService is to download the pre-built packages from [Maven Central](https://search.maven.org/search?q=g:fi.nationallibrary). You should download the newest `maui` JAR-with-dependencies and newest `mauiservice` WAR.
+The easiest way to install Maui and MauiService is to download the pre-built packages from [Maven Central](https://search.maven.org/search?q=g:fi.nationallibrary). You should download the newest `maui` JAR-with-dependencies and newest `mauiservice` WAR. The examples below assume that you are downloading them under the `/srv/maui` directory.
 
 ### Preparing a vocabulary for Maui
 
@@ -34,11 +25,44 @@ Maui requires the vocabulary to be in a SKOS file that uses RDF/XML syntax. As a
 
 ### Creating a model for Maui
 
-Maui models are built from a small collection of indexed documents using the MauiModelBuilder class which can be executed from the command line. You also need a SKOS vocabulary (see above) and some language-specific settings (language code, stemmer and stopwords). Here is an example for building a model from Finnish language documents. Note that building models can be quite memory-intensive; here we give the Java process 4GB of memory so it won't run out.
+Maui models are built from a small collection of indexed documents using the MauiModelBuilder class which can be executed from the command line. Some such collections are available in the [Annif-corpora repository](https://github.com/NatLibFi/Annif-corpora/tree/master/fulltext). We will use the `kirjastonhoitaja` (Ask a Librarian) collection for training Maui, specifically the `maui-train` subset of 200 documents.
 
-    java -Xmx4G -cp maui.jar com.entopix.maui.main.MauiModelBuilder -l ../Annif-corpora/fulltext/jyu-theses/fin-maui-train/ -m jyu-fin -v ../Annif-corpora/vocab/yso-skos.rdf -f skos -i fi -s StopwordsFinnish -t CachingFinnishStemmer
+You also need a SKOS vocabulary (see above) and some language-specific settings (language code, stemmer and stopwords). Here is an example for building a model from Finnish language documents. Note that building models can be quite memory-intensive; here we give the Java process 4GB of memory so it won't run out.
 
-### Configuring MauiService
+    java -Xmx4G -cp maui.jar com.entopix.maui.main.MauiModelBuilder -l ../Annif-corpora/fulltext/kirjastonhoitaja/maui-train/ -m kirjastonhoitaja -v ../Annif-corpora/vocab/yso-skos.rdf -f skos -i fi -s StopwordsFinnish -t CachingFinnishStemmer
+
+Move the completed model (the file `jyu-fin`) under `/srv/maui`.
+
+### Running MauiService
+
+First ensure that the Tomcat daemon has started up properly:
+
+    service tomcat8 status
+
+Create a configuration file for MauiService called mauiservice.ini that looks like this:
+
+```
+[kirjastonhoitaja]
+language = fi
+model = /srv/maui/model/kirjastonhoitaja
+stemmer = CachingFinnishStemmer
+stopwords = StopwordsFinnish
+vocab = /srv/Annif-corpora/vocab/yso-skos.rdf
+vocabformat = skos
+```
+
+
+
+## Example configuration for Annif
+
+```
+[maui-en]
+name=Maui English
+language=en
+backends=http
+endpoint=http://localhost:8080/mauiservice/jyu-eng/analyze
+vocab=yso-en
+```
 
 ## Usage
 
