@@ -36,7 +36,7 @@ Maui requires the vocabulary to be in a SKOS file that uses RDF/XML syntax. As a
 
 Maui models are built from a small collection of indexed documents using the MauiModelBuilder class which can be executed from the command line. You also need a SKOS vocabulary (see above) and some language-specific settings (language code, stemmer and stopwords). Here is an example for building a model from Finnish language documents. Note that building models can be quite memory-intensive; here we give the Java process 4GB of memory so it won't run out.
 
-    java -Xmx4G -cp maui.jar com.entopix.maui.main.MauiModelBuilder -l ../Annif-corpora/fulltext/jyu-theses/fin-maui-train/ -m jyu-fin -v ../Annif-corpora/vocab/yso-skos.rdf -f skos -i fi -s StopwordsFinnish -t FinnishStemmer
+    java -Xmx4G -cp maui.jar com.entopix.maui.main.MauiModelBuilder -l ../Annif-corpora/fulltext/jyu-theses/fin-maui-train/ -m jyu-fin -v ../Annif-corpora/vocab/yso-skos.rdf -f skos -i fi -s StopwordsFinnish -t CachingFinnishStemmer
 
 ### Configuring MauiService
 
