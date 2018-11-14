@@ -30,9 +30,13 @@ The easiest way to install Maui and MauiService is to download the pre-built pac
 
 ### Preparing a vocabulary for Maui
 
-Maui requires the vocabulary to be in a SKOS file that uses RDF/XML syntax.
+Maui requires the vocabulary to be in a SKOS file that uses RDF/XML syntax. As an example, YSO is available in this format from Finto.fi (always the current version) or from the [Annif-corpora repository](https://github.com/NatLibFi/Annif-corpora/tree/master/vocab) (a specific frozen version).
 
 ### Creating a model for Maui
+
+Maui models are built from a small collection of indexed documents using the MauiModelBuilder class which can be executed from the command line. You also need a SKOS vocabulary (see above) and some language-specific settings (language code, stemmer and stopwords). Here is an example for building a model from Finnish language documents:
+
+    java -cp maui.jar com.entopix.maui.main.MauiModelBuilder -l ../Annif-corpora/fulltext/jyu-theses/fin-maui-train/ -m jyu-fin -v ../Annif-corpora/vocab/yso-skos.rdf -f skos -i fi -s StopwordsFinnish -t FinnishStemmer
 
 ### Configuring MauiService
 
