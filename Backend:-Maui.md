@@ -14,7 +14,6 @@ backends=http
 endpoint=http://localhost:8080/maui/jyu-eng/analyze
 vocab=yso-en
 ```
-
 ## Setting up MauiService
 
 Maui is a Java application and MauiService is a servlet designed to run within a servlet container such as Apache Tomcat, so you will need to install these first. On Ubuntu 16.04 and 18.04, you can install the Java environment and Tomcat like this:
@@ -27,11 +26,11 @@ The Maui and MauiService versions developed at the National Library of Finland a
 
 ### Installing Maui and MauiService
 
-The easiest way to install Maui and MauiService is to download the pre-built packages from [Maven Central](https://search.maven.org/search?q=g:fi.nationallibrary). You should download the newest `maui` JAR and newest `mauiservice` WAR.
+The easiest way to install Maui and MauiService is to download the pre-built packages from [Maven Central](https://search.maven.org/search?q=g:fi.nationallibrary). You should download the newest `maui` JAR-with-dependencies and newest `mauiservice` WAR.
 
 ### Preparing a vocabulary for Maui
 
-Maui requires the vocabulary to be in a SKOS file in RDF/XML syntax.
+Maui requires the vocabulary to be in a SKOS file that uses RDF/XML syntax.
 
 ### Creating a model for Maui
 
