@@ -57,21 +57,21 @@ Then edit the Tomcat configuration, setting the `MAUISERVICE_CONFIGURATION` prop
 
 Then you will need to add the MauiService servlet WAR to Tomcat. One easy way is to do this using a symlink, e.g.
 
-   ln -s /srv/maui/mauiservice.war /var/lib/tomcat8/webapps/mauiservice.war
+    ln -s /srv/maui/mauiservice.war /var/lib/tomcat8/webapps/mauiservice.war
 
 You probably don't want to include the version number to the webapp name, thus make sure to copy or symlink the WAR so it appears as `mauiservice.war` under the `webapps` directory.
 
 Finally restart Tomcat:
 
-   service tomcat8 restart
+    service tomcat8 restart
 
 You can verify that MauiService is working using curl:
 
-   curl http://localhost:8080/mauiservice/
+    curl http://localhost:8080/mauiservice/
 
 If everything is working, this should give you a JSON list of configured projects, like this:
 
-   ["kirjastonhoitaja"]
+    ["kirjastonhoitaja"]
 
 If you get an error or other problem instead, check the Tomcat logs. The main one is `/var/log/tomcat8/logs/catalina.out`.
 
