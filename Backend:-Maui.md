@@ -39,7 +39,7 @@ First ensure that the Tomcat daemon has started up properly:
 
     service tomcat8 status
 
-Create a configuration file for MauiService called mauiservice.ini that looks like this:
+Create a configuration file for MauiService called mauiservice.ini that looks like this, ensuring the paths to the model file and vocabulary match your setup:
 
 ```
 [kirjastonhoitaja]
@@ -51,9 +51,33 @@ vocab = /srv/Annif-corpora/vocab/yso-skos.rdf
 vocabformat = skos
 ```
 
+Then edit the Tomcat configuration, setting the `MAUISERVICE_CONFIGURATION` property to point to the path of the configuration file using the `-D` command line option. You probably also need to give Tomcat more memory (e.g. `-Xmx2G`), as the default is usually way too low. On Debian/Ubuntu systems, you need to edit `/etc/default/tomcat8` and change the `JAVA_OPTS` setting to something like this:
 
+    JAVA_OPTS="-Djava.awt.headless=true -Xmx2G -XX:+UseConcMarkSweepGC -DMAUISERVICE_CONFIGURATION=/srv/maui/mauiservice.ini"
+
+Then you will need to add the MauiService servlet WAR to Tomcat. One easy way is to do this using a symlink, e.g.
+
+   ln -s /srv/maui/mauiservice.war /var/lib/tomcat8/webapps/mauiservice.war
+
+You probably don't want to include the version number to the webapp name, thus make sure to copy or symlink the WAR so it appears as `mauiservice.war` under the `webapps` directory.
+
+Finally restart Tomcat:
+
+   service tomcat8 restart
+
+You can verify that MauiService is working using curl:
+
+   curl http://localhost:8080/mauiservice/
+
+If everything is working, this should give you a JSON list of configured projects, like this:
+
+   ["kirjastonhoitaja"]
+
+If you get an error or other problem instead, check the Tomcat logs. The main one is `/var/log/tomcat8/logs/catalina.out`.
 
 ## Example configuration for Annif
+
+Once you have MauiService up and running, you can configure Annif to connect to it via the HTTP backend. Here is an example:
 
 ```
 [maui-en]
@@ -70,7 +94,7 @@ Load a vocabulary:
 
     annif loadvoc maui-en /path/to/Annif-corpora/vocab/yso-en.tsv
 
-Training the model on the Annif side is not necessary. However, a Maui model needs to be built for MauiService, see below.
+Training the model on the Annif side is not necessary or even possible.
 
 Test the model with a single document:
 
