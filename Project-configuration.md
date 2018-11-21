@@ -28,6 +28,8 @@ Some backends also require additional parameters (`tfidf` doesn't).
 
 # Backends
 
+For a list of supported backends, see [[Home]].
+
 In most cases the `backends` attribute will contain just a single backend, for example `tfidf` or `fasttext`. However, it is possible to define a comma-separated list of backends whose results will be combined, like this:
 
     tfidf,fasttext
