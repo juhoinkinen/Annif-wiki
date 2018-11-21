@@ -36,7 +36,7 @@ Furthermore, you may give weights to each backend by suffixing the backend id wi
 
 This way the results will be combined using a weighted average. In the above case the results from the `fasttext` backend will be weighted so that they are twice as important as the ones from `tfidf`. When not specified, the default weights for a backend is 1.
 
-The [[Backend: Ensemble|ensemble]] backend provides a more general way of combining results from multiple backends.
+The [[ensemble|Backend: Ensemble]] backend provides a more general way of combining results from multiple backends.
  
 # Analyzers for a project
 
