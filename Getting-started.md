@@ -4,17 +4,19 @@ First you need to install Annif. Clone this repository and follow the instructio
 
 # Define projects and backends
 
-Projects and their backends are defined in the `projects.cfg` file. The template file `projects.cfg.dist` already contains some projects, you can just copy it to `projects.cfg` to get started.
+Projects and their backends are defined in the `projects.cfg` file. By default Annif looks for this file in the current directory where it is executed, but the path can be overridden by setting the `ANNIF_PROJECTS` environment variable. The template file `[projects.cfg.dist](https://github.com/NatLibFi/Annif/blob/master/projects.cfg.dist)` already contains some projects, you can just copy it to `projects.cfg` to get started.
 
 It's easiest to start with one of the predefined TF-IDF projects. If you use these, you will not need to touch the configuration files. Further down we will assume that you are using the `tfidf-en` project.
 
 # Prepare and load a subject vocabulary
 
+Annif stores vocabularies, models and other data files under a directory. This defaults to `data` under the current directory, but the path can be overridden by setting the `ANNIF_DATADIR` environment variable.
+
 Most Annif backends require a subject vocabulary and some training data.
 
 To get started, you can clone the [Annif-corpora](https://github.com/NatLibFi/Annif-corpora) repository which contains subject vocabularies and training documents in three languages created from Finna.fi metadata.
 
-Of course you can also create your own vocabulary. The format is explained on the page [[Corpus formats]].
+Of course you can also create your own vocabulary. The format is explained on the page [[Subject vocabulary formats]].
 
 You now have to load the vocabulary that the project will use:
 
@@ -56,4 +58,4 @@ The REST API is at http://localhost:5000/v1/
 
 The Swagger UI documentation for the REST API is at http://localhost:5000/v1/ui/
 
-For production use you should run Annif in a WSGI server (TBD).
+For production use you should run Annif under a WSGI server (TBD).
