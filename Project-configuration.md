@@ -24,9 +24,9 @@ A project has the following attributes:
 | limit      | The maximum number of results (subjects/concepts) to return |
 | vocab      | An identifier for the vocabulary used by this project |
 
-Some backends also require additional parameters.
+Some backends also require additional parameters (`tfidf` doesn't).
 
-# Backends for a project
+# Backends
 
 In most cases the `backends` attribute will contain just a single backend, for example `tfidf` or `fasttext`. However, it is possible to define a comma-separated list of backends whose results will be combined, like this:
 
@@ -40,10 +40,16 @@ This way the results will be combined using a weighted average. In the above cas
 
 The [[ensemble|Backend: Ensemble]] backend provides a more general way of combining results from multiple backends.
  
-# Analyzers for a project
+# Analyzers
 
-TBD
+Analyzers are used to pre-process, tokenize and normalize text. At the moment, Annif supports just two analyzers: `simple` and `snowball`. 
+
+The `simple` analyzer only splits text into words and turns them all into lowercase.
+
+The `snowball` analyzer additionally performs stemming. It takes a language name as parameter, e.g. `snowball(english)` or `snowball(finnish)`. You can use any language supported by the NLTK Snowball stemmer; see the [NLTK stemmer documentation](http://www.nltk.org/howto/stem.html) for details on supported languages.
 
 # Vocabularies
 
-TBD
+Most backends require a subject vocabulary. A vocabulary itself doesn't need any configuration, but the project must define an identifier for the vocabulary it uses. All projects with the same vocabulary identifier will share the same vocabulary, so the vocabulary only needs to be loaded (using the `loadvoc` command) for one of them.
+
+Note that in Annif, vocabularies, like projects, are monolingual. If you load a multilingual SKOS vocabulary for a project, only the labels in the language defined for the project will be loaded.
