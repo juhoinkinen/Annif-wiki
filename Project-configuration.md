@@ -24,6 +24,8 @@ A project has the following attributes:
 | limit      | The maximum number of results (subjects/concepts) to return |
 | vocab      | An identifier for the vocabulary used by this project |
 
+Some backends also require additional parameters.
+
 # Backends for a project
 
 In most cases the `backends` attribute will contain just a single backend, for example `tfidf` or `fasttext`. However, it is possible to define a comma-separated list of backends whose results will be combined, like this:
