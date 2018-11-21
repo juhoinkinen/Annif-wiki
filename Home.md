@@ -7,9 +7,16 @@ Welcome to the Annif wiki!
   * [[Document corpus formats]]
   * [[Subject vocabulary formats]]
 * [[Project configuration]]
-  * [[Backend: TF-IDF]]
-  * [[Backend: fastText]]
-  * [[Backend: MauiService via HTTP]]
-  * [[Backend: Ensemble]]
 
+# Backends/Algorithms
+## Regular backends
+* [[Backend: TF-IDF]]
+* [[Backend: fastText]]
+* [[Backend: Maui]]
 
+## Ensemble backends (that combine results from other backends)
+* [[Backend: Ensemble]]
+* [[Backend: PAV]]
+
+## Special backends
+* [[Backend: Dummy]]
