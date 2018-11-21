@@ -8,11 +8,11 @@ Welcome to the Annif wiki!
   * [[Subject vocabulary formats]]
 * [[Project configuration]]
 * Backends/Algorithms supported by Annif
-  * Regular backends
+  * Regular backends for automated subject indexing and classification
      * [[Backend: TF-IDF]]
      * [[Backend: fastText]]
      * [[Backend: Maui]]
-  * Ensemble backends (that combine results from other backends)
+  * Ensemble backends that combine results from other backends
      * [[Backend: Ensemble]]
      * [[Backend: PAV]]
   * Special backends
