@@ -27,13 +27,14 @@ Load a vocabulary:
 
     annif loadvoc pav-en /path/to/Annif-corpora/vocab/yso-en.tsv
 
-Train
+Train the ensemble:
 
+    annif train pav-en /path/to/Annif-corpora/training/yso-finna-en.tsv.gz
 
 Test the model with a single document:
 
-    cat document.txt | annif analyze ensemble-en
+    cat document.txt | annif analyze pav-en
 
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
-    annif eval ensemble-en /path/to/documents/
+    annif eval pav-en /path/to/documents/
