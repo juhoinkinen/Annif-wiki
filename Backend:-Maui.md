@@ -11,9 +11,9 @@ Maui is a Java application and MauiService is a servlet designed to run within a
 
     apt install tomcat8
 
-The Maui and MauiService versions developed at the National Library of Finland also support a [Voikko](https://voikko.puimula.org/)-based Finnish language "stemmer" (actually a lemmatizer) called `FinnishStemmer`, which relies on the `libvoikko` native library. It can be installed from a Ubuntu package:
+The Maui and MauiService versions developed at the National Library of Finland also support a [Voikko](https://voikko.puimula.org/)-based Finnish language "stemmer" (actually a lemmatizer) called `FinnishStemmer`, which relies on the `libvoikko` native library. It can be installed from Ubuntu packages:
 
-    apt install libvoikko1
+    apt install libvoikko1 voikko-fi
 
 ### Installing Maui and MauiService
 
