@@ -1,0 +1,1 @@
+This is a backend that always returns the same URI. It is only useful for unit tests.
