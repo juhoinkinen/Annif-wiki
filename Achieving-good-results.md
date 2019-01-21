@@ -4,7 +4,7 @@ Here are some tips on how to get good quality results, based on experience setti
 
 You will need some documents that have been manually indexed with gold standard subjects. The minimum reasonable number is around 50 documents, but it helps to have at least a few hundred.
 
-Be aware that subject indexing is a subjective task. It is very unlikely that two humans given the same document will come up with exactly the same subjects for it. According to many empirical studies, inter-indexer agreement tends to be somewhere in between 30% and 50%. It's unrealistic to expect that an algorithm can do much better than this - though it must be noted that the. It can be very informative to actually have several people assign subjects for the same set of documents and measure how similar or different they are. It will always surprise everyone involved. For some background on inter-indexer consistency and automated indexing, Alyona Medelyan's PhD thesis [Human-competitive automatic topic indexing](https://researchcommons.waikato.ac.nz/handle/10289/3513) is highly recommended reading.
+Be aware that subject indexing is a subjective task. It is very unlikely that two humans given the same document will come up with exactly the same subjects for it. According to many empirical studies, inter-indexer agreement tends to be somewhere in between 30% and 50%. It's unrealistic to expect that an algorithm can do much better than this - though it must be noted that the differences between humans are often more matters of perspective, whereas algorithms tend to make outright errors that a human would never make. It can be very informative to actually have several people assign subjects for the same set of documents and measure how similar or different they are. It will always surprise everyone involved. For some background on inter-indexer consistency and automated indexing, Alyona Medelyan's PhD thesis [Human-competitive automatic topic indexing](https://researchcommons.waikato.ac.nz/handle/10289/3513) is highly recommended reading.
 
 # 2. Decide what to measure
 
@@ -30,9 +30,11 @@ Typical evaluation of a validate set:
 
     annif eval tfidf-en --limit 5 --threshold 0.2 path/to/corpus/validate/
 
+The scores will be reported at the end. If you're measuring NDCG, set a limit of 20 or more and a threshold of 0.0 (which is the default).
+
 # 4. Configure and train some basic projects/models/backends
 
-The easiest backend to get started with is `tfidf`, as it doesn't require any configuration. So train that first, then evaluate it using the validate set. Once you get reasonable results, you can start testing other backends.
+The easiest backend to get started with is `tfidf`, as it doesn't require any backend-specific configuration. So train that first, then evaluate it using the validate set. Once you get at least somewhat reasonable results, you can start testing other backends.
 
 Note that sometimes the `tfidf` backend will give very bad suggestions. Don't give up hope yet, as it is possible that it is making systematic errors that can be corrected by a smart ensemble such as PAV. I've had a `tfidf` algorithm give an F1 score of 0.02, which increased to around 0.60 when wrapped in a PAV ensemble, and even more when combined with other backends.
 
