@@ -24,6 +24,8 @@ If you happen to have both metadata (short text such as titles, with manually as
 * Around 500 documents will go into the validation set. This will be used to test different (hyper)parameters for the algorithms, as well as limit and offset values that will give the best F1 score if you're aiming for that.
 * Around 500 documents will go into the test set. These will be put aside for the most part and only evaluate algorithms/models that have been tuned by using the validate set.
 
+You can perform a random split, but if your documents have been published in different times and you're aiming to perform automated indexing for future, yet-unseen documents, the best way to split is by date. For example if you have 5000 documents from the years 2009-2018, with roughly 500 documents per year, you can select documents published in 2018 as the test set, documents published in 2017 as the validate set, and the remaining documents from 2009-2016 as the train set. This way the sets you are measuring with will always be newer than the training data, as will be the case later on.
+
 Typical evaluation of a validate set:
 
     annif eval tfidf-en --limit 5 --threshold 0.2 path/to/corpus/validate/
