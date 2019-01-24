@@ -62,4 +62,4 @@ The Swagger UI documentation for the REST API is at http://localhost:5000/v1/ui/
 
 Once you have one project/backend working you can start adding more projects and trying out more backends. See [[Project configuration]] for more information.
 
-For production use you should run Annif under a WSGI server (TBD).
+For production use you should try [[Running as a WSGI service]].
