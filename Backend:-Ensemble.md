@@ -1,4 +1,4 @@
-The Ensemble backend implements a simple ensemble, i.e. a method for combining results from multiple backends. It has to be configured with source projects. Analysis requests to the ensemble backend will be re-routed to the source projects, then combined by calculating the mean of scores returned by each source backend for each concept.
+The `ensemble` backend implements a simple ensemble, i.e. a method for combining results from multiple backends. It has to be configured with source projects. Analysis requests to the ensemble backend will be re-routed to the source projects, then combined by calculating the mean of scores returned by each source backend for each concept.
 
 It is easy to start using because it requires no algorithm-specific configuration apart from the `sources` setting.
 
