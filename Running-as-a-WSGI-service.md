@@ -10,7 +10,7 @@ Run the following to install the necessary packages:
 
 # Create a system user and group
 
-You don't want to run Annif as root, so let's create a system user and group for it. This will also create the `/srv/Annif` directory, which will be set as the home directory of the `annif` account:
+You don't want to run Annif as root for security reasons, so let's create a system user and group for it. This will also create the `/srv/Annif` directory, which will be set as the home directory of the `annif` account:
 
     sudo addgroup --system annif
     sudo adduser --system --home /srv/Annif --ingroup annif --shell /bin/bash annif
@@ -36,6 +36,7 @@ We will use `pipenv` to manage dependencies (install it with `pip3 install pipen
     pipenv --three  # create a new virtual environment
     pipenv install  # install the dependencies
     pipenv shell  # enter the virtual environment
+    python -m nltk.downloader punkt  # download NLTK data files
 
 You can also install optional dependencies using `pip` now, e.g. for fastText:
 
