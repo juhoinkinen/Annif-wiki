@@ -68,7 +68,7 @@ lr | Learning rate
 epoch | How many passes over training data to perform
 loss | Loss function: `ns`, `hs` or `softmax`. `hs` is much faster than the others.
 minn | Lower limit of character n-gram length
-maxn | Upper limit of character n-gram length
+maxn | Upper limit of character n-gram length
 minCount | Minimum word (or n-gram) frequency to include it in the model
 
 ## Usage
