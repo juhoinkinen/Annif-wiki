@@ -1,6 +1,6 @@
-The `fasttext` backend implements a text classification algorithm based on word embeddings and machine learning. It is a wrapper around the fastText library created by Facebook Research. The model resembles a feed-forward neural network with one hidden layer, though some shortcuts are used for computational efficiency.
+The `fasttext` backend implements a text classification algorithm based on word embeddings and machine learning. It is a wrapper around the [fastText library](https://fasttext.cc/) created by Facebook Research. The model resembles a feed-forward neural network with one hidden layer, though some shortcuts are used for computational efficiency.
 
-The quality of results can be very good, but many parameters have to be selected to get optimal results. Training can be computationally intensive; by default it can use up to 12 CPU cores in parallel.
+The quality of results can be very good, but many parameters have to be selected to get optimal results. Training can be computationally intensive; by default it can train using up to 12 CPU cores in parallel.
 
 ## Installation
 
