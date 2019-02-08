@@ -1,6 +1,7 @@
 Welcome to the Annif wiki!
 
 * [[Getting started]]
+* [[System requirements]]
 * [[Architecture]]
 * [[Commands]]
 * [[Corpus formats]]
