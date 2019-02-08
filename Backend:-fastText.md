@@ -4,13 +4,7 @@ The quality of results can be very good, but many parameters have to be selected
 
 ## Installation
 
-Using the backend requires installing the fastText Python wrapper, which compiles into native code and is not included by default when installing Annif. We use the [fasttextmirror](https://pypi.org/project/fasttextmirror/) package from PyPI. You can install the optional dependencies like this:
-
-    pip install annif[fasttext]
-
-Alternatively (e.g. if you have installed Annif from GitHub), you can just install the required `fasttextmirror` package directly:
-
-    pip install fasttextmirror
+See [[Optional features and dependencies]]
 
 ## Example configuration
 
