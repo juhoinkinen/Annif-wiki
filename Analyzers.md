@@ -12,10 +12,4 @@ The `snowball` analyzer additionally performs stemming. It takes a language name
 
 ## `voikko` analyzer
 
-The `voikko` analyzer performs lemmatization for Finnish. It takes a language code as parameter, e.g. `voikko(fi)`. This analyzer needs to be installed separately. Assuming you are using Ubuntu, you fill first need to install the `libvoikko1` and `voikko-fi` packages:
-
-    sudo apt install libvoikko1 voikko-fi
-
-Then install the optional feature:
-
-    pip install annif[voikko]
+The `voikko` analyzer performs lemmatization for Finnish. It takes a language code as parameter, e.g. `voikko(fi)`. This analyzer needs to be installed separately. See [[Optional features and dependencies]]
