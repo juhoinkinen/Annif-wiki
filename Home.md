@@ -2,6 +2,7 @@ Welcome to the Annif wiki!
 
 * [[Getting started]]
 * [[System requirements]]
+* [[Optional features and dependencies]]
 * [[Architecture]]
 * [[Commands]]
 * [[Corpus formats]]
