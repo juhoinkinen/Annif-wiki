@@ -17,6 +17,7 @@ Welcome to the Annif wiki!
      * [[Backend: TF-IDF]]
      * [[Backend: fastText]]
      * [[Backend: Maui]]
+     * [[Backend: vw_multi]]
   * Ensemble backends that combine results from other backends
      * [[Backend: Ensemble]]
      * [[Backend: PAV]]
