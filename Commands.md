@@ -41,6 +41,17 @@ operation.
 
 REST equivalent: N/A
 
+## Online learning
+
+    annif learn <projectid> <path> [<path2> ...]
+
+Parameters:
+* `path`: path(s) to a directory containing text files in the corpus format, or a TSV file (possibly gzipped)
+
+This will continue training an already trained project using all the documents from the given directory or TSV file in a single batch operation.
+
+REST equivalent: /projects/<projectid>/learn
+
 ## Automatic subject indexing
 
     annif analyze <projectid> [--limit=MAX] [--threshold=THRESHOLD] <document.txt
