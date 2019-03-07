@@ -18,7 +18,7 @@ Welcome to the Annif wiki!
      * [[Backend: fastText]]
      * [[Backend: Maui]]
      * [[Backend: vw_multi]]
-  * Ensemble backends that combine results from other backends
+  * Fusion/Ensemble backends that combine results from other backends
      * [[Backend: Ensemble]]
      * [[Backend: PAV]]
   * Special backends
