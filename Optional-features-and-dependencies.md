@@ -40,7 +40,7 @@ If the build still fails and you get an error like this:
 
     ImportError: /usr/lib/x86_64-linux-gnu/libboost_python-py27.so.1.58.0: undefined symbol: PyClass_Type
 
-the likely reason is that the VW code is being built with the wrong (Python 2) version of libboost-python. You can fix it by fiddling with symlinks like this:
+the likely reason is that the VW bindings are being built with the wrong (Python 2) version of libboost-python. You can fix it by fiddling with symlinks like this:
 
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libboost_python-py35.a /usr/lib/x86_64-linux-gnu/libboost_python.a
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libboost_python-py35.so /usr/lib/x86_64-linux-gnu/libboost_python.so
