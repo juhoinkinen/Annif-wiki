@@ -3,7 +3,7 @@
 ## Basic concepts
 
 An installation of Annif may contain multiple independent **projects**, each
-of which specifies a set of settings (e.g. language and indexing
+of which specifies a set of settings (e.g. backend, language and indexing
 vocabulary). Projects are limited to a single language; multilingual
 indexing can be performed by defining multiple projects, one per language.
 See [[Project configuration]] for more details.
