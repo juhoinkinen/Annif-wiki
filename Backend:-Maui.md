@@ -31,7 +31,7 @@ You also need a SKOS vocabulary (see above) and some language-specific settings 
 
     java -Xmx4G -cp maui.jar com.entopix.maui.main.MauiModelBuilder -l ../Annif-corpora/fulltext/kirjastonhoitaja/maui-train/ -m kirjastonhoitaja -v ../Annif-corpora/vocab/yso-skos.rdf -f skos -i fi -s StopwordsFinnish -t CachingFinnishStemmer
 
-Move the completed model (the file `jyu-fin`) under `/srv/maui`.
+Move the completed model (the file `kirjastonhoitaja`) under `/srv/maui`.
 
 ### Running MauiService
 
