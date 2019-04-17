@@ -44,7 +44,30 @@ If you have several documents with gold standard subjects, you can evaluate how 
 
     annif eval tfidf-en /path/to/documents/
 
-This will again take a while to start but then evaluation should not take a long time per document. In the end you will get a number of statistical measures.
+This will again take a while to start but then evaluation should not take a long time per document. In the end you will get a number of statistical measures, similar to this:
+
+```
+Precision (doc avg):    0.1714285714285714
+Recall (doc avg):       0.36649659863945583
+F1 score (doc avg):     0.2318510737628385
+Precision (conc avg):   0.001245541364630077
+Recall (conc avg):      0.0011485235510088807
+F1 score (conc avg):    0.001146177490671795
+Precision (microavg):   0.17142857142857143
+Recall (microavg):      0.36363636363636365
+F1 score (microavg):    0.23300970873786409
+NDCG:                   0.36769238316041325
+NDCG@5:                 0.3426718725322724
+NDCG@10:                0.36769238316041325
+Precision@1:            0.42857142857142855
+Precision@3:            0.3571428571428571
+Precision@5:            0.2857142857142857
+LRAP:                   0.2467723479191469
+True positives:         48
+False positives:        232
+False negatives:        84
+Documents evaluated:    28 
+```
 
 # Start up the application
 
