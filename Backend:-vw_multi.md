@@ -1,4 +1,4 @@
-The `vw_multi` backend is a wrapper around the multiclass and multilabel classification algorithms (`oaa`, `ect`, `log_multi` and `multilabel_oaa`) implemented by the [Vowpal Wabbit] machine learning system. It is probably best suited for classification tasks with a relatively small number of classes/subjects (fewer than 1000) though this depends on the specific algorithm and its parameters.
+The `vw_multi` backend is a wrapper around the multiclass and multilabel classification algorithms (`oaa`, `ect`, `log_multi` and `multilabel_oaa`) implemented by the [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit) machine learning system. It is probably best suited for classification tasks with a relatively small number of classes/subjects (fewer than 1000) though this depends on the specific algorithm and its parameters.
 
 This backend also supports [online learning](https://en.wikipedia.org/wiki/Online_machine_learning), which means that it can be further trained during use via the `learn` command in the Annif CLI and REST API.
 
@@ -59,7 +59,7 @@ probabilities | If set to 1, return probabilities instead of binary 1/0. Only su
 
 You can check out the [VW documentation about command line arguments](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) for more details about the parameters.
 
-The backend performs analysis for longer documents in chunks: the document is represented as a list of sentences, and that list is turned into chunks. With a `chunksize` of 2 (as above), each chunk is made of 2 sentences, except for the last chunk which may be shorter. Each chunk is analyzed separately and the results are averaged. Setting `chunksize` to a high value such as 10000 will in practice disable chunking.
+The backend processes longer documents in chunks: the document is represented as a list of sentences, and that list is turned into chunks. With a `chunksize` of 2 (as above), each chunk is made of 2 sentences, except for the last chunk which may be shorter. Each chunk is analyzed separately and the results are averaged. Setting `chunksize` to a high value such as 10000 will in practice disable chunking.
 
 ### Probabilities setting
 
@@ -83,7 +83,7 @@ Learn from additional documents:
 
 Test the model with a single document:
 
-    cat document.txt | annif analyze vw-multi-en
+    cat document.txt | annif suggest vw-multi-en
 
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
