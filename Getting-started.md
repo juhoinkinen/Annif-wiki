@@ -34,7 +34,9 @@ This will take a few minutes. Now your Annif is ready for action!
 
 You can test by piping a UTF-8-encoded text file into Annif like this:
 
-    cat document.txt | annif analyze tfidf-en
+    cat document.txt | annif suggest tfidf-en
+
+(NB. The command was called `analyze` before Annif 0.40)
 
 After a while you should get a tab-separated list of subjects. This is a very inefficient way of using Annif since the model has to be loaded each time, which takes tens of seconds, but good for initial testing that everything works.
 
