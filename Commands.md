@@ -54,7 +54,7 @@ REST equivalent: /projects/<projectid>/learn
 
 ## Automatic subject indexing
 
-    annif analyze <projectid> [--limit=MAX] [--threshold=THRESHOLD] <document.txt
+    annif suggest <projectid> [--limit=MAX] [--threshold=THRESHOLD] <document.txt
 
 This will read a text document from standard input and suggest subjects for it.
 
@@ -64,7 +64,7 @@ Parameters:
 
 REST equivalent:
 
-    POST /projects/<projectid>/analyze
+    POST /projects/<projectid>/suggest
 
 ## Evaluate on a collection of manually indexed files
 
