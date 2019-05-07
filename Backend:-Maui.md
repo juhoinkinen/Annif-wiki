@@ -98,7 +98,7 @@ Training the model on the Annif side is not necessary or even possible.
 
 Test the model with a single document:
 
-    cat document.txt | annif analyze maui-en
+    cat document.txt | annif suggest maui-en
 
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
