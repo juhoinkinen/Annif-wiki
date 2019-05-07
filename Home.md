@@ -24,3 +24,5 @@ Welcome to the Annif wiki!
   * Special backends
      * [[Backend: HTTP]]
      * [[Backend: Dummy]]
+* Developer information
+  * [[Release process]]
