@@ -7,4 +7,5 @@ How to make a new release of Annif.
 5. Push the commit to GitHub: `git push`
 6. Push the version tag too: `git push --tags`
 7. Wait for Travis CI builds to complete. The version tag should trigger a distribution build that is uploaded to PyPI. Also it should trigger archiving on Zenodo.
-8. In GitHub Releases tab, turn the tab into a release. 
+8. In GitHub Releases tab, turn the tab into a release and add release notes.
+9. Announce the release on annif-users and other channels (e.g. twitter) 
