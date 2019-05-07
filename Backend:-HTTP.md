@@ -1,4 +1,4 @@
-The `http` backend communicates with a REST API that provides an `analyze` method. It can be either another instance of Annif or a service such as MauiService (see [[Backend: Maui]] for more details about using MauiService).
+The `http` backend communicates with a REST API that provides a `suggest` method. It can be either another instance of Annif or a service such as MauiService (see [[Backend: Maui]] for more details about using MauiService).
 
 ## Example configuration
 
@@ -7,11 +7,11 @@ The `http` backend communicates with a REST API that provides an `analyze` metho
 name=HTTP English
 language=en
 backends=http
-endpoint=http://localhost:5050/yso-en/analyze
+endpoint=http://localhost:5050/yso-en/suggest
 vocab=yso-en
 ```
 
-The `endpoint` setting specifies a URL where analysis requests are POSTed.
+The `endpoint` setting specifies a URL where requests for subject suggestions are POSTed.
 
 ## Usage
 
@@ -23,7 +23,7 @@ Training is not possible.
 
 Test with a single document:
 
-    cat document.txt | annif analyze http-en
+    cat document.txt | annif suggest http-en
 
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
