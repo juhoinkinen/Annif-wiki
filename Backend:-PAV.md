@@ -1,4 +1,4 @@
-The `pav` backend implements a trainable dynamic ensemble that intelligently combines results from multiple projects. Analysis requests to the ensemble backend will be re-routed to the source projects. The results from the source projects will be re-weighted using [isotonic regression](https://en.wikipedia.org/wiki/Isotonic_regression), which attempts to convert raw scores to probabilities. The regression is implemented using the PAV algorithm [available in the scikit-learn library](https://scikit-learn.org/stable/modules/isotonic.html). The regression is performed separately for each concept and the results are combined by calculating the mean of regressed scores (i.e. estimated probabilities) for each concept.
+The `pav` backend implements a trainable dynamic ensemble that intelligently combines results from multiple projects. Subject suggestion requests to the ensemble backend will be re-routed to the source projects. The results from the source projects will be re-weighted using [isotonic regression](https://en.wikipedia.org/wiki/Isotonic_regression), which attempts to convert raw scores to probabilities. The regression is implemented using the PAV algorithm [available in the scikit-learn library](https://scikit-learn.org/stable/modules/isotonic.html). The regression is performed separately for each concept and the results are combined by calculating the mean of regressed scores (i.e. estimated probabilities) for each concept.
 
 ## Example configuration
 
@@ -33,7 +33,7 @@ Train the ensemble:
 
 Test the model with a single document:
 
-    cat document.txt | annif analyze pav-en
+    cat document.txt | annif suggest pav-en
 
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
