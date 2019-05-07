@@ -14,10 +14,7 @@ from a corpus extracted from existing metadata records and/or indexed
 documents. See [[Subject vocabulary formats]] for more information about the
 supported subject formats.
 
-Further, there can be several independent **backends** that provide analysis
-functionality. Backends can be integrated into Annif itself, or external
-services queried via APIs. A project can make use of several backends and
-combine their analysis results.
+Further, there can be several independent **backends** that provide subject suggestions. Backends can be integrated into Annif itself, or external services queried via APIs. A project can make use of several backends and combine their analysis results.
 
 ## Software architecture
 
