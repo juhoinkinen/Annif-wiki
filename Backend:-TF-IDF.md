@@ -26,7 +26,7 @@ Train the model:
 
 Test the model with a single document:
 
-    cat document.txt | annif analyze tfidf-en
+    cat document.txt | annif suggest tfidf-en
 
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
