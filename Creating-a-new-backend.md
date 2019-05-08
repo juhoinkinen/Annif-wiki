@@ -1,4 +1,4 @@
-Annif backend code is in the [annif/backend]() module. Each backend is implemented as a subclass of `AnnifBackend`, or its more specific subclass `AnnifLearningBackend` for backends that support online learning.
+Annif backend code is in the [annif/backend](https://github.com/NatLibFi/Annif/tree/master/annif/backend) module. Each backend is implemented as a subclass of `AnnifBackend`, or its more specific subclass `AnnifLearningBackend` for backends that support online learning.
 
 A backend must define these fields:
 
