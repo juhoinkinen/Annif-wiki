@@ -26,3 +26,4 @@ Welcome to the Annif wiki!
      * [[Backend: Dummy]]
 * Developer information
   * [[Release process]]
+  * [[Creating a new backend]]
