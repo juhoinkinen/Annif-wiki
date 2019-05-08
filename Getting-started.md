@@ -4,7 +4,7 @@ First you need to install Annif. Clone this repository and follow the instructio
 
 # Define projects and backends
 
-Projects and their backends are defined in the `projects.cfg` file. By default Annif looks for this file in the current directory where it is executed, but the path can be overridden by setting the `ANNIF_PROJECTS` environment variable. The template file `[projects.cfg.dist](https://github.com/NatLibFi/Annif/blob/master/projects.cfg.dist)` already contains some projects, you can just copy it to `projects.cfg` to get started.
+Projects and their backends are defined in the `projects.cfg` file. By default Annif looks for this file in the current directory where it is executed, but the path can be overridden by setting the `ANNIF_PROJECTS` environment variable. The template file [`projects.cfg.dist`](https://github.com/NatLibFi/Annif/blob/master/projects.cfg.dist) already contains some projects, you can just copy it to `projects.cfg` to get started.
 
 It's easiest to start with one of the predefined TF-IDF projects. If you use these, you will not need to touch the configuration files. Further down we will assume that you are using the `tfidf-en` project.
 
