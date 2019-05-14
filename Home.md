@@ -25,5 +25,6 @@ Welcome to the Annif wiki!
      * [[Backend: HTTP]]
      * [[Backend: Dummy]]
 * Developer information
+  * [[Development flow, branches and tags]]
   * [[Release process]]
   * [[Creating a new backend]]
