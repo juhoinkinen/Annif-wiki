@@ -1,3 +1,4 @@
+* [[Home]]
 * [[Getting started]]
 * [[System requirements]]
 * [[Optional features and dependencies]]
