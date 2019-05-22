@@ -1,0 +1,1 @@
+Annif includes a simple web user interface mainly intended for testing models. The UI consists of a form where you can select a project and enter (or paste) text. Clicking the Analyze button will present a list of suggested subjects along with their score values.
