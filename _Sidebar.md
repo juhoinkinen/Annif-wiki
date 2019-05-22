@@ -4,6 +4,7 @@
 * [[Optional features and dependencies]]
 * [[Architecture]]
 * [[Commands]]
+* [[Web user interface]]
 * [[Corpus formats]]
 * [[Project configuration]]
 * [[Analyzers]]
