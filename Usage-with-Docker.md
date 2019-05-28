@@ -28,6 +28,7 @@ The vocabulary and training data (e.g. [Annif-corpora](https://github.com/NatLib
 
 Now everything is set up for running Annif in the container!
 
+&nbsp;
 
 <a name="myfootnote1">1</a>:
 Alternatively, it is possible to create and bind a [named volume](https://success.docker.com/article/different-types-of-volumes), which initially is empty, and copy or fetch data into it from container, e.g. using wget from [Annif-corpora Git Hub page](https://github.com/NatLibFi/Annif-corpora):
