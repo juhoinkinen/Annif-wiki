@@ -4,7 +4,7 @@ To be able to use Docker in your system, you need to have installed Docker-engin
 
 # Running Annif in Docker container
 
-In case you are using Linux, you can start bash shell in a container created from the Annif image with:
+In case you are using Linux, you can start bash shell in a container based on the Annif image with:
 
     docker run -it annif bash 
 
@@ -17,21 +17,21 @@ However, the Annif image itself does not contain any vocabulary or training data
         -u $(id -u):$(id -g) \
         -it annif bash
 
-Now the directory where the command was issued on host is mounted with name `annif_projects` on the root of the container filesystem. 
+Now the directory where the command was issued on host is mounted with name `annif_projects` on the root of the container filesystem, and the post-installation steps in [[Getting Started]] can be followed. 
 
-The Annif projects configuration file `projects.cnf` needs to be in the directory where Annif commands are run. There is a draft configuration file coming with the Annif image, which can be copied to the `/annif_projects` directory:
+Specificly, the template configuration file comes with the Annif image and can be copied to the `/annif_projects` directory:
 
     cp /Annif/projects.cfg.dist  /annif_projects/projects.cfg
 
-
 The vocabulary and training data (e.g. [Annif-corpora](https://github.com/NatLibFi/Annif-corpora)) can be fetched using the host system to the mounted directory.
 
-Now everything is set up for running Annif in the container!
+*Note that any data should not be stored in other locations in the container but in the mounted directory*, as after the container has stopped, [it is not convenient to gain access to the data again](https://docs.docker.com/engine/reference/commandline/commit/).
+
 
 &nbsp;
 
 <a name="myfootnote1">1</a>:
-Alternatively, it is possible to create and bind a [named volume](https://success.docker.com/article/different-types-of-volumes), which initially is empty, and copy or fetch data into it from container, e.g. using wget from [Annif-corpora Git Hub page](https://github.com/NatLibFi/Annif-corpora):
+Alternatively, it is possible to create and bind a [named volume](https://success.docker.com/article/different-types-of-volumes), which initially is empty, and get data into it by [copying](https://docs.docker.com/engine/reference/commandline/cp/) from host or fetching from internet, e.g. using wget in a running container to dowload [Annif-corpora Git Hub page](https://github.com/NatLibFi/Annif-corpora):
 
 `wget -O - https://github.com/NatLibFi/Annif-corpora/tarball/master | tar xz`
 
