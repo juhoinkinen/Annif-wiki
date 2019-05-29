@@ -27,6 +27,7 @@ The vocabulary and training data (e.g. [Annif-corpora](https://github.com/NatLib
 
 *Note that any data should not be stored in other locations in the container but in the mounted directory*, as after the container has stopped, [it is not convenient to gain access to the data again](https://docs.docker.com/engine/reference/commandline/commit/).
 
+If the web UI started by `annif run` is used from within the container, also the flag `--network="host"` [needs to be included in the `docker run` command](https://docs.docker.com/engine/reference/run/#network-host).
 
 &nbsp;
 
