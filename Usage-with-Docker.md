@@ -29,6 +29,18 @@ The vocabulary and training data (e.g. [Annif-corpora](https://github.com/NatLib
 
 If the web UI started by `annif run` is used from within the container, also the flag `--network="host"` [needs to be included in the `docker run` command](https://docs.docker.com/engine/reference/run/#network-host).
 
+# Running Annif as HTTP server with Gunicorn and NGINX
+
+The web UI can be used also run on Gunicorn and NGINX. For this, you can use [docker-compose](https://docs.docker.com/compose/). For accessing the configuration and data files an environment variable can be set: 
+
+`export ANNIF_PROJECTS=path/to/annif_projects`
+
+Then the services can be started by running
+
+`docker-compose up`
+
+in `Annif/`. This sets up containers according to [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/issue278-dockerize-annif/docker-compose.yml), which in this case instructs docker to start separate containers for a Gunicorn server running Annif and for NGINX. The NGINX configuration is in [`nginx.conf`](https://github.com/NatLibFi/Annif/blob/issue278-dockerize-annif/annif/nginx/nginx.conf). 
+
 &nbsp;
 
 <a name="myfootnote1">1</a>:
