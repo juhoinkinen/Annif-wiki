@@ -10,5 +10,5 @@ How to make a new release of Annif.
 8. Wait for Travis CI builds to complete. The version tag should trigger a distribution build that is uploaded to PyPI.
 9. In GitHub Releases tab, turn the tab into a release and add release notes. This should trigger archiving on Zenodo.
 10. Close the milestone corresponding to the release (and create a new one for the next release).
-11. Update the wiki documentation to match features of the new release (e.g. new or updated backends)
+11. Update the wiki documentation to match features of the new release (e.g. new or updated backends) and check that [API documentation](https://annif.readthedocs.io/en/latest/index.html) has been correctly updated (updating should happen on all commits to `master`).
 12. Announce the release on annif-users and other channels (e.g. twitter) 
