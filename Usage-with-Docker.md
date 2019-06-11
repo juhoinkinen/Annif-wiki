@@ -10,7 +10,7 @@ In case you are using Linux, you can start bash shell in a container based on th
 
 If this is the first time you are using the Annif image, the image will now be downloaded from [Docker Hub](https://hub.docker.com/). A bash shell starts in the container, where it is possible to run Annif [[Commands]] (here the `-it` flag is for enabling interactive mode).
 
-However, the Annif image itself does not contain any vocabulary or training data. A directory containing these can be bind mounted as a [volume](https://docs.docker.com/storage/volumes/) from the host file system to the container using the syntax `-v /absolute_path/on/host:/path/in/container` after the `docker run` command<sup id="a1">[1](#myfootnote1)</sup>. To bind mount the current working directory on host, `$(pwd)` can be used instead explicitly writing the absolute path. Also, the user in a docker container is by default not the same as on the host system and any file created in a container is not owned by the host user, and with bind-mounts this can lead to issues with file permissions. Therefore it is best to make [the user in the container](https://docs.docker.com/engine/reference/run/#user) the same as on the host, using `-u $(id -u):$(id -g)`. With these two flags the command to run bash in a container with Annif looks like this:
+However, the Annif image itself does not contain any vocabulary or training data. A directory containing these can be bind mounted as a [volume](https://docs.docker.com/storage/volumes/) from the host file system to the container using the syntax `-v /absolute_path/on/host:/path/in/container` after the `docker run` command<sup id="a1">[1](#myfootnote1)</sup>. To bind mount the current working directory on host, `$(pwd)` can be used instead explicitly writing the absolute path. Also, the user in a docker container is by default not the same as on the host system and any file created in a container is not owned by the host user, and with bind-mounts this can lead to issues with file permissions. Therefore it is best to make [the user in the container](https://docs.docker.com/engine/reference/run/#user) the same as on the host, using `-u $(id -u):$(id -g)`. With these flags the command to run bash in a container with Annif looks like this:
 
     docker run \
         -v $(pwd):/annif-projects \
@@ -31,15 +31,15 @@ If the web UI started by `annif run` is used from within the container, also the
 
 # Running Annif as HTTP server with Gunicorn and NGINX
 
-The web UI can be used also run on Gunicorn and NGINX. For this, you can use [docker-compose](https://docs.docker.com/compose/). For accessing the configuration and data files an environment variable can be set: 
+The web UI can also run on Gunicorn and NGINX. For this, you can use [docker-compose](https://docs.docker.com/compose/). For accessing the configuration and data files an environment variable can be set for the docker run: 
 
-`export ANNIF_PROJECTS=path/to/annif-projects`
+`ANNIF_PROJECTS=path/to/annif-projects docker-compose up`
 
-Then the services can be started by running
+This sets up containers according to [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/issue278-dockerize-annif/docker-compose.yml), which in this case instructs docker to start separate containers for a Gunicorn server running Annif and for NGINX. The NGINX configuration is in [`nginx.conf`](https://github.com/NatLibFi/Annif/blob/issue278-dockerize-annif/annif/nginx/nginx.conf). 
 
-`docker-compose up`
+# Connecting to Mauiservice in Docker container
 
-in `Annif/`. This sets up containers according to [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/issue278-dockerize-annif/docker-compose.yml), which in this case instructs docker to start separate containers for a Gunicorn server running Annif and for NGINX. The NGINX configuration is in [`nginx.conf`](https://github.com/NatLibFi/Annif/blob/issue278-dockerize-annif/annif/nginx/nginx.conf). 
+The [Maui backend](https://github.com/NatLibFi/Annif/wiki/Backend%3A-Maui) can be used also by running [Maui service](https://github.com/NatLibFi/mauiservice/blob/dockerize-mauiservice/DEVELOPER.md#usage-with-docker) in a separate container and connecting to it from Annif. For this both Annif and Mauiservice containers need to be started with `--network="host"` flag.
 
 &nbsp;
 
