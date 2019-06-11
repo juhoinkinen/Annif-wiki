@@ -13,15 +13,15 @@ If this is the first time you are using the Annif image, the image will now be d
 However, the Annif image itself does not contain any vocabulary or training data. A directory containing these can be bind mounted as a [volume](https://docs.docker.com/storage/volumes/) from the host file system to the container using the syntax `-v /absolute_path/on/host:/path/in/container` after the `docker run` command<sup id="a1">[1](#myfootnote1)</sup>. To bind mount the current working directory on host, `$(pwd)` can be used instead explicitly writing the absolute path. Also, the user in a docker container is by default not the same as on the host system and any file created in a container is not owned by the host user, and with bind-mounts this can lead to issues with file permissions. Therefore it is best to make [the user in the container](https://docs.docker.com/engine/reference/run/#user) the same as on the host, using `-u $(id -u):$(id -g)`. With these two flags the command to run bash in a container with Annif looks like this:
 
     docker run \
-        -v $(pwd):/annif_projects \
+        -v $(pwd):/annif-projects \
         -u $(id -u):$(id -g) \
         -it annif bash
 
-Now the directory where the command was issued on host is mounted with name `annif_projects` on the root of the container filesystem, and the post-installation steps in [[Getting Started]] can be followed. 
+Now the directory where the command was issued on host is mounted with name `annif-projects` on the root of the container filesystem, and the post-installation steps in [[Getting Started]] can be followed. 
 
-Specificly, the template configuration file comes with the Annif image and can be copied to the `/annif_projects` directory:
+Specificly, the template configuration file comes with the Annif image and can be copied to the `/annif-projects` directory:
 
-    cp /Annif/projects.cfg.dist  /annif_projects/projects.cfg
+    cp /Annif/projects.cfg.dist  /annif-projects/projects.cfg
 
 The vocabulary and training data (e.g. [Annif-corpora](https://github.com/NatLibFi/Annif-corpora)) can be fetched using the host system to the mounted directory.
 
@@ -33,7 +33,7 @@ If the web UI started by `annif run` is used from within the container, also the
 
 The web UI can be used also run on Gunicorn and NGINX. For this, you can use [docker-compose](https://docs.docker.com/compose/). For accessing the configuration and data files an environment variable can be set: 
 
-`export ANNIF_PROJECTS=path/to/annif_projects`
+`export ANNIF_PROJECTS=path/to/annif-projects`
 
 Then the services can be started by running
 
