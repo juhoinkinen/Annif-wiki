@@ -8,22 +8,18 @@ In case you are using Linux, you can start bash shell in a container based on th
 
     docker run -it annif bash 
 
-If this is the first time you are using the Annif image, the image will now be downloaded from [Docker Hub](https://hub.docker.com/). A bash shell starts in the container, where it is possible to run Annif [[Commands]] (here the `-it` flag is for enabling interactive mode).
+If this is the first time you are using the Annif image, the image will now be downloaded from [Docker Hub](https://hub.docker.com/). A bash shell starts in the container, where it is possible to run Annif [[Commands]] (here the `-it` flag is for enabling interactive mode). The container can be exited with `exit`.
 
-However, the Annif image itself does not contain any vocabulary or training data. A directory containing these can be bind mounted as a [volume](https://docs.docker.com/storage/volumes/) from the host file system to the container using the syntax `-v /absolute_path/on/host:/path/in/container` after the `docker run` command<sup id="a1">[1](#myfootnote1)</sup>. To bind mount the current working directory on host, `$(pwd)` can be used instead explicitly writing the absolute path. Also, the user in a docker container is by default not the same as on the host system and any file created in a container is not owned by the host user, and with bind-mounts this can lead to issues with file permissions. Therefore it is best to make [the user in the container](https://docs.docker.com/engine/reference/run/#user) the same as on the host, using `-u $(id -u):$(id -g)`. With these flags the command to run bash in a container with Annif looks like this:
+However, the Annif image itself does not contain any vocabulary or training data. A directory containing these can be bind mounted as a [volume](https://docs.docker.com/storage/volumes/) from the host file system to the container using the syntax `-v /absolute_path/on/host:/path/in/container` after the `docker run` command<sup id="a1">[1](#myfootnote1)</sup>. Also, the user in a docker container is by default not the same as on the host system and any file created in a container is not owned by the host user, and with bind-mounts this can lead to issues with file permissions. Therefore it is best to make [the user in the container](https://docs.docker.com/engine/reference/run/#user) the same as on the host, using `-u $(id -u):$(id -g)`. With these flags the command to run bash in a container with Annif looks like this:
 
     docker run \
-        -v $(pwd):/annif-projects \
+        -v ~/annif-projects:/annif-projects \
         -u $(id -u):$(id -g) \
         -it annif bash
 
-Now the directory where the command was issued on host is mounted with name `annif-projects` on the root of the container filesystem, and the post-installation steps in [[Getting Started]] can be followed. 
+Here the `annif-projects/` directory is assumed to exist in home directory on host (and it is mounted with the same name on the root of the container filesystem). From here on the post-installation steps for using Annif in [[Getting Started]] can be followed. 
 
-Specificly, the template configuration file comes with the Annif image and can be copied to the `/annif-projects` directory:
-
-    cp /Annif/projects.cfg.dist  /annif-projects/projects.cfg
-
-The vocabulary and training data (e.g. [Annif-corpora](https://github.com/NatLibFi/Annif-corpora)) can be fetched using the host system to the mounted directory.
+Specifically, the template configuration file [`projects.cfg.dist`](https://github.com/NatLibFi/Annif/blob/master/projects.cfg.dist) can be placed to `~/annif-projects/` in the host system with the name `projects.cfg` along the vocabulary and training data (e.g. [Annif-corpora](https://github.com/NatLibFi/Annif-corpora)).
 
 *Note that any data should not be stored in other locations in the container but in the mounted directory*, as after the container has stopped, [it is not convenient to gain access to the data again](https://docs.docker.com/engine/reference/commandline/commit/).
 
@@ -39,7 +35,19 @@ This sets up containers according to [`docker-compose.yml`](https://github.com/N
 
 # Connecting to Mauiservice in Docker container
 
-The [Maui backend](https://github.com/NatLibFi/Annif/wiki/Backend%3A-Maui) can be used also by running [Maui service](https://github.com/NatLibFi/mauiservice/blob/dockerize-mauiservice/DEVELOPER.md#usage-with-docker) in a separate container and connecting to it from Annif. For this both Annif and Mauiservice containers need to be started with `--network="host"` flag.
+The [Maui backend](https://github.com/NatLibFi/Annif/wiki/Backend%3A-Maui) can be used by running [Maui service](https://github.com/NatLibFi/mauiservice/blob/dockerize-mauiservice/DEVELOPER.md#usage-with-docker) in a separate container and connecting to it from Annif. For this both Annif and Mauiservice containers need to be started with `--network="host"` flag.
+
+# Using Docker in Annif development
+
+It is possible to mount also the Annif source code into the container, which allows editing the code in the host system while running Annif and tests (included in the `annif-dev` image) in the container:
+
+    docker run \
+        -v ~/annif-projects:/annif-projects \
+        -v $(pwd):/Annif \
+        -u $(id -u):$(id -g) \
+        -it annif-dev bash
+
+Here it is assumed that the current working directory is the one containing the source code (thus the use of `$(pwd)`).
 
 &nbsp;
 
