@@ -2,7 +2,7 @@ The HTTP backend can be used to access an external automated indexing service th
 
 Maui is very good at detecting topics of text based on comparing terms in a controlled vocabulary to terms that appear in the document text. However, it cannot detect more abstract topics whose labels do not appear in text. For example, a topic such as "local history" would not be suggested for a document that describes the history of a village, unless that phrase is used in the document itself. Thus Maui works best when combined with another algorithm that relies on statistical associations.
 
-Configuration of the `http` backend is rather simple, but MauiService has to be set up separately.
+Configuration of the `http` backend is rather simple, but MauiService has to be set up separately, either directly on the host system or [using a Docker container](usage-with-Docker).
 
 
 ## Setting up MauiService
@@ -103,3 +103,24 @@ Test the model with a single document:
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
     annif eval maui-en /path/to/documents/
+
+## Usage with Docker
+
+Pull the docker image for Mauiservice from quay.io
+```shell
+docker pull quay.io/natlibfi/mauiservice
+```
+
+A model can be trained with 
+```shell
+docker run -v /path/to/annif-projects/:/annif-projects/ --rm mauiservice \
+  java -Xmx4G -cp maui-1.4.5-jar-with-dependencies.jar com.entopix.maui.main.MauiModelBuilder -l /annif-projects/Annif-corpora/fulltext/kirjastonhoitaja/maui-train/ -m /annif-projects/kirjastonhoitaja -v /annif-projects/Annif-corpora/vocab/yso-skos.rdf -f skos -i fi -s StopwordsFinnish -t CachingFinnishStemmer
+```
+Here the training data (`kirjastonhoitaja` (Ask a Librarian) collection) and vocabulary (SKOS) files are bind-mounted into the container from the host system in `/path/to/annif-projects/Annif-corpora/`. 
+
+The service can then be started with 
+```shell
+docker run --name mauiservice -v /path/to/annif-projects/:/annif-projects/ --rm --network="host" mauiservice
+```
+
+Here the use of `--network="host"` allows Annif running either in the host system or in a container to connect to the Mauiservice.
