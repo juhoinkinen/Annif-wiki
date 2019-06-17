@@ -2,7 +2,7 @@ The HTTP backend can be used to access an external automated indexing service th
 
 Maui is very good at detecting topics of text based on comparing terms in a controlled vocabulary to terms that appear in the document text. However, it cannot detect more abstract topics whose labels do not appear in text. For example, a topic such as "local history" would not be suggested for a document that describes the history of a village, unless that phrase is used in the document itself. Thus Maui works best when combined with another algorithm that relies on statistical associations.
 
-Configuration of the `http` backend is rather simple, but MauiService has to be set up separately, either directly on the host system or [using a Docker container](usage-with-Docker).
+Configuration of the `http` backend is rather simple, but MauiService has to be set up separately, either directly on the host system or [using a Docker container](https://github.com/NatLibFi/Annif/wiki/Backend%3A-Maui#usage-with-docker).
 
 
 ## Setting up MauiService
@@ -106,7 +106,7 @@ Evaluate a directory full of files in fulltext [[document corpus|Document corpus
 
 ## Usage with Docker
 
-Pull the docker image for Mauiservice from quay.io
+Pull the docker image for Mauiservice from quay.io:
 ```shell
 docker pull quay.io/natlibfi/mauiservice
 ```
@@ -123,4 +123,4 @@ The service can then be started with
 docker run --name mauiservice -v /path/to/annif-projects/:/annif-projects/ --rm --network="host" mauiservice
 ```
 
-Here the use of `--network="host"` allows Annif running either in the host system or in a container to connect to the Mauiservice.
+Here the use of `--network="host"` allows Annif running either on the host system or in a container to connect to the Mauiservice container.
