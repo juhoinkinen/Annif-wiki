@@ -4,18 +4,22 @@ To be able to use Docker in your system, you need to have installed Docker-engin
 
 # Running Annif in Docker container
 
-In case you are using Linux, you can start bash shell in a container based on the Annif image with:
+In case you are using Linux, you can get the Annif docker image from the docker registry at https://quay.io/ with:
 
-    docker run -it annif bash 
+    docker pull quay.io/natlibfi/annif
 
-If this is the first time you are using the Annif image, the image will now be downloaded from [Docker Hub](https://hub.docker.com/). A bash shell starts in the container, where it is possible to run Annif [[Commands]] (here the `-it` flag is for enabling interactive mode). The container can be exited with `exit`.
+Then the bash shell can be started in a container with ready-to-use Annif with:
+
+    docker run -it quay.io/natlibfi/annif bash 
+
+In the shell it is possible to run Annif [[Commands]] (here the `-it` flag is for enabling interactive mode). The container can be exited with `exit`.
 
 However, the Annif image itself does not contain any vocabulary or training data. A directory containing these can be bind mounted as a [volume](https://docs.docker.com/storage/volumes/) from the host file system to the container using the syntax `-v /absolute_path/on/host:/path/in/container` after the `docker run` command<sup id="a1">[1](#myfootnote1)</sup>. Also, the user in a docker container is by default not the same as on the host system and any file created in a container is not owned by the host user, and with bind-mounts this can lead to issues with file permissions. Therefore it is best to make [the user in the container](https://docs.docker.com/engine/reference/run/#user) the same as on the host, using `-u $(id -u):$(id -g)`. With these flags the command to run bash in a container with Annif looks like this:
 
     docker run \
         -v ~/annif-projects:/annif-projects \
         -u $(id -u):$(id -g) \
-        -it annif bash
+        -it quay.io/natlibfi/annif bash
 
 Here the `annif-projects/` directory is assumed to exist in home directory on host (and it is mounted with the same name on the root of the container filesystem). From here on the post-installation steps for using Annif in [[Getting Started]] can be followed. 
 
@@ -25,17 +29,33 @@ Specifically, the template configuration file [`projects.cfg.dist`](https://gith
 
 If the web UI started by `annif run` is used from within the container, also the flag `--network="host"` [needs to be included in the `docker run` command](https://docs.docker.com/engine/reference/run/#network-host).
 
-# Running Annif as HTTP server with Gunicorn and NGINX
 
-The web UI can also run on Gunicorn and NGINX. For this, you can use [docker-compose](https://docs.docker.com/compose/). For accessing the configuration and data files an environment variable can be set for the docker run: 
+# Using Annif with Gunicorn, NGINX, and Maui backend
+Different containerized services can be conveniently linked together by using [docker-compose](https://docs.docker.com/compose/). The instructions to set up the services are in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/issue278-dockerize-annif/docker-compose.yml), which in this case instructs docker to start separate containers for 
+* bash shell to run  Annif commands
+* Gunicorn server running Annif
+* NGINX proxy server
+* [Mauiservice](https://github.com/NatLibFi/mauiservice/tree/dockerize-mauiservice) to access [Maui backend](https://github.com/NatLibFi/Annif/wiki/Backend%3A-Maui)
 
-`ANNIF_PROJECTS=path/to/annif-projects docker-compose up`
+To start these services, while in `Annif/` run 
 
-This sets up containers according to [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/issue278-dockerize-annif/docker-compose.yml), which in this case instructs docker to start separate containers for a Gunicorn server running Annif and for NGINX. The NGINX configuration is in [`nginx.conf`](https://github.com/NatLibFi/Annif/blob/issue278-dockerize-annif/annif/nginx/nginx.conf). 
+    ANNIF_PROJECTS=~/annif-projects docker-compose up
 
-# Connecting to Mauiservice in Docker container
+Here the environment variable is needed for mounting the directory for vocabulary and training data files. Once the services have started, the Annif web UI is accessible at http://localhost/ run by NGINX.
 
-The [Maui backend](https://github.com/NatLibFi/Annif/wiki/Backend%3A-Maui) can be used by running [Maui service](https://github.com/NatLibFi/mauiservice/blob/dockerize-mauiservice/DEVELOPER.md#usage-with-docker) in a separate container and connecting to it from Annif. For this both Annif and Mauiservice containers need to be started with `--network="host"` flag.
+To connect to the already running `bash` service for using Annif commands, run
+
+    docker exec -it annif_bash_1 bash
+
+To create model for Maui backend (see [[here | backend:-maui#Creating a model for Maui ]] for details), run
+
+    docker exec annif_mauiservice_1 \
+        java -Xmx4G -cp maui-1.4.5-jar-with-dependencies.jar com.entopix.maui.main.MauiModelBuilder -l /annif-projects/Annif-corpora/fulltext/kirjastonhoitaja/maui-train/ -m /annif-projects/kirjastonhoitaja -v /annif-projects/Annif-corpora/vocab/yso-skos.rdf -f skos -i fi -s StopwordsFinnish -t CachingFinnishStemmer
+
+To connect to the Maui backend while running via `docker-compose`, in the endpoint entries of `projects.cfg` file the default `localhost` needs to be replaced by `mauiservice` (and when trained as above the model name is `kirjastonhoitaja`, and the full entry is then `endpoint=http://mauiservice:8080/mauiservice/kirjastonhoitaja/analyze`). 
+
+The `docker-compose.yml` can be edited to remove unnecessary services, e.g. if if one only wants to use the Maui backend. Note that the mauiservice container can also be run withouth `docker-compose`, and in that case the container needs to be started with `--network="host"` flag so it is accessible from the host system.
+
 
 # Using Docker in Annif development
 
@@ -45,7 +65,7 @@ It is possible to mount also the Annif source code into the container, which all
         -v ~/annif-projects:/annif-projects \
         -v $(pwd):/Annif \
         -u $(id -u):$(id -g) \
-        -it annif-dev bash
+        -it quay.io/natlibfi/annif:dev bash
 
 Here it is assumed that the current working directory is the one containing the source code (thus the use of `$(pwd)`).
 
