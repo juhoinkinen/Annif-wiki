@@ -39,9 +39,9 @@ Different containerized services can be conveniently linked together by using [d
 
 To start these services, while in `Annif/` run 
 
-    ANNIF_PROJECTS=~/annif-projects docker-compose up
+    ANNIF_PROJECTS=~/annif-projects UID=${UID} GID=${GID} docker-compose up
 
-Here the environment variable is needed for mounting the directory for vocabulary and training data files. Once the services have started, the Annif web UI is accessible at http://localhost/ run by NGINX.
+Here the environment variables are needed for mounting the directory for vocabulary and training data files and setting the user in the container the same as on the host. Once the services have started, the Annif web UI is accessible at http://localhost/ run by NGINX.
 
 To connect to the already running `bash` service for using Annif commands, run
 
