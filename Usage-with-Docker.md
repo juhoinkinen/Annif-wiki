@@ -54,7 +54,7 @@ To create model for Maui backend (see [[here | backend:-maui#Creating a model fo
 
 To connect to the Maui backend while running via `docker-compose`, in the endpoint entries of `projects.cfg` file the default `localhost` needs to be replaced by `mauiservice` (and when trained as above the model name is `kirjastonhoitaja`, and the full entry is then `endpoint=http://mauiservice:8080/mauiservice/kirjastonhoitaja/analyze`). 
 
-The `docker-compose.yml` can be edited to remove unnecessary services, e.g. if if one only wants to use the Maui backend. Note that the mauiservice container can also be run withouth `docker-compose`, and in that case the container needs to be started with `--network="host"` flag so it is accessible from the host system.
+The `docker-compose.yml` can be edited to remove unnecessary services, e.g. if if one only wants to use the Maui backend. Note that [the mauiservice container can also be run withouth `docker-compose`](https://github.com/NatLibFi/mauiservice/blob/dockerize-mauiservice/DEVELOPER.md#usage-with-docker), and in that case the container needs to be started with `--network="host"` flag so it is accessible from the host system.
 
 
 # Using Docker in Annif development
