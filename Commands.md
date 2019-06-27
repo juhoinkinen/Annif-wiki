@@ -54,7 +54,7 @@ REST equivalent: /projects/<projectid>/learn
 
 ## Automatic subject indexing
 
-    annif suggest <projectid> [--limit=MAX] [--threshold=THRESHOLD] <document.txt
+    annif suggest <projectid> [--limit MAX] [--threshold THRESHOLD] <document.txt
 
 This will read a text document from standard input and suggest subjects for it.
 
@@ -68,7 +68,7 @@ REST equivalent:
 
 ## Evaluate on a collection of manually indexed files
 
-    annif eval <projectid> [--limit=MAX] [--threshold=THRESHOLD] <path> [<path2> ...]
+    annif eval <projectid> [--limit MAX] [--threshold THRESHOLD] <path> [<path2> ...]
 
 You need to supply the documents in one of the supported [[Document corpus formats]], i.e. either as a directory or as a TSV file. It is possible to give multiple corpora (even mixing corpus formats), in which case they will all be processed in the same run.
 
