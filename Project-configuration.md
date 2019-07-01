@@ -1,4 +1,4 @@
-Annif projects are used to set up backends and configure them with a specific vocabulary and parameters. Projects are defined in a file commonly called `projects.cfg`. By default, Annif looks for this file in the current directory where it is executed, but you can specify another path using the `ANNIF_PROJECTS` environment variable.
+Annif projects are used to set up backends and configure them with a specific vocabulary and parameters. Projects are defined in a file commonly called `projects.cfg`. By default, Annif looks for this file in the current directory where it is executed, but you can specify another path using the `ANNIF_PROJECTS` environment variable or the `--projects`  option after a command. 
 
 Here is an example project configuration. The configuration file format follows the [INI style](https://en.wikipedia.org/wiki/INI_file) and each project is represented as a section, with the identifier of the project as the section name.
 
@@ -25,6 +25,8 @@ A project has the following attributes:
 | vocab      | An identifier for the vocabulary used by this project |
 
 Some backends also require additional parameters (`tfidf` doesn't).
+
+For some commands it is possible to override a parameter set in the configuration file using the `--backend-param` option; the  syntax for this is `--backend-param <backend>.<parameter>=<value>`.
 
 # Backends
 
