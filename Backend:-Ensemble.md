@@ -8,7 +8,7 @@ It is easy to start using because it requires no algorithm-specific configuratio
 [ensemble-en]
 name=Ensemble English
 language=en
-backends=ensemble
+backend=ensemble
 sources=tfidf-en,maui-en
 limit=100
 vocab=yso-en
