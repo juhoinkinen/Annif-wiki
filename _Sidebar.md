@@ -2,6 +2,7 @@
 * [[Getting started]]
 * [[System requirements]]
 * [[Optional features and dependencies]]
+* [[Usage with Docker]]
 * [[Architecture]]
 * [[Commands]]
 * [[Web user interface]]
