@@ -45,11 +45,11 @@ Here the environment variables are needed for mounting the directory for vocabul
 
 To connect to the already running `bash` service for using Annif commands, run
 
-    docker exec -it annif_bash_1 bash
+    docker exec -it -u $(id -u):$(id -g) annif_bash_1 bash
 
 To create model for Maui backend (see [[here | backend:-maui#Creating a model for Maui ]] for details), run
 
-    docker exec annif_mauiservice_1 \
+    docker exec annif_mauiservice_1 -u $(id -u):$(id -g) \
         java -Xmx4G -cp maui-1.4.5-jar-with-dependencies.jar com.entopix.maui.main.MauiModelBuilder -l /annif-projects/Annif-corpora/fulltext/kirjastonhoitaja/maui-train/ -m /annif-projects/kirjastonhoitaja -v /annif-projects/Annif-corpora/vocab/yso-skos.rdf -f skos -i fi -s StopwordsFinnish -t CachingFinnishStemmer
 
 To connect to the Maui backend while running via `docker-compose`, in the endpoint entries of `projects.cfg` file the default `localhost` needs to be replaced by `mauiservice` (and when trained as above the model name is `kirjastonhoitaja`, and the full entry is then `endpoint=http://mauiservice:8080/mauiservice/kirjastonhoitaja/analyze`). 
