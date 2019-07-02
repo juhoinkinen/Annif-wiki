@@ -1,5 +1,7 @@
 The `pav` backend implements a trainable dynamic ensemble that intelligently combines results from multiple projects. Subject suggestion requests to the ensemble backend will be re-routed to the source projects. The results from the source projects will be re-weighted using [isotonic regression](https://en.wikipedia.org/wiki/Isotonic_regression), which attempts to convert raw scores to probabilities. The regression is implemented using the PAV algorithm [available in the scikit-learn library](https://scikit-learn.org/stable/modules/isotonic.html). The regression is performed separately for each concept and the results are combined by calculating the mean of regressed scores (i.e. estimated probabilities) for each concept.
 
+See [[vw_ensemble|Backend: vw_ensemble]] for an alternative dynamic ensemble backend that can also be further trained during use, unlike PAV.
+
 ## Example configuration
 
 ```
