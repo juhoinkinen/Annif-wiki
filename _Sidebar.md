@@ -18,6 +18,7 @@
   * [[vw_multi|Backend: vw_multi]]
   * [[Ensemble|Backend: Ensemble]]
   * [[PAV|Backend: PAV]]
+  * [[vw_ensemble|Backend: vw_ensemble]]
   * [[HTTP|Backend: HTTP]]
   * [[Dummy|Backend: Dummy]]
 * [[Development flow, branches and tags]]
