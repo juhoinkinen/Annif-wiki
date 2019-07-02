@@ -23,6 +23,7 @@ Welcome to the Annif wiki!
   * Fusion/Ensemble backends that combine results from other backends
      * [[Backend: Ensemble]]
      * [[Backend: PAV]]
+     * [[Backend: vw_ensemble]]
   * Special backends
      * [[Backend: HTTP]]
      * [[Backend: Dummy]]
