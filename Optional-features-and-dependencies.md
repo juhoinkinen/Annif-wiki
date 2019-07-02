@@ -24,7 +24,7 @@ Alternatively (e.g. if you have installed Annif from GitHub), you can just insta
 
 # Vowpal Wabbit based backends
 
-Using the `vw_multi` backend requires installing the Vowpal Wabbit bindings for Python, which is not included by default when installing Annif. The bindings require building VW from source, so you need to install some libraries first (see [Dependencies](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies) in the VW wiki for more details if necessary). On a typical Ubuntu 16.04 or 18.04 system this should be enough:
+Using the `vw_multi` or `vw_ensemble` backends requires installing the Vowpal Wabbit bindings for Python, which is not included by default when installing Annif. The bindings require building VW from source, so you need to install some libraries first (see [Dependencies](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies) in the VW wiki for more details if necessary). On a typical Ubuntu 16.04 or 18.04 system this should be enough:
 
     sudo apt install libboost-program-options-dev libboost-python-dev zlib1g-dev
 
