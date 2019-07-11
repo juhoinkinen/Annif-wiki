@@ -12,7 +12,7 @@ See [[Optional features and dependencies]]
 [vw-ensemble-en]
 name=VW ensemble English
 language=en
-backends=vw_ensemble
+backend=vw_ensemble
 sources=tfidf-en,maui-en
 limit=100
 vocab=yso-en
