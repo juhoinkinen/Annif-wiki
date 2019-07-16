@@ -26,7 +26,7 @@ Alternatively (e.g. if you have installed Annif from GitHub), you can just insta
 
 Using the `vw_multi` or `vw_ensemble` backends requires installing the Vowpal Wabbit bindings for Python, which is not included by default when installing Annif. The bindings require building VW from source, so you need to install some libraries first (see [Dependencies](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies) in the VW wiki for more details if necessary). On a typical Ubuntu 16.04 or 18.04 system this should be enough:
 
-    sudo apt install libboost-program-options-dev libboost-python-dev zlib1g-dev
+    sudo apt install libboost-program-options-dev libboost-python-dev zlib1g-dev cmake libboost-system-dev libboost-thread-dev libboost-test-dev
 
 You can install the optional dependencies like this:
 
@@ -44,3 +44,5 @@ the likely reason is that the VW bindings are being built with the wrong (Python
 
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libboost_python-py35.a /usr/lib/x86_64-linux-gnu/libboost_python.a
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libboost_python-py35.so /usr/lib/x86_64-linux-gnu/libboost_python.so
+
+In case of VW 8.7, use `libboost_python3` instead of `libboost_python`.
