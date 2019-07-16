@@ -45,4 +45,4 @@ the likely reason is that the VW bindings are being built with the wrong (Python
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libboost_python-py35.a /usr/lib/x86_64-linux-gnu/libboost_python.a
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libboost_python-py35.so /usr/lib/x86_64-linux-gnu/libboost_python.so
 
-In case of VW 8.7, use `libboost_python3` instead of `libboost_python`.
+If there are still import errors, in case of VW 8.7 they could be resolved by using `libboost_python3` instead of `libboost_python` in the above symlinks.
