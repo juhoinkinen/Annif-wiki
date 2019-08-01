@@ -124,3 +124,8 @@ docker run --name mauiservice -v /path/to/annif-projects/:/annif-projects/ --rm 
 ```
 
 Here the use of `--network="host"` allows Annif running either on the host system or in a container to connect to the Mauiservice container.
+
+A custom Mauiservice configuration file can be used by passing its path as an environment variable by adding also the following `-e` flag  to the `docker run` command: 
+```shell
+-e JAVA_OPTS="-DMAUISERVICE_CONFIGURATION=/path/to/annif-projects/mauiservice.ini"
+```
