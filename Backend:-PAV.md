@@ -8,7 +8,7 @@ The `pav` backend implements a trainable dynamic ensemble that intelligently com
 [pav-en]
 name=PAV ensemble English
 language=en
-backends=ensemble
+backend=pav
 sources=tfidf-en,maui-en
 min-docs=3
 limit=100
