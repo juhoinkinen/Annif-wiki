@@ -113,14 +113,14 @@ docker pull quay.io/natlibfi/mauiservice
 
 A model can be trained with 
 ```shell
-docker run -v /path/to/annif-projects/:/annif-projects/ --rm mauiservice \
+docker run -v /path/to/annif-projects/:/annif-projects/ --rm quay.io/natlibfi/mauiservice \
   java -Xmx4G -cp maui-1.4.5-jar-with-dependencies.jar com.entopix.maui.main.MauiModelBuilder -l /annif-projects/Annif-corpora/fulltext/kirjastonhoitaja/maui-train/ -m /annif-projects/kirjastonhoitaja -v /annif-projects/Annif-corpora/vocab/yso-skos.rdf -f skos -i fi -s StopwordsFinnish -t CachingFinnishStemmer
 ```
 Here the training data (`kirjastonhoitaja` (Ask a Librarian) collection) and vocabulary (SKOS) files are bind-mounted into the container from the host system in `/path/to/annif-projects/Annif-corpora/`. 
 
 The service can then be started with 
 ```shell
-docker run --name mauiservice -v /path/to/annif-projects/:/annif-projects/ --rm --network="host" mauiservice
+docker run --name mauiservice -v /path/to/annif-projects/:/annif-projects/ --rm --network="host" quay.io/natlibfi/mauiservice
 ```
 
 Here the use of `--network="host"` allows Annif running either on the host system or in a container to connect to the Mauiservice container.
