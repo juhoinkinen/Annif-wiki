@@ -72,28 +72,21 @@ It is possible to mount also the Annif source code into the container, which all
 Here it is assumed that the current working directory is the one containing the source code (thus the use of `$(pwd)`).
 
 
-# Steps for creating data image to be used in Portainer
+# Steps for creating data image for Portainer
 
-1. Train a model and store `projects.cfg` and models data to `~/annif-projects`.
+1. Train models and store `projects.cfg` and `data/` directory to `~/annif-projects`.
 
-2. Build a data container:
+2. Build a data image (which [could also be versioned with a custom tag](https://docs.docker.com/engine/reference/commandline/build/#tag-an-image--t), the default tag is `latest`):
 
     ```docker build -t annif-data -f Dockerfile-data ~/annif-projects```
 
     Here the data for models are included in the image, but the corpora are not (even if they happen to reside in `~/annif-projects`).
 
-3. Test locally:
+3. Push the image to https://quay.io/repository/natlibfi/annif-data: 
 
-    ```docker-compose -f docker-compose-portainer.yml up```
+    ```docker push quay.io/natlibfi/annif-data```
 
-    Here the data are mounted from the "annif-data" container (i.e. image) filesystem (in `/annif-projects/`) to a named docker volume (`annif-data`), from where the data can be used by the "annif-app" container.
-
-4. Make annif-data image `.tar`:
-
-    ```docker save --output annif-data.tar annif-data```
-
-    and directly upload it to Portainer (An alternative solution would be to push the annif-data image to quay.io. For that a repository for data images would be needed.)
-
+In [docker-compose-portainer.yml](https://github.com/NatLibFi/Annif/blob/master/docker-compose-portainer.yml#L38) the `/annif-projects` directory of this data image is mounted to the data volume and the directory is then accessible by other services defined in the compose file.
 
 &nbsp;
 &nbsp;
