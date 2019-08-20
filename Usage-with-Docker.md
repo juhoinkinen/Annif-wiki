@@ -78,7 +78,7 @@ Here it is assumed that the current working directory is the one containing the 
 
 2. Build a data image (which [could also be versioned with a custom tag](https://docs.docker.com/engine/reference/commandline/build/#tag-an-image--t), the default tag is `latest`):
 
-    ```docker build -t annif-data -f Dockerfile-data ~/annif-projects```
+    ```docker build -t quay.io/natlibfi/annif-data -f Dockerfile-data ~/annif-projects```
 
     Here the data for models are included in the image, but the corpora are not (even if they happen to reside in `~/annif-projects`).
 
