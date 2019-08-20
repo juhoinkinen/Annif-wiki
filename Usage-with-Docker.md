@@ -72,7 +72,7 @@ It is possible to mount also the Annif source code into the container, which all
 Here it is assumed that the current working directory is the one containing the source code (thus the use of `$(pwd)`).
 
 
-# Steps for creating data image for Portainer
+# Steps for creating data image and data deployment in Portainer
 
 1. Train models and store `projects.cfg` and `data/` directory to `~/annif-projects`.
 
@@ -82,11 +82,14 @@ Here it is assumed that the current working directory is the one containing the 
 
     Here the data for models are included in the image, but the corpora are not (even if they happen to reside in `~/annif-projects`).
 
-3. Push the image to https://quay.io/repository/natlibfi/annif-data: 
+3. Push the image to https://quay.io/repository/natlibfi/annif-data repository: 
 
     ```docker push quay.io/natlibfi/annif-data```
 
-In [docker-compose-portainer.yml](https://github.com/NatLibFi/Annif/blob/master/docker-compose-portainer.yml#L38) the `/annif-projects` directory of this data image is mounted to the data volume and the directory is then accessible by other services defined in the compose file.
+4. In the [Services view of Portainer](https://portainer.kansalliskirjasto.fi/#/services) first select the data service (`annif-test_data`) and update it using the GUI button. Select to pull the latest image version when asked. Then, to make Annif use the new data, similarly update the Gunicorn_server service (now pulling the latest image is not necessary).
+
+<!--- # In [docker-compose-portainer.yml](https://github.com/NatLibFi/Annif/blob/master/docker-compose-portainer.yml#L38) the `/annif-projects` directory of this data image is mounted to the data volume and the directory is then accessible by other services defined in the compose file.
+--->
 
 &nbsp;
 &nbsp;
