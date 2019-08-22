@@ -20,7 +20,7 @@ Using the fastText backend requires installing the fastText Python wrapper, whic
 
 Alternatively (e.g. if you have installed Annif from GitHub), you can just install the required `fasttextmirror` package directly:
 
-    pip install fasttextmirror
+    pip install fasttextmirror==0.8.22
 
 # Vowpal Wabbit based backends
 
@@ -34,7 +34,7 @@ You can install the optional dependencies like this:
 
 Alternatively (e.g. if you have installed Annif from GitHub), you can just install the required `vowpalwabbit` package directly:
 
-    pip install vowpalwabbit
+    pip install vowpalwabbit==8.7.*
 
 If the build still fails and you get an error like this:
 
@@ -45,4 +45,4 @@ the likely reason is that the VW bindings are being built with the wrong (Python
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libboost_python-py35.a /usr/lib/x86_64-linux-gnu/libboost_python.a
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libboost_python-py35.so /usr/lib/x86_64-linux-gnu/libboost_python.so
 
-If there are still import errors, in case of VW 8.7 they could be resolved by using `libboost_python3` instead of `libboost_python` in the above symlinks.
+If there are still import errors they could be resolved by using `libboost_python3` instead of `libboost_python` in the above symlinks.
