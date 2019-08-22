@@ -37,9 +37,9 @@ Different containerized services can be conveniently linked together by using [d
 * NGINX proxy server
 * [Mauiservice](https://github.com/NatLibFi/mauiservice/tree/dockerize-mauiservice) to access [Maui backend](https://github.com/NatLibFi/Annif/wiki/Backend%3A-Maui)
 
-To start these services, while in `Annif/` run 
+To start these services, while in `Annif/` directory run 
 
-    ANNIF_PROJECTS=~/annif-projects UID=${UID} GID=${GID} docker-compose up
+    ANNIF_PROJECTS=~/annif-projects MY_UID=$(id -u) MY_GID=$(id -g) docker-compose up
 
 Here the environment variables are needed for mounting the directory for vocabulary and training data files and setting the user in the container the same as on the host. Once the services have started, the Annif web UI is accessible at http://localhost/ run by NGINX.
 
@@ -86,7 +86,7 @@ Here it is assumed that the current working directory is the one containing the 
 
     ```docker push quay.io/natlibfi/annif-data```
 
-4. In the [Services view of Portainer](https://portainer.kansalliskirjasto.fi/#/services) first select the data service (`annif-test_data`) and update it using the GUI button. Select to pull the latest image version when asked. Then, to make Annif use the new data, similarly update the Gunicorn_server service (now pulling the latest image is not necessary).
+4. In the [Services view of Portainer](https://portainer.kansalliskirjasto.fi/#/services) first select the data service (`annif-test_data`) and update it using the GUI button. Select to pull the latest image version when asked. Then, to make Annif use the new data, similarly update the `annif-test_gunicorn_server` service (now pulling the latest image is not necessary).
 
 <!--- # In [docker-compose-portainer.yml](https://github.com/NatLibFi/Annif/blob/master/docker-compose-portainer.yml#L38) the `/annif-projects` directory of this data image is mounted to the data volume and the directory is then accessible by other services defined in the compose file.
 --->
