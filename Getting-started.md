@@ -89,6 +89,6 @@ Once you have one project/backend working you can start adding more projects and
 
 For production use you should try [[Running as a WSGI service]].
 
-# Troubleshooting, FAQs and discussion
+# Troubleshooting, questions and discussion
 
 Check out the [[Annif-users -mailing list/forum | https://groups.google.com/forum/#!forum/annif-users]] and feel free to join the discussion or ask questions!
