@@ -1,6 +1,6 @@
 # OS environment
 
-Annif is being developed on a mix of Ubuntu 16.04 and 18.04 machines. However, it should work on any Linux distribution with some work. Annif itself only requires a Python 3.5 (or newer) environment, but some of the optional extensions require native code libraries which may be challenging to install in some environments. 
+Annif is being developed on a mix of Ubuntu 16.04 and 18.04 machines. However, it should work on any Linux distribution with some work. As for other OS:s, Annif itself is quite portable as it only requires a Python 3.5 (or newer) environment, although some of the optional extensions require native code libraries which may be challenging to install in some environments. 
 
 # Resource requirements
 
