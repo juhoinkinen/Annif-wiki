@@ -61,15 +61,17 @@ The `docker-compose.yml` can be edited to remove unnecessary services, e.g. if i
 
 # Using Docker in Annif development
 
-It is possible to mount also the Annif source code into the container, which allows editing the code in the host system while running Annif and tests (included in the `annif-dev` image) in the container:
+It is possible to mount also the Annif source code into the container, which allows editing the code in the host system while running Annif and tests in the container. For this an image that includes the tests needs to be build:
+
+    docker build -f Dockerfile-dev -t annif-dev .
+
+Then a container from that image can be run:
 
     docker run \
         -v ~/annif-projects:/annif-projects \
         -v $(pwd):/Annif \
         -u $(id -u):$(id -g) \
-        -it quay.io/natlibfi/annif:dev bash
-
-Here it is assumed that the current working directory is the one containing the source code (thus the use of `$(pwd)`).
+        -it annif-dev bash
 
 
 # Steps for creating data image and data deployment in Portainer
