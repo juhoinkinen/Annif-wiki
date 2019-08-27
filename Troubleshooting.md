@@ -1,1 +1,1 @@
-Also check out the Annif-users -mailing list/forum and feel free to join the discussion or ask questions!
+For troubleshooting and discussion, check out the Annif-users -mailing list/forum. Also feel free to open GitHub-issues if need be.
