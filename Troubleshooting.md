@@ -1,0 +1,1 @@
+Also check out the Annif-users -mailing list/forum and feel free to join the discussion or ask questions!
