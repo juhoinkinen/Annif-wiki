@@ -58,6 +58,7 @@ A custom Mauiservice configuration file can be used by changing the path in the 
 
 The `docker-compose.yml` can be edited to remove unnecessary services, e.g. if if one only wants to use the Maui backend. Note that [the mauiservice container can also be run withouth `docker-compose`](https://github.com/NatLibFi/mauiservice/blob/dockerize-mauiservice/DEVELOPER.md#usage-with-docker), and in that case the container needs to be started with `--network="host"` flag so it is accessible from the host system.
 
+N.B.: The `docker run` or `docker-compose up` -commands do not fetch a new version of an image, even if one is available. To use a more recent image than exists locally, you must do [`docker pull IMAGE_NAME`](https://docs.docker.com/engine/reference/commandline/pull/) or [`docker-compose pull`](https://docs.docker.com/compose/reference/pull/).
 
 # Using Docker in Annif development
 
