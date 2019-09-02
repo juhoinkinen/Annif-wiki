@@ -4,7 +4,7 @@ To be able to use Docker in your system, you need to have installed Docker-engin
 
 # Running Annif in Docker container
 
-In case you are using Linux, you can get the Annif docker image from the docker registry at https://quay.io/ with:
+In case you are using Linux, you can get the Annif docker image from the docker registry at https://quay.io/repository/natlibfi/annif with<sup id="a1">[1](#myfootnote1)</sup>:
 
     docker pull quay.io/natlibfi/annif
 
@@ -12,9 +12,9 @@ Then the bash shell can be started in a container with ready-to-use Annif with:
 
     docker run -it quay.io/natlibfi/annif bash 
 
-In the shell it is possible to run Annif [[Commands]] (here the `-it` flag is for enabling interactive mode). The container can be exited with `exit`.
+In the shell it is possible to run Annif [[Commands]] (here the `-it` flag is for enabling interactive mode). The container can be exited with `exit` command. 
 
-However, the Annif image itself does not contain any vocabulary or training data. A directory containing these can be bind mounted as a [volume](https://docs.docker.com/storage/volumes/) from the host file system to the container using the syntax `-v /absolute_path/on/host:/path/in/container` after the `docker run` command<sup id="a1">[1](#myfootnote1)</sup>. Also, the user in a docker container is by default not the same as on the host system and any file created in a container is not owned by the host user, and with bind-mounts this can lead to issues with file permissions. Therefore it is best to make [the user in the container](https://docs.docker.com/engine/reference/run/#user) the same as on the host, using `-u $(id -u):$(id -g)`. With these flags the command to run bash in a container with Annif looks like this:
+However, the Annif image itself does not contain any vocabulary or training data. A directory containing these can be [bind mounted](https://docs.docker.com/storage/bind-mounts/) a from the host file system to the container using the syntax `-v /absolute_path/on/host:/path/in/container` after the `docker run` command<sup id="a2">[2](#myfootnote2)</sup>. Also, the user in a docker container is by default not the same as on the host system and any file created in a container is not owned by the host user, and with bind-mounts this can lead to issues with file permissions. Therefore it is best to make [the user in the container](https://docs.docker.com/engine/reference/run/#user) the same as on the host, using `-u $(id -u):$(id -g)`. With these flags the command to run bash in a container with Annif looks like this:
 
     docker run \
         -v ~/annif-projects:/annif-projects \
@@ -98,7 +98,12 @@ Then a container from that image can be run:
 &nbsp;
 
 <a name="myfootnote1">1</a>:
+Note that the `docker pull IMAGE_NAME` command without an image tag (as above) downloads the image with the `latest` tag, which in case of Annif is build on the current `master` branch; to download an image of a specific release, append the image name with a colon and the release version number, use e.g. `quay.io/natlibfi/annif:0.42`. 
+
+<a name="myfootnote2">2</a>:
 Alternatively, it is possible to create and bind a [named volume](https://success.docker.com/article/different-types-of-volumes), which initially is empty, and get data into it by [copying](https://docs.docker.com/engine/reference/commandline/cp/) from host or fetching from internet, e.g. using wget in a running container to dowload [Annif-corpora Git Hub page](https://github.com/NatLibFi/Annif-corpora):
+
+
 
 `wget -O - https://github.com/NatLibFi/Annif-corpora/tarball/master | tar xz`
 
