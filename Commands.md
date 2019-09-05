@@ -8,6 +8,18 @@ identified by alphanumeric strings (`A-Za-z0-9_-`).
 
 ## Project administration
 
+### Load vocabulary
+
+    annif loadvoc <projectid> <subjectfile>
+
+Parameters:
+* `subjectfile`: path to a file containing subjects in [a subject vocabulary format](https://github.com/NatLibFi/Annif/wiki/Subject-vocabulary-formats)
+
+This will load the vocabulary to be used in subject indexing. Note that although `projectid` is a parameter of the command, the vocabulary is shared by all the projects with the same `vocab` identifier in [the project configuration](https://github.com/NatLibFi/Annif/wiki/Project-configuration), and the vocabulary only needs to be loaded for one of those projects.
+
+
+REST equivalent: N/A
+
 ### List available projects
 
     annif list-projects
@@ -31,7 +43,7 @@ REST equivalent:
 
     annif clear <projectid>
 
-Initialize the project to its original, untrained state. Removes the data files of the project. 
+Initialize a project to its original, untrained state: removes the data files of the model. 
 
 REST equivalent: N/A
 
