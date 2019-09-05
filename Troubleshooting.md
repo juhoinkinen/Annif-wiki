@@ -1,6 +1,8 @@
 For troubleshooting and discussion, check out the Annif-users -mailing list/forum. Also feel free to open GitHub-issues if need be.
 
-- Generally, to have more information on what might be wrong, it is possible see debug messages by adding `-v DEBUG` flag to a command. For example: 
+# General
+
+- To have more information on what might be wrong, it is possible see debug messages by adding `-v DEBUG` flag to a command. For example: 
     ```
     $ cat document.txt | annif suggest tfidf-en -v DEBUG
     debug: creating app with configuration annif.default_config.Config
@@ -22,6 +24,8 @@ For troubleshooting and discussion, check out the Annif-users -mailing list/foru
     <http://www.yso.fi/onto/yso/p8059>	museum roads	0.04156596842455262
     <http://www.yso.fi/onto/yso/p12968>	pediatricians	0.0413787581489993
     ```
+
+- Note that `annif PROJECT_ID SUBJECTFILE` command loads the vocabulary defined for the project with `PROJECT_ID` (and overrides existing one), and also for other projects that use same vocabulary
 
 # Docker Troubles
 
