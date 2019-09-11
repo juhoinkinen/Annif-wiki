@@ -1,10 +1,12 @@
 # Install Docker
 
-To be able to use Docker in your system, you need to have installed Docker-engine. Step-by-step instructions for this for Windows, Mac, and Linux distributions can be found in [Docker documentation](https://docs.docker.com/install/). 
+To be able to use Docker in your system, you need to have installed Docker-engine. Step-by-step instructions for this for Windows 10, Mac, and Linux distributions can be found in [Docker documentation](https://docs.docker.com/install/). 
 
 # Running Annif in Docker container
 
-In case you are using Linux, you can get the Annif docker image from the docker registry at https://quay.io/repository/natlibfi/annif with<sup id="a1">[1](#myfootnote1)</sup>:
+These instructions have been written for Linux use, but most of them should work also when using Windows or MacOS. In Windows you should use a Command Prompt or PowerShell terminal window for entering the commands. 
+
+You can get the Annif docker image from the docker registry at https://quay.io/repository/natlibfi/annif with<sup id="a1">[1](#myfootnote1)</sup>:
 
     docker pull quay.io/natlibfi/annif
 
@@ -14,7 +16,7 @@ Then the bash shell can be started in a container with ready-to-use Annif with:
 
 In the shell it is possible to run Annif [[Commands]] (here the `-it` flag is for enabling interactive mode). The container can be exited with `exit` command. 
 
-However, the Annif image itself does not contain any vocabulary or training data. A directory containing these can be [bind mounted](https://docs.docker.com/storage/bind-mounts/) a from the host file system to the container using the syntax `-v /absolute_path/on/host:/path/in/container` after the `docker run` command<sup id="a2">[2](#myfootnote2)</sup>. Also, the user in a docker container is by default not the same as on the host system and any file created in a container is not owned by the host user, and with bind-mounts this can lead to issues with file permissions. Therefore it is best to make [the user in the container](https://docs.docker.com/engine/reference/run/#user) the same as on the host, using `-u $(id -u):$(id -g)`. With these flags the command to run bash in a container with Annif looks like this:
+However, the Annif image itself does not contain any vocabulary or training data. A directory containing these can be [bind mounted](https://docs.docker.com/storage/bind-mounts/) a from the host file system to the container using the syntax `-v /absolute_path/on/host:/path/in/container` after the `docker run` command<sup id="a2">[2](#myfootnote2)</sup>. Also, the user in a docker container is by default not the same as on the host system and any file created in a container is not owned by the host user, and with bind-mounts this can lead to problems with file permissions. Therefore it is best to make [the user in the container](https://docs.docker.com/engine/reference/run/#user) the same as on the host, using `-u $(id -u):$(id -g)` ([in Windows this is not possible](https://docs.docker.com/docker-for-windows/faqs/#can-i-change-permissions-on-shared-volumes-for-container-specific-deployment-requirements) and this option can be omitted). With these options the command to run bash in a container with Annif looks like this:
 
     docker run \
         -v ~/annif-projects:/annif-projects \
@@ -27,7 +29,7 @@ Specifically, the template configuration file [`projects.cfg.dist`](https://gith
 
 *Note that any data should not be stored in other locations in the container but in the mounted directory*, as after the container has stopped, [it is not convenient to gain access to the data again](https://docs.docker.com/engine/reference/commandline/commit/).
 
-If the web UI started by `annif run` is used from within the container, also the flag `--network="host"` [needs to be included in the `docker run` command](https://docs.docker.com/engine/reference/run/#network-host).
+If the web UI started by `annif run` is used from within the container, also the option `--network="host"` [needs to be included in the `docker run` command](https://docs.docker.com/engine/reference/run/#network-host).
 
 
 # Using Annif with Gunicorn, NGINX, and Maui backend
@@ -41,7 +43,7 @@ To start these services, while in `Annif/` directory run
 
     ANNIF_PROJECTS=~/annif-projects MY_UID=$(id -u) MY_GID=$(id -g) docker-compose up
 
-Here the environment variables are needed for mounting the directory for vocabulary and training data files and setting the user in the container the same as on the host. Once the services have started, the Annif web UI is accessible at http://localhost/ run by NGINX.
+Here the environment variables are needed for mounting the directory for vocabulary and training data files and setting the user in the container the same as on the host. In Windows setting these variables should be omitted and the lines including `MY_UID` and `MY_GID` in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/master/docker-compose.yml) removed, and there also the path of the directory to be mounted should be directly given in place of `${ANNIF_PROJECTS}` (e.g. `c:/users/example.user/annif/annif-projects/`). Once the services have started, the Annif web UI is accessible at http://localhost/ run by NGINX (see [this](https://docs.docker.com/docker-for-windows/troubleshoot/#limitations-of-windows-containers-for-localhost-and-published-ports) in case of problems for accessing localhost in Windows).
 
 To connect to the already running `bash` service for using Annif commands, run
 
@@ -56,7 +58,7 @@ To connect to the Maui backend while running via `docker-compose`, in the endpoi
 
 A custom Mauiservice configuration file can be used by changing the path in the env `JAVA_OPTS="-DMAUISERVICE_CONFIGURATION=/srv/maui/mauiservice.ini"` in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/master/docker-compose.yml#L21) to the path of the customized file, e.g. to `/annif-projects/mauiservice.ini`, which is then mounted from the host system and can be conveniently edited.
 
-The `docker-compose.yml` can be edited to remove unnecessary services, e.g. if if one only wants to use the Maui backend. Note that [the mauiservice container can also be run withouth `docker-compose`](https://github.com/NatLibFi/mauiservice/blob/dockerize-mauiservice/DEVELOPER.md#usage-with-docker), and in that case the container needs to be started with `--network="host"` flag so it is accessible from the host system.
+The `docker-compose.yml` can be edited to remove unnecessary services, e.g. if if one only wants to use the Maui backend. Note that [the mauiservice container can also be run withouth `docker-compose`](https://github.com/NatLibFi/mauiservice/blob/dockerize-mauiservice/DEVELOPER.md#usage-with-docker), and in that case the container needs to be started with `--network="host"` option so it is accessible from the host system.
 
 N.B.: The `docker run` or `docker-compose up` -commands do not fetch a new version of an image, even if one is available. To use a more recent image than exists locally, you must do [`docker pull IMAGE_NAME`](https://docs.docker.com/engine/reference/commandline/pull/) or [`docker-compose pull`](https://docs.docker.com/compose/reference/pull/).
 
