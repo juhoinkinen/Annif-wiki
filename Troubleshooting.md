@@ -25,10 +25,12 @@ For troubleshooting and discussion, check out the Annif-users -mailing list/foru
     <http://www.yso.fi/onto/yso/p12968>	pediatricians	0.0413787581489993
     ```
 
-- Note that `annif PROJECT_ID SUBJECTFILE` command loads the vocabulary defined for the project with `PROJECT_ID` (and overrides existing one), and also for other projects that use same vocabulary
+- Note that `annif loadvoc PROJECT_ID SUBJECTFILE` command loads the vocabulary defined for the project with `PROJECT_ID` (and overrides existing one), and also for other projects that use same vocabulary
 
 # Docker Troubles
 
 - Note that simple `docker run` or `docker-compose up` do not fetch a new version of an image, even if that existed in in a repository, but to use a more recent image than exists locally, you must do [`docker pull IMAGE_NAME`](https://docs.docker.com/engine/reference/commandline/pull/) or [`docker-compose pull`](https://docs.docker.com/compose/reference/pull/).
 
 - When using Docker with Windows, the id-variables id -u and id -g will not work. Under Windows, Docker usually runs in its own virtual machine, and this virtual machine in turn is run by whoever installed it (and the permissions are set accordingly). You can try leaving the part with id-variables out when you've figured out how the permissions work in your setup...
+
+- "[A version prior to Windows 10 18.09, published ports on Windows containers have an issue with loopback to the localhost. You can only reach container endpoints from the host using the container’s IP and port.](https://docs.docker.com/docker-for-windows/troubleshoot/#limitations-of-windows-containers-for-localhost-and-published-ports)"
