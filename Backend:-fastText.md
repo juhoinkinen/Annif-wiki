@@ -47,7 +47,7 @@ vocab=yso-fi
 
 ### Backend-specific parameters
 
-With the exception of `chunksize` and `limit`, all the parameters are passed directly to the fastText algorithm. If you omit a parameter, fastText will choose its default value. You can check out the [fastText documentation about options](https://fasttext.cc/docs/en/options.html) for more details about those parameters.
+With the exception of `chunksize` and `limit`, all the parameters are passed directly to the fastText algorithm. If you omit a parameter, a default value is used. You can check out the [fastText documentation about options](https://fasttext.cc/docs/en/options.html) for more details about the parameters.
 
 The backend processes longer documents in chunks: the document is represented as a list of sentences, and that list is turned into chunks. With a `chunksize` of 24 (as above), each chunk is made of 24 sentences, except for the last chunk which may be shorter. Each chunk is analyzed separately and the results are averaged. Setting `chunksize` to a high value such as 10000 will in practice disable chunking.
 
