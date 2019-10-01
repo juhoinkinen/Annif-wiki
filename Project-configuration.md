@@ -24,7 +24,7 @@ A project has the following attributes:
 | limit      | The maximum number of results (subjects/concepts) to return |
 | vocab      | An identifier for the vocabulary used by this project |
 
-Some backends also require additional parameters (`tfidf` doesn't).
+Some backends also use additional parameters (`tfidf` doesn't), but if they are not present in the configuration file, default values are used.
 
 For some commands it is possible to override a parameter set in the configuration file using the `--backend-param` option; the  syntax for this is `--backend-param <backend>.<parameter>=<value>`.
 
