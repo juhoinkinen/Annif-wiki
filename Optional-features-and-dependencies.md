@@ -24,7 +24,7 @@ Using the fastText backend requires installing the fastText Python wrapper, whic
 
 If you have installed Annif from GitHub, use this instead:
 
-    pip install .[fasttextmirror]
+    pip install .[fasttext]
 
 # Vowpal Wabbit based backends
 
