@@ -12,15 +12,19 @@ Then install the optional feature:
 
     pip install annif[voikko]
 
+If you have installed Annif from GitHub, use this instead:
+
+    pip install .[voikko]
+
 # fastText backend
 
 Using the fastText backend requires installing the fastText Python wrapper, which compiles into native code and is not included by default when installing Annif. We use the [fasttextmirror](https://pypi.org/project/fasttextmirror/) package from PyPI. You can install the optional dependencies like this:
 
     pip install annif[fasttext]
 
-Alternatively (e.g. if you have installed Annif from GitHub), you can just install the required `fasttextmirror` package directly:
+If you have installed Annif from GitHub, use this instead:
 
-    pip install fasttextmirror==0.8.22
+    pip install .[fasttextmirror]
 
 # Vowpal Wabbit based backends
 
@@ -32,9 +36,9 @@ You can install the optional dependencies like this:
 
     pip install annif[vw]
 
-Alternatively (e.g. if you have installed Annif from GitHub), you can just install the required `vowpalwabbit` package directly:
+If you have installed Annif from GitHub, use this instead:
 
-    pip install vowpalwabbit==8.7.*
+    pip install .[vw]
 
 If the build still fails and you get an error like this:
 
