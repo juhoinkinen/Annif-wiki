@@ -83,7 +83,7 @@ Once you have MauiService up and running, you can configure Annif to connect to 
 [maui-en]
 name=Maui English
 language=en
-backends=http
+backend=http
 endpoint=http://localhost:8080/mauiservice/jyu-eng/analyze
 vocab=yso-en
 ```
