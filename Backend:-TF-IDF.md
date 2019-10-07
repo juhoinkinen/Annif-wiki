@@ -8,7 +8,7 @@ It is really easy to get started using the TF-IDF backend since it doesn't requi
 [tfidf-en]
 name=TF-IDF English
 language=en
-backends=tfidf
+backend=tfidf
 analyzer=snowball(english)
 limit=100
 vocab=yso-en
