@@ -15,6 +15,7 @@ Then install the optional feature:
 If you have installed Annif from GitHub, use this instead:
 
     pip install .[voikko]
+    pip install -e .  # make sure the Annif installation remains in editable mode
 
 # fastText backend
 
@@ -25,6 +26,7 @@ Using the fastText backend requires installing the fastText Python wrapper, whic
 If you have installed Annif from GitHub, use this instead:
 
     pip install .[fasttext]
+    pip install -e .  # make sure the Annif installation remains in editable mode
 
 # Vowpal Wabbit based backends
 
@@ -39,6 +41,7 @@ You can install the optional dependencies like this:
 If you have installed Annif from GitHub, use this instead:
 
     pip install .[vw]
+    pip install -e .  # make sure the Annif installation remains in editable mode
 
 If the build still fails and you get an error like this:
 
