@@ -3,7 +3,7 @@ How to make a new release of Annif.
 1. Check that the `master` branch is in shape for a new release - tests are passing, no serious open issues etc.
 2. Make sure your local `master` branch is up to date w.r.t. GitHub: `git checkout master; git pull`
 3. Activate the pipenv with `pipenv shell` if you haven't already
-4. Make a new version with bumpversion: `bumpversion minor` or `bumpversion patch`
+4. Make a new version with bumpversion: `bumpversion release`
 5. Check with `git log` that the new version number matches your expectations.
 6. Push the commit to GitHub: `git push`
 7. Push the version tag too: `git push --tags`
@@ -12,3 +12,10 @@ How to make a new release of Annif.
 10. Close the milestone corresponding to the release (and create a new one for the next release).
 11. Update the wiki documentation to match features of the new release (e.g. new or updated backends) and check that [API documentation](https://annif.readthedocs.io/en/latest/index.html) has been correctly updated (updating should happen on all commits to `master`).
 12. Announce the release on [annif-users](https://groups.google.com/forum/#!forum/annif-users) and other channels (e.g. twitter) 
+13. Create a blog post (in Finnish) in the [Finto wiki](https://www.kiwi.fi/display/Finto/Tervetuloa) about the new release (make sure to include a Label `finto`)
+14. Announce the release on [@Fintopalvelu](https://twitter.com/Fintopalvelu) twitter, with a link to the blog post
+15. Post the announcement to the mailing lists `finto-tiedotus` and `automaattinen-kuvailu` (make sure the message is not held up in moderation)
+16. Prepare the `master` branch for the next development release with bumpversion: `bumpversion minor` (this should increment the second part of the version number and add a `-dev` suffix)
+17. Check with `git log` that the new version number matches your expectations.
+18. Push the commit to GitHub: `git push`
+19. Push the version tag too: `git push --tags`
