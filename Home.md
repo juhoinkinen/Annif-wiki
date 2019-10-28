@@ -24,6 +24,7 @@ Welcome to the Annif wiki!
      * [[Backend: Ensemble]]
      * [[Backend: PAV]]
      * [[Backend: vw_ensemble]]
+     * [[Backend: nn_ensemble]]
   * Special backends
      * [[Backend: HTTP]]
      * [[Backend: Dummy]]
