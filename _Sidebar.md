@@ -19,6 +19,7 @@
   * [[Ensemble|Backend: Ensemble]]
   * [[PAV|Backend: PAV]]
   * [[vw_ensemble|Backend: vw_ensemble]]
+  * [[vw_ensemble|Backend: nn_ensemble]]
   * [[HTTP|Backend: HTTP]]
   * [[Dummy|Backend: Dummy]]
 * [[Development flow, branches and tags]]
