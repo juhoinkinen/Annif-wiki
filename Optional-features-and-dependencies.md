@@ -28,6 +28,17 @@ If you have installed Annif from GitHub, use this instead:
     pip install .[fasttext]
     pip install -e .  # make sure the Annif installation remains in editable mode
 
+# Neural network backend (nn_ensemble)
+
+Using the nn_ensemble backend requires TensorFlow 2. PyPI provides pre-built packages of TensorFlow so no compilation is necessary. You can install the optional dependencies like this:
+
+    pip install annif[nn]
+
+If you have installed Annif from GitHub, use this instead:
+
+    pip install .[nn]
+    pip install -e .  # make sure the Annif installation remains in editable mode
+
 # Vowpal Wabbit based backends
 
 Using the `vw_multi` or `vw_ensemble` backends requires installing the Vowpal Wabbit bindings for Python, which is not included by default when installing Annif. The bindings require building VW from source, so you need to install some libraries first (see [Dependencies](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies) in the VW wiki for more details if necessary). On a typical Ubuntu 16.04 or 18.04 system this should be enough:
