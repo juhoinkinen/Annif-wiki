@@ -1,6 +1,6 @@
 # Install Annif
 
-First you need to install Annif. Clone this repository and follow the instructions in the top level README file.
+First you need to install Annif. Follow the instructions in the top level [README](https://github.com/NatLibFi/Annif/blob/master/README.md) file.
 
 # Define projects and backends
 
