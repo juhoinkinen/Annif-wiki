@@ -19,7 +19,13 @@ If you have installed Annif from GitHub, use this instead:
 
 # fastText backend
 
-Using the fastText backend requires installing the fastText Python wrapper, which compiles into native code and is not included by default when installing Annif. We use the [fasttextmirror](https://pypi.org/project/fasttextmirror/) package from PyPI. You can install the optional dependencies like this:
+Using the fastText backend requires installing the fastText Python wrapper, which compiles into native code and is not included by default when installing Annif. We use the [fasttextmirror](https://pypi.org/project/fasttextmirror/) package from PyPI. First you need to ensure that the Python development files are available:
+
+    sudo apt install libpython3.6-dev
+
+(adapt this to your Python 3 version)
+
+You can install the optional dependencies like this:
 
     pip install annif[fasttext]
 
@@ -38,6 +44,10 @@ If you have installed Annif from GitHub, use this instead:
 
     pip install .[nn]
     pip install -e .  # make sure the Annif installation remains in editable mode
+
+If this fails with an error like `Could not find a version that satisfies the requirement tensorflow==2.0.*`, you may need to upgrade your `pip` first, like this:
+
+    pip install -U pip
 
 # Vowpal Wabbit based backends
 
