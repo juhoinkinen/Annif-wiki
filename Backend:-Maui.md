@@ -4,7 +4,11 @@ The `maui` backend can be used to integrate Annif with [Maui Server](https://git
 
 Maui is very good at detecting topics of text based on comparing terms in a controlled vocabulary to terms that appear in the document text. However, it cannot detect more abstract topics whose labels do not appear in text. For example, a topic such as "local history" would not be suggested for a document that describes the history of a village, unless that phrase is used in the document itself. Thus Maui works best when combined with another algorithm that relies on statistical associations.
 
-Configuration of the `maui` backend is rather simple, but Maui Server has to be set up separately, either directly on the host system under Tomcat, or [using a Docker container](https://github.com/NatLibFi/Annif/wiki/Backend%3A-Maui#usage-with-docker).
+Configuration of the `maui` backend is rather simple, but Maui Server has to be set up separately, either directly on the host system under Tomcat, or with Docker.
+
+## Setting up Maui Server using Docker
+
+You can start both Maui Server and Annif in Docker containers [using a compose file](https://github.com/NatLibFi/Annif/wiki/Usage-with-Docker#using-annif-with-gunicorn-nginx-and-maui-backend), or [just Maui Server in one container](https://github.com/NatLibFi/MauiServer/tree/dockerization#usage-with-docker).
 
 ## Setting up Maui Server using Tomcat
 
@@ -70,7 +74,9 @@ vocab=yso-en
 limit=1000
 ```
 
-The parameters specific to Maui are `endpoint` and `tagger`. `endpoint` is the base URL where the Maui Server REST API can be accessed. `tagger` is an identifier for the tagger (combination of configuration, vocabulary and trained model) within Maui Server, very similar to a project within Annif. You can use the Annif project ID as the tagger ID.
+The parameters specific to Maui are `endpoint` and `tagger`. `endpoint` is the base URL where the Maui Server REST API can be accessed. `tagger` is an identifier for the tagger (combination of configuration, vocabulary and trained model) within Maui Server, very similar to a project within Annif. You can use the Annif project ID as the tagger ID. 
+
+Note that if you are using [`docker-compose`](https://github.com/NatLibFi/Annif/wiki/Usage-with-Docker#using-annif-with-gunicorn-nginx-and-maui-backend), the `localhost` in the endpoint entries needs to be replaced with `mauiserver`.
 
 ## Usage
 
@@ -94,28 +100,3 @@ Evaluate a directory full of files in fulltext [[document corpus|Document corpus
 
     annif eval maui-en /path/to/documents/
 
-## Usage with Docker
-
-Pull the docker image for Mauiservice from quay.io:
-```shell
-docker pull quay.io/natlibfi/mauiservice
-```
-
-A model can be trained with 
-```shell
-docker run -v /path/to/annif-projects/:/annif-projects/ --rm quay.io/natlibfi/mauiservice \
-  java -Xmx4G -cp maui-1.4.5-jar-with-dependencies.jar com.entopix.maui.main.MauiModelBuilder -l /annif-projects/Annif-corpora/fulltext/kirjastonhoitaja/maui-train/ -m /annif-projects/kirjastonhoitaja -v /annif-projects/Annif-corpora/vocab/yso-skos.rdf -f skos -i fi -s StopwordsFinnish -t CachingFinnishStemmer
-```
-Here the training data (`kirjastonhoitaja` (Ask a Librarian) collection) and vocabulary (SKOS) files are bind-mounted into the container from the host system in `/path/to/annif-projects/Annif-corpora/`. 
-
-The service can then be started with 
-```shell
-docker run --name mauiservice -v /path/to/annif-projects/:/annif-projects/ --rm --network="host" quay.io/natlibfi/mauiservice
-```
-
-Here the use of `--network="host"` allows Annif running either on the host system or in a container to connect to the Mauiservice container.
-
-A custom Mauiservice configuration file can be used by passing its path as an environment variable by adding also the following `-e` flag  to the `docker run` command: 
-```shell
--e JAVA_OPTS="-DMAUISERVICE_CONFIGURATION=/path/to/annif-projects/mauiservice.ini"
-```
