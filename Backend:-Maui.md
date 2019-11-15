@@ -1,10 +1,10 @@
 _**Note:** This page used to contain instructions on using MauiService. Nowadays the recommended method for integrating Annif with Maui is through Maui Server. The old MauiService instructions can still be found in the [history](https://github.com/NatLibFi/Annif/wiki/Backend:-Maui/324767fd4e47089f4d0964bdbe7be635c27c01ec) of this page. Unlike MauiService, Maui Server can be configured and trained directly through Annif using the normal `annif train` command, which makes it a lot easier to set up than MauiService._
 
-The `maui` backend can be used to integrate Annif with [Maui Server](https://github.com/TopQuadrant/MauiServer), which is a RESTful microservice wrapper around the [Maui](http://www.medelyan.com/software) automated indexing tool. Maui was originally created by Alyona Medelyan and described in her PhD thesis ["Human-competitive automated topic indexing"](http://www.medelyan.com/files/phd2009.pdf?attredirects=0&d=1). We will use a forked, enhanced version of Maui and the microservice wrapper Maui Service that were developed by Spatineo Inc. for the National Library of Finland.
+The `maui` backend can be used to integrate Annif with [Maui Server](https://github.com/TopQuadrant/MauiServer), which is a RESTful microservice wrapper around the [Maui](http://www.medelyan.com/software) automated indexing tool. Maui was originally created by Alyona Medelyan and described in her PhD thesis ["Human-competitive automated topic indexing"](http://www.medelyan.com/files/phd2009.pdf?attredirects=0&d=1). We will use a forked, enhanced version of Maui and the microservice wrapper Maui Server that were developed by Spatineo Inc. for the National Library of Finland.
 
 Maui is very good at detecting topics of text based on comparing terms in a controlled vocabulary to terms that appear in the document text. However, it cannot detect more abstract topics whose labels do not appear in text. For example, a topic such as "local history" would not be suggested for a document that describes the history of a village, unless that phrase is used in the document itself. Thus Maui works best when combined with another algorithm that relies on statistical associations.
 
-Configuration of the `maui` backend is rather simple, but MauiService has to be set up separately, either directly on the host system under Tomcat, or [using a Docker container](https://github.com/NatLibFi/Annif/wiki/Backend%3A-Maui#usage-with-docker).
+Configuration of the `maui` backend is rather simple, but Maui Server has to be set up separately, either directly on the host system under Tomcat, or [using a Docker container](https://github.com/NatLibFi/Annif/wiki/Backend%3A-Maui#usage-with-docker).
 
 ## Setting up Maui Server using Tomcat
 
@@ -37,9 +37,9 @@ Then edit the Tomcat configuration, setting the `MauiServer.dataDir` property to
 
 Then you will need to add the MauiService servlet WAR to Tomcat. One easy way is to do this using a symlink, e.g.
 
-    ln -s /srv/maui/mauiservice.war /var/lib/tomcat8/webapps/mauiservice.war
+    ln -s /srv/maui/mauiserver.war /var/lib/tomcat8/webapps/mauiserver.war
 
-You probably don't want to include the version number in the webapp name, thus make sure to copy or symlink the WAR so it appears as `mauiservice.war` under the `webapps` directory.
+You probably don't want to include the version number in the webapp name, thus make sure to copy or symlink the WAR so it appears as `mauiserver.war` under the `webapps` directory.
 
 Finally restart Tomcat:
 
@@ -57,7 +57,7 @@ If you get an error or other problem instead, check the Tomcat logs. The main on
 
 ## Example configuration for Annif
 
-Once you have MauiService up and running, you can configure Annif to connect to it via the Maui backend. Here is an example:
+Once you have MauiServer up and running, you can configure Annif to connect to it via the Maui backend. Here is an example:
 
 ```
 [maui-en]
@@ -70,7 +70,7 @@ vocab=yso-en
 limit=1000
 ```
 
-The parameters specific to Maui are `endpoint` and `tagger`. `endpoint` is the base URL where the Maui Server REST API can be accessed. `tagger` is an identifier for the tagger (combination of configuration, vocabulary and trained model) within Maui Service, very similar to a project within Annif. You can use the Annif project ID as the tagger ID.
+The parameters specific to Maui are `endpoint` and `tagger`. `endpoint` is the base URL where the Maui Server REST API can be accessed. `tagger` is an identifier for the tagger (combination of configuration, vocabulary and trained model) within Maui Server, very similar to a project within Annif. You can use the Annif project ID as the tagger ID.
 
 ## Usage
 
