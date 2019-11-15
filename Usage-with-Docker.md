@@ -35,9 +35,9 @@ If the web UI started by `annif run` is used from within the container, also the
 # Using Annif with Gunicorn, NGINX, and Maui backend
 Different containerized services can be conveniently linked together by using [docker-compose](https://docs.docker.com/compose/). The instructions to set up the services are in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/issue278-dockerize-annif/docker-compose.yml), which in this case instructs docker to start separate containers for 
 * bash shell to run  Annif commands
-* Gunicorn server running Annif
-* NGINX proxy server
-* [Mauiservice](https://github.com/NatLibFi/mauiservice/tree/dockerize-mauiservice) to access [Maui backend](https://github.com/NatLibFi/Annif/wiki/Backend%3A-Maui)
+* Gunicorn server running Annif Web UI
+* [NGINX proxy server](https://www.nginx.com/resources/wiki/)
+* [Maui Server](https://github.com/NatLibFi/MauiServer) to access [Maui backend](https://github.com/NatLibFi/Annif/wiki/Backend%3A-Maui)
 
 To start these services, while in `Annif/` directory run 
 
@@ -49,18 +49,11 @@ To connect to the already running `bash` service for using Annif commands, run
 
     docker exec -it -u $(id -u):$(id -g) annif_bash_1 bash
 
-To create model for Maui backend (see [[here | backend:-maui#Creating a model for Maui ]] for details), run
+In the shell all the Annif commands can now be used, and the [Maui backend can be used as instructed](https://github.com/NatLibFi/Annif/wiki/Backend%3A-Maui#example-configuration-for-annif), _with the exception that  in the endpoint entries of `projects.cfg` file the `localhost` needs to be replaced with `mauiserver`_ (i.e. the full entry is then `endpoint=http://mauiserver:8080/mauiserver/`). 
 
-    docker exec -u $(id -u):$(id -g) annif_mauiservice_1 \
-        java -Xmx4G -cp maui-1.4.5-jar-with-dependencies.jar com.entopix.maui.main.MauiModelBuilder -l /annif-projects/Annif-corpora/fulltext/kirjastonhoitaja/maui-train/ -m /annif-projects/kirjastonhoitaja -v /annif-projects/Annif-corpora/vocab/yso-skos.rdf -f skos -i fi -s StopwordsFinnish -t CachingFinnishStemmer
+The `docker-compose.yml` can be edited to remove unnecessary services, e.g. if if one only wants to use the Maui backend. Note that [the mauiserver container can also be run withouth `docker-compose`](https://github.com/NatLibFi/MauiServer/tree/dockerization#usage-with-docker).
 
-To connect to the Maui backend while running via `docker-compose`, in the endpoint entries of `projects.cfg` file the default `localhost` needs to be replaced by `mauiservice` (and when trained as above the model name is `kirjastonhoitaja`, and the full entry is then `endpoint=http://mauiservice:8080/mauiservice/kirjastonhoitaja/analyze`). Note also that to be able to use a new model the services need to be restarted.
-
-A custom Mauiservice configuration file can be used by changing the path in the env `JAVA_OPTS="-DMAUISERVICE_CONFIGURATION=/srv/maui/mauiservice.ini"` in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/master/docker-compose.yml#L21) to the path of the customized file, e.g. to `/annif-projects/mauiservice.ini`, which is then mounted from the host system and can be conveniently edited.
-
-The `docker-compose.yml` can be edited to remove unnecessary services, e.g. if if one only wants to use the Maui backend. Note that [the mauiservice container can also be run withouth `docker-compose`](https://github.com/NatLibFi/mauiservice/blob/dockerize-mauiservice/DEVELOPER.md#usage-with-docker), and in that case the container needs to be started with `--network="host"` option so it is accessible from the host system.
-
-N.B.: The `docker run` or `docker-compose up` -commands do not fetch a new version of an image, even if one is available. To use a more recent image than exists locally, you must do [`docker pull IMAGE_NAME`](https://docs.docker.com/engine/reference/commandline/pull/) or [`docker-compose pull`](https://docs.docker.com/compose/reference/pull/).
+Note also that the `docker run` or `docker-compose up` commands do not automatically fetch a new version of an image, even if one is available in repository. To update to the most recent image or images, you must run [`docker pull IMAGE_NAME`](https://docs.docker.com/engine/reference/commandline/pull/) or [`docker-compose pull`](https://docs.docker.com/compose/reference/pull/).
 
 # Using Docker in Annif development
 
