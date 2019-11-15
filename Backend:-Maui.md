@@ -35,7 +35,7 @@ Then edit the Tomcat configuration, setting the `MauiServer.dataDir` property to
 
     JAVA_OPTS="-Djava.awt.headless=true -Xmx2G -XX:+UseConcMarkSweepGC -DMauiServer.dataDir=/var/lib/mauidata"
 
-Then you will need to add the MauiService servlet WAR to Tomcat. One easy way is to do this using a symlink, e.g.
+Then you will need to add the Maui Server servlet WAR to Tomcat. One easy way is to do this using a symlink, e.g.
 
     ln -s /srv/maui/mauiserver.war /var/lib/tomcat8/webapps/mauiserver.war
 
