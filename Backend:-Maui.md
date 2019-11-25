@@ -33,7 +33,7 @@ First ensure that the Tomcat daemon has started up properly:
 Create a data directory for Maui Server. We will use the path `/var/lib/mauidata`. You also need to give Tomcat permissions to read and write files within that directory:
 
     mkdir /var/lib/mauidata
-    chown tomcat8:tomcat8 /var/lib/maui
+    chown tomcat8:tomcat8 /var/lib/mauidata
 
 Then edit the Tomcat configuration, setting the `MauiServer.dataDir` property to point to the path of the configuration file using the `-D` command line option. You probably also need to give Tomcat more memory (e.g. `-Xmx2G`), as the default is usually way too low. On Debian/Ubuntu systems, you need to edit `/etc/default/tomcat8` and change the `JAVA_OPTS` setting to something like this:
 
