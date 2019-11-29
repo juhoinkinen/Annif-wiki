@@ -33,7 +33,7 @@ If the web UI started by `annif run` is used from within the container, also the
 
 
 # Using Annif with Gunicorn, NGINX, and Maui backend
-Different containerized services can be conveniently linked together by using [docker-compose](https://docs.docker.com/compose/). The instructions to set up the services are in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/issue278-dockerize-annif/docker-compose.yml), which in this case instructs docker to start separate containers for 
+Different containerized services can be conveniently linked together by using [docker-compose](https://docs.docker.com/compose/). The instructions to set up the services are in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/master/docker-compose.yml), which in this case instructs docker to start separate containers for 
 * bash shell to run  Annif commands
 * Gunicorn server running Annif Web UI
 * [NGINX proxy server](https://www.nginx.com/resources/wiki/)
@@ -51,7 +51,7 @@ To connect to the already running `bash` service for using Annif commands, run
 
 In the shell all the Annif commands can now be used, and the [Maui backend can be used as instructed](https://github.com/NatLibFi/Annif/wiki/Backend%3A-Maui#example-configuration-for-annif), _with the exception that  in the endpoint entries of `projects.cfg` file the `localhost` needs to be replaced with `mauiserver`_ (i.e. the full entry is then `endpoint=http://mauiserver:8080/mauiserver/`). 
 
-The `docker-compose.yml` can be edited to remove unnecessary services, e.g. if if one only wants to use the Maui backend. Note that [the mauiserver container can also be run withouth `docker-compose`](https://github.com/NatLibFi/MauiServer/tree/dockerization#usage-with-docker).
+The `docker-compose.yml` can be edited to remove unnecessary services, e.g. if if one only wants to use the Maui backend. Note that [the mauiserver container can also be run withouth `docker-compose`](https://github.com/NatLibFi/MauiServer/tree/master#usage-with-docker).
 
 Note also that the `docker run` or `docker-compose up` commands do not automatically fetch a new version of an image, even if one is available in repository. To update to the most recent image or images, you must run [`docker pull IMAGE_NAME`](https://docs.docker.com/engine/reference/commandline/pull/) or [`docker-compose pull`](https://docs.docker.com/compose/reference/pull/).
 
