@@ -8,9 +8,7 @@ These instructions have been written for Linux use, but most of them should work
 
 You can get the Annif docker image from the docker registry at https://quay.io/repository/natlibfi/annif with<sup id="a1">[1](#myfootnote1)</sup>:
 
-    docker pull quay.io/natlibfi/annif
-
-Then the bash shell can be started in a container with ready-to-use Annif with:
+"Installation" is very easy: The following command will download the Docker image for Annif from quay.io registry  (if the image does not yet exist locally) and start the Bash shell in a container:
 
     docker run -it quay.io/natlibfi/annif bash 
 
