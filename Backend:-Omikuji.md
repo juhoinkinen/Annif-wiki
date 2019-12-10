@@ -1,6 +1,6 @@
 The `omikuji` backend is a wrapper around [Omikuji](https://github.com/tomtung/omikuji), an efficient implementation of a family of tree-based machine learning algorithms. It can emulate Parabel and Bonsai, two state-of-the-art algorithms for extreme multilabel classification.
 
-The quality of results has generally been extremely good, even without tuning of hyperparameters. Training can be computationally intensive; by default it will use CPU cores in parallel during the training phase. Also large amounts of RAM (several GB) may be required during training, but during use the memory usage is lower.
+The quality of results has generally been extremely good, even without tuning of hyperparameters. Training can be computationally intensive; by default it will use all available CPU cores in parallel during the training phase. Also large amounts of RAM (several GB) may be required during training, but during use the memory usage is lower.
 
 ## Installation
 
