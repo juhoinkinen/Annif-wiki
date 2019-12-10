@@ -14,6 +14,7 @@
 * Backends
   * [[TF-IDF|Backend: TF-IDF]]
   * [[fastText|Backend: fastText]]
+  * [[Omikuji|Backend: Omikuji]]
   * [[Maui|Backend: Maui]]
   * [[vw_multi|Backend: vw_multi]]
   * [[Ensemble|Backend: Ensemble]]
