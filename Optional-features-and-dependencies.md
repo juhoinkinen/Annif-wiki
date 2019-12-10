@@ -74,3 +74,16 @@ the likely reason is that the VW bindings are being built with the wrong (Python
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libboost_python-py35.so /usr/lib/x86_64-linux-gnu/libboost_python.so
 
 If there are still import errors they could be resolved by using `libboost_python3` instead of `libboost_python` in the above symlinks.
+
+# Omikuji backend
+
+Omikuji is implemented in Rust, but generally it doesn't have to be built from Rust sources as binary packages are available on PyPI. See the [omikuji README](https://github.com/tomtung/omikuji#python-binding) for details if you have issues.
+
+Install the optional feature:
+
+    pip install annif[omikuji]
+
+If you have installed Annif from GitHub, use this instead:
+
+    pip install .[omikuji]
+    pip install -e .  # make sure the Annif installation remains in editable mode
