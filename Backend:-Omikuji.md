@@ -23,7 +23,7 @@ This is a configuration that emulates Bonsai:
 
 ```
 [omikuji-bonsai-en]
-name=Omikuji Parabel English
+name=Omikuji Bonsai English
 language=en
 backend=omikuji
 analyzer=snowball(english)
