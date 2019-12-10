@@ -18,6 +18,7 @@ Welcome to the Annif wiki!
   * Regular backends for automated subject indexing and classification
      * [[Backend: TF-IDF]]
      * [[Backend: fastText]]
+     * [[Backend: Omikuji]]
      * [[Backend: Maui]]
      * [[Backend: vw_multi]]
   * Fusion/Ensemble backends that combine results from other backends
