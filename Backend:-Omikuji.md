@@ -33,6 +33,20 @@ cluster_k=100
 max_depth=3
 ```
 
+This is a configuration that performs AttentionXML-style collapsing of layers:
+
+```
+[omikuji-attention-en]
+name=Omikuji Attention English
+language=en
+backend=omikuji
+analyzer=snowball(english)
+vocab=yso-en
+cluster_balanced=False
+cluster_k=2
+collapse_every_n_layers=5
+```
+
 ### Backend-specific parameters
 
 The parameters are:
@@ -44,10 +58,11 @@ min_df | How many documents a word must appear in to be considered. Default: 1
 cluster_balanced | Perform balanced k-means clustering instead of regular k-means clustering. Default: True
 cluster_k | Number of clusters. Default: 2
 max_depth | Maximum tree depth. Default: 20
+collapse_every_n_layers | Number of adjacent layers to collapse. Default: 0 (disabled)
 
 The `min_df` parameter controls the features (words/tokens) used to build the model. With the default setting of 1, all the words in the training set will be used, even ones that appear in only one training document. With a higher value such as 5, only those that appear in at least that many documents are included. Increasing the `min_df` value will decrease the size and training time of the model.
 
-Not all hyperparameters supported by Omikuji are currently implemented by this backend, only the ones necessary to emulate either Parabel or Bonsai.
+Not all hyperparameters supported by Omikuji are currently implemented by this backend, only the ones necessary to emulate Parabel, Bonsai and the AttentionXML-like layer collapsing mode. See the [omikuji README](https://github.com/tomtung/omikuji/blob/master/README.md) for details about the hyperparameters.
 
 ## Usage
 
