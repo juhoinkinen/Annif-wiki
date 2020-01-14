@@ -19,7 +19,6 @@
   * [[vw_multi|Backend: vw_multi]]
   * [[Ensemble|Backend: Ensemble]]
   * [[PAV|Backend: PAV]]
-  * [[vw_ensemble|Backend: vw_ensemble]]
   * [[nn_ensemble|Backend: nn_ensemble]]
   * [[HTTP|Backend: HTTP]]
   * [[Dummy|Backend: Dummy]]
