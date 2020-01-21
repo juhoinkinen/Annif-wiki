@@ -24,7 +24,7 @@ If you happen to have both metadata (short text such as titles, with manually as
 * Around 500 documents will go into the validation set. This will be used to test different (hyper)parameters for the algorithms, as well as limit and offset values that will give the best F1 score if you're aiming for that.
 * Around 500 documents will go into the test set. These will be put aside for the most part and only evaluate algorithms/models that have been tuned by using the validate set.
 
-You can perform a random split, but if your documents have been published in different times and you're aiming to perform automated indexing for future, yet-unseen documents, the best way to split is by date. For example if you have 5000 documents from the years 2009-2018, with roughly 500 documents per year, you can select documents published in 2018 as the test set, documents published in 2017 as the validate set, and the remaining documents from 2009-2016 as the train set. This way the sets you are measuring with will always be newer than the training data, as will be the case later on.
+You can perform a random split, but if your documents have been published in different times and you're aiming to perform automated indexing for future, yet-unseen documents, the best way to split is by date. For example if you have 5000 documents from the years 2009-2018, with roughly 500 documents per year, you can select documents published in 2018 as the test set, documents published in 2017 as the validate set, and the remaining documents from 2009-2016 as the train set. This way the sets you are measuring with will always be newer than the training data, as will be the case later on. This [blog post](https://www.fast.ai/2017/11/13/validation-sets/) by Rachel Thomas of fast.ai explains very well the reason for such a 3-way split.
 
 Typical evaluation of a validate set:
 
@@ -34,20 +34,20 @@ The scores will be reported at the end. If you're measuring NDCG, set a limit of
 
 # 4. Configure and train some basic projects/models/backends
 
-The easiest backend to get started with is `tfidf`, as it doesn't require any backend-specific configuration. So train that first, then evaluate it using the validate set. Once you get at least somewhat reasonable results, you can start testing other backends.
+The easiest backend to get started with is `tfidf`, as it doesn't require any backend-specific configuration. So train that first, then evaluate it using the validate set. Once you get at least somewhat reasonable results, you can start testing other backends. `tfidf` is the "Hello World" of Annif algorithms: good for getting the basic mechanics working, but most likely not the end result you are aiming for.
 
-Note that sometimes the `tfidf` backend will give very bad suggestions. Don't give up hope yet, as it is possible that it is making systematic errors that can be corrected by a smart ensemble such as PAV. I've had a `tfidf` algorithm give an F1 score of 0.02, which increased to around 0.60 when wrapped in a PAV ensemble, and even more when combined with other backends.
+Note that sometimes the `tfidf` backend will give very bad suggestions. Don't give up hope yet, as it is possible that it is making systematic errors that can be corrected by a smart ensemble. I've had a `tfidf` algorithm give an F1 score of 0.02, which increased to around 0.60 when wrapped in a PAV ensemble, and even more when combined with other backends.
 
-The second most important backend is `maui`. Unfortunately setting it up can take some work, as it is a separate Java application that needs to run in a servlet container and needs to be trained on the command line with data in just the right format. But it is important to get it working because its lexical approach complements the statistical approaches used in other backends very well.
+The second most important backend is `maui`. Unfortunately setting it up takes a little bit of work, as it is a separate Java application that needs to run in a servlet container. But it is important to get it working because its lexical approach complements the statistical approaches used in other backends very well.
 
-After getting these two to work you can move on to the ensembles, or try to get fastText working. The problem with fastText is that it has a lot of (hyper)parameters that need to be set just right to get good results.
+After getting these two to work you can move on to the ensembles, or try to get some of the other backends working. Omikuji is highly recommended, as it tends to give excellent results with minimal (default) configuration. fastText is another alternative. The problem with fastText is that it has a lot of (hyper)parameters that need to be set just right to get good results.
 
 # 5. Configure an ensemble
 
 The basic backends alone do not usually give very good results, as they all have their weaknesses. Combining them into an ensemble can improve results quite a lot. It is easiest to start with a simple `ensemble` backend that just combines results from several backends by taking the mean of scores, i.e. letting the backends vote on what the best result is. However, don't expect a large improvement from this simple strategy - sometimes the results are better than for each individual algorithm, sometimes they are worse. The important step is to get combined results!
 
-Once you have a basic ensemble working, you can try a smart ensemble such as `pav`. It is otherwise similar to the basic ensemble but requires some training documents - a few thousand is a good number. After training the PAV ensemble you should see a significant improvement! Note that scores returned from PAV are probability estimates and if you are aiming for a high F1 score, the best strategy is often to pick a large limit value such as 15 and a relatively high threshold value of 0.25 or 0.3.
+Once you have a basic ensemble working, you can try a smart ensemble such as `pav` or `nn_ensemble`. They are otherwise similar to the basic ensemble but require some training documents - a few thousand is a good number. After training the smart ensemble you should see a significant improvement! Note that scores returned from PAV are probability estimates and if you are aiming for a high F1 score, the best strategy is often to pick a large limit value such as 15 and a relatively high threshold value of 0.25 or 0.3.
 
 # 6. Set up feedback / online learning
 
-Here I would tell you that the next step would be to continue training Annif models as new documents are coming in, but it's not yet implemented, so I won't. Thanks for reading this far!
+Here I would tell you that the next step would be to continue training Annif models as new documents are coming in, but it's only partially implemented so far and not yet extensively tested, so I won't. Thanks for reading this far!
