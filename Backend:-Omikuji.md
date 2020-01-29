@@ -64,6 +64,9 @@ The `min_df` parameter controls the features (words/tokens) used to build the mo
 
 Not all hyperparameters supported by Omikuji are currently implemented by this backend, only the ones necessary to emulate Parabel, Bonsai and the AttentionXML-like layer collapsing mode. See the [omikuji README](https://github.com/tomtung/omikuji/blob/master/README.md) for details about the hyperparameters.
 
+## Retraining with cached training data
+
+Preprocessing the training data can take a significant portion of the training time. If you want to experiment with different parameter settings, you can reuse the preprocessed training data by using the `--cached` option - see [[Reusing preprocessed training data]]. Only the `analyzer`, `vocab` and `min_df` settings affect the preprocessing; you can use the `--cached` option as long as you haven't changed these parameters.
 ## Usage
 
 Load a vocabulary:
