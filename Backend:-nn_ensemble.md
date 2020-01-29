@@ -42,6 +42,14 @@ The `sources` setting is a comma-separated list of projects whose results will b
 
 This setting would give twice as much weight on results from `maui-en` compared to results from `tfidf-en`.
 
+## Notes on LMDB storage and memory usage
+
+This backend stores the preprocessed training data in an [LMDB](https://en.wikipedia.org/wiki/Lightning_Memory-Mapped_Database) database called `nn-train.mdb` under its project directory. This saves RAM by avoiding keeping large vectors in memory at once and also allows the training data to be reused (see below). The LMDB database is a [memory-mapped file](https://en.wikipedia.org/wiki/Memory-mapped_file) which appears as a 1GB file in a typical directory listing, but in fact most of the file is usually empty and it actually takes up much less disk space (check with `du -s` if you're curious). Also, the memory usage (typically measured as Resident Set Size, RSS) of the Annif process accessing the LMDB database may seem high, but due to the memory mapping, that memory can be freed at any time, so the RAM is not actually exclusively reserved to the process. (See [more detailed explanation](https://symas.com/understanding-lmdb-database-file-sizes-and-memory-utilization/) of LMDB file sizes and memory usage) Don't be scared if you think you are seeing excessive disk and/or memory usage!
+
+## Retraining with cached training data
+
+Preprocessing the training data (which in the context of this backend means running all the training documents through the source projects) can take a significant portion of the training time. If you want to experiment with different parameter settings, you can reuse the preprocessed training data by using the `--cached` option - see [[Reusing preprocessed training data]]. Only the `sources` and `vocab` settings affect the preprocessing; you can use the `--cached` option as long as you haven't changed these parameters.
+
 ## Usage
 
 Load a vocabulary:
