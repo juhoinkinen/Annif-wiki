@@ -67,6 +67,10 @@ VW multiclass and multilabel algorithms usually only return either a single clas
 
 The VW `oaa` algorithm, however, can optionally output class probabilities. You can enable this using `probabilities=1` in the backend configuration. See [Predicting probabilities](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Predicting-probabilities) in the VW wiki for some more details.
 
+## Retraining with cached training data
+
+Preprocessing the training data can take a significant portion of the training time. If you want to experiment with different parameter settings, you can reuse the preprocessed training data by using the `--cached` option - see [[Reusing preprocessed training data]]. Only the `analyzer` and `vocab` settings affect the preprocessing; you can use the `--cached` option as long as you haven't changed these parameters.
+
 ## Usage
 
 Load a vocabulary:
