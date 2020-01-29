@@ -65,6 +65,10 @@ minn | Lower limit of character n-gram length
 maxn | Upper limit of character n-gram length
 minCount | Minimum word (or n-gram) frequency to include it in the model
 
+## Retraining with cached training data
+
+Preprocessing the training data can take a significant portion of the training time. If you want to experiment with different parameter settings, you can reuse the preprocessed training data by using the `--cached` option - see [[Reusing preprocessed training data]]. Only the `analyzer` and `vocab` settings affect the preprocessing; you can use the `--cached` option as long as you haven't changed these parameters.
+
 ## Usage
 
 Load a vocabulary:
@@ -74,6 +78,10 @@ Load a vocabulary:
 Train the model:
 
     annif train fasttext-en /path/to/Annif-corpora/training/yso-finna-en.tsv.gz
+
+Retrain the model, reusing already preprocessed training data:
+
+    annif train fasttext-en --cached
 
 Test the model with a single document:
 
