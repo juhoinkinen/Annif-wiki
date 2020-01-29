@@ -53,10 +53,16 @@ REST equivalent: N/A
 
     annif train <projectid> <path> [<path2> ...] [--projects FILE] [--backend-param BACKEND.PARAM=VAL]
 
+or
+
+    annif train <projectid> --cached [--projects FILE] [--backend-param BACKEND.PARAM=VAL
+
+
 Parameters:
 * `path`: path(s) to a directory containing text files in the corpus format, or a TSV file (possibly gzipped)
 * `projects`: Set path to config file
 * `backend-param`: Override a backend parameter of the config file
+* `cached`: If set, reuse preprocessed training data from the previous run. See [[Reusing preprocessed training data]]
 
 This will train the project using all the documents from the given directory or TSV file in a single batch
 operation.
