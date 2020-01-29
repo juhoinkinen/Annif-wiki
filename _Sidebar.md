@@ -10,6 +10,7 @@
 * [[Project configuration]]
 * [[Analyzers]]
 * [[Achieving good results]]
+* [[Reusing preprocessed training data]]
 * [[Running as a WSGI service]]
 * Backends
   * [[TF-IDF|Backend: TF-IDF]]
