@@ -55,7 +55,7 @@ REST equivalent: N/A
 
 or
 
-    annif train <projectid> --cached [--projects FILE] [--backend-param BACKEND.PARAM=VAL
+    annif train <projectid> --cached [--projects FILE] [--backend-param BACKEND.PARAM=VAL]
 
 
 Parameters:
