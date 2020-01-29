@@ -13,6 +13,7 @@ Welcome to the Annif wiki!
 * [[Project configuration]]
 * [[Analyzers]]
 * [[Achieving good results]]
+* [[Reusing preprocessed training data]]
 * [[Running as a WSGI service]]
 * Backends/Algorithms supported by Annif
   * Regular backends for automated subject indexing and classification
