@@ -15,7 +15,7 @@ identified by alphanumeric strings (`A-Za-z0-9_-`).
 Parameters:
 * `subjectfile`: path to a file containing subjects in [a subject vocabulary format](https://github.com/NatLibFi/Annif/wiki/Subject-vocabulary-formats)
 
-This will load the vocabulary to be used in subject indexing. Note that although `projectid` is a parameter of the command, the vocabulary is shared by all the projects with the same `vocab` identifier in [the project configuration](https://github.com/NatLibFi/Annif/wiki/Project-configuration), and the vocabulary only needs to be loaded for one of those projects.
+This will load the vocabulary to be used in subject indexing. Note that although `projectid` is a parameter of the command, the vocabulary is shared by all the projects with the same `vocab` identifier in [the project configuration](https://github.com/NatLibFi/Annif/wiki/Project-configuration), and the vocabulary only needs to be loaded for one of those projects. If a vocabulary has already been loaded, reinvoking `loadvoc` with a new subject file will update the Annif's internal vocabulary: label names are updated and any subject not appearing in the new subject file is removed. Note that new subjects won't be suggested before the project is retrained with the updated vocabulary.
 
 
 REST equivalent: N/A
