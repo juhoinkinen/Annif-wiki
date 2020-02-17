@@ -1,13 +1,13 @@
-A subject vocabulary defines the subjects available for automated indexing or classification. Typically this will be a thesaurus, a classification or a list of subject headings. Annif doesn't care much about the internal structure of a subject vocabulary, it just needs to know the URIs and preferred labels (a.k.a. terms or descriptors) of each subject/class/concept.
+A subject vocabulary defines the subjects available for automated indexing or classification. Typically this will be a thesaurus, a classification or a list of subject headings. Annif doesn't care much about the internal structure of a subject vocabulary, it just needs to know the URIs and preferred labels (a.k.a. terms or descriptors) of each subject/class/concept. If the vocabulary includes also notion codes, e.g. as in [UDC](https://en.wikipedia.org/wiki/Universal_Decimal_Classification), also they can be given.
 
 ## Subject vocabulary as TSV
 
-The simple TSV subject vocabulary format only specifies URIs and labels for concepts. The vocabulary file file is UTF-8 encoded TSV (tab separated values) file with the file extension `.tsv`, where the first column contains a subject URI and the second column its label. The format is the same as the extended subject file format for documents, specified below. For example:
+The simple TSV subject vocabulary format only specifies URIs and labels for concepts. The vocabulary file is UTF-8 encoded TSV (tab separated values) file with the file extension `.tsv`, where the first column contains a subject URI and the second column its label (and the optional third column the notation code). The format is the same as the extended subject file format for documents, specified below. For example:
 
 ```
 <http://example.org/thesaurus/subj1>	networking
 <http://example.org/thesaurus/subj2>	computer science
-<http://example.org/thesaurus/subj3>	Internet Protocol
+<http://example.org/thesaurus/subj3>	Internet Protocol	42.42
 ```
 
 ## Subject vocabulary as SKOS
