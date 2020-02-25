@@ -55,6 +55,10 @@ The `docker-compose.yml` can be edited to remove unnecessary services, e.g. if i
 
 Note also that the `docker run` or `docker-compose up` commands do not automatically fetch a new version of an image, even if one is available in repository. To update to the most recent image or images, you must run [`docker pull IMAGE_NAME`](https://docs.docker.com/engine/reference/commandline/pull/) or [`docker-compose pull`](https://docs.docker.com/compose/reference/pull/).
 
+# Usage in more production-like environment
+
+The `docker-compose` command is mostly intended to be used for local development, not for production. For that more suitable approach is to run containers in [swarm mode](https://docs.docker.com/engine/swarm/). The services for [api.annif.org](https://api.annif.org) are run in swarm using [this compose file](https://github.com/NatLibFi/Annif/blob/api-instances/docker-compose-api.annif.org.yml), and the [api-instances branch](https://github.com/NatLibFi/Annif/tree/api-instances) contains also other files for the API.
+
 # Using Docker in Annif development
 
 It is possible to mount also the Annif source code into the container, which allows editing the code in the host system while running Annif and tests in the container. For this an image that includes the tests needs to be build:
