@@ -42,7 +42,7 @@ After a while you should get a tab-separated list of subjects. This is a very in
 
 # Evaluate with a directory full of files
 
-If you have several documents with gold standard subjects, you can evaluate how well Annif works using the `evaldir` command. First you need to place the documents as text files in a directory and store the subjects in TSV files with the same basename. See [[Corpus formats]] for more information about the format. Then you can evaluate:
+If you have several documents with gold standard subjects, you can evaluate how well Annif works using the `eval` command. First you need to place the documents as text files in a directory and store the subjects in TSV files with the same basename. See [[Corpus formats]] for more information about the format. Then you can evaluate:
 
     annif eval tfidf-en /path/to/documents/
 
