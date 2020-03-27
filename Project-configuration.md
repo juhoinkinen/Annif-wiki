@@ -19,10 +19,11 @@ A project has the following attributes:
 | identifier | An identifier consisting of alphanumeric characters and basic punctuation. |
 | name       | A human-friendly name. |
 | language   | IETF [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) language code. |
-| backend   | The backend (algorithm) that the project uses. See below for details. |
+| backend    | The backend (algorithm) that the project uses. See below for details. |
 | analyzer   | The analyzer used to pre-process and tokenize text. See below for details. |
 | limit      | The maximum number of results (subjects/concepts) to return |
 | vocab      | An identifier for the vocabulary used by this project |
+| access     | Access level when project is accessed via the REST API. Can be `public` (default), `hidden` or `private`, see below
 
 Some backends also use additional parameters (`tfidf` doesn't), but if they are not present in the configuration file, default values are used.
 
@@ -43,3 +44,7 @@ Analyzers are used to pre-process text. For a list of supported analyzers, see [
 Most backends require a subject vocabulary. A vocabulary itself doesn't need any configuration, but the project must define an identifier for the vocabulary it uses. All projects with the same vocabulary identifier will share the same vocabulary, so the vocabulary only needs to be loaded (using the `loadvoc` command) for one of them.
 
 Note that in Annif, vocabularies, like projects, are monolingual. If you load a multilingual SKOS vocabulary for a project, only the labels in the language defined for the project will be loaded.
+
+# Access levels
+
+Access levels can be used to restrict which projects are available via the REST API. The default access level is `public`, meaning that the project is visible in the response for the `projects` method and can be used for suggesting concepts. The `hidden` level makes the project invisible, but it can still be accessed if the project ID is known. The `private` level means that the project is not available at all via the REST API.
