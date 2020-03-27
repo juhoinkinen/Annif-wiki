@@ -61,15 +61,12 @@ The `docker-compose` command is mostly intended to be used for local development
 
 # Using Docker in Annif development
 
-It is possible to mount also the Annif source code into the container, which allows editing the code in the host system while running Annif and tests in the container. For this an image that includes the tests needs to be build:
-
-    docker build -f Dockerfile-dev -t annif-dev .
-
-Then a container from that image can be run:
+It is possible to mount also the Annif source code into the container, which allows editing it in the host system with your favourite editor but running and testing it in the container. For running tests, while in the directory with the Annif source, use the following:
 
     docker run \
         -v ~/annif-projects:/annif-projects \
         -v $(pwd):/Annif \
         -u $(id -u):$(id -g) \
-        -it annif-dev bash
+        -w /Annif
+        -it quay.io/natlibfi/annif pytest
 
