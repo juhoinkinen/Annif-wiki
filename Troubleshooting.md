@@ -25,12 +25,16 @@ For troubleshooting and discussion, check out the Annif-users -mailing list/foru
     <http://www.yso.fi/onto/yso/p12968>	pediatricians	0.0413787581489993
     ```
 
-- Note that `annif loadvoc PROJECT_ID SUBJECTFILE` command loads the vocabulary defined for the project with `PROJECT_ID` (and overrides existing one), and also for other projects that use same vocabulary
+- Note that `annif loadvoc PROJECT_ID SUBJECTFILE` command loads the vocabulary defined for the project with `PROJECT_ID`, and also for other projects that use same vocabulary.
 
 # Docker Troubles
 
 - Note that simple `docker run` or `docker-compose up` do not fetch a new version of an image, even if that existed in in a repository, but to use a more recent image than exists locally, you must do [`docker pull IMAGE_NAME`](https://docs.docker.com/engine/reference/commandline/pull/) or [`docker-compose pull`](https://docs.docker.com/compose/reference/pull/).
 
-- When using Docker with Windows, the id-variables id -u and id -g will not work. Under Windows, Docker usually runs in its own virtual machine, and this virtual machine in turn is run by whoever installed it (and the permissions are set accordingly). You can try leaving the part with id-variables out when you've figured out how the permissions work in your setup...
+- When using Docker with Windows, the `id -u` and `id -g` commands will not work. Under Windows, Docker usually runs in its own virtual machine, and this virtual machine in turn is run by whoever installed it (and the permissions are set accordingly). You can try leaving the part with `id` commands out when you've figured out how the permissions work in your setup...
+
+- _Windows_ and _MacOS_ users should make sure [the available memory](https://docs.docker.com/docker-for-windows/#advanced) for Docker is at least 8 GB (click the whale icon in the notification area, and select Settings -> Advanced).
 
 - "[A version prior to Windows 10 18.09, published ports on Windows containers have an issue with loopback to the localhost. You can only reach container endpoints from the host using the container’s IP and port.](https://docs.docker.com/docker-for-windows/troubleshoot/#limitations-of-windows-containers-for-localhost-and-published-ports)"
+
+- In case you are using Docker on Windows or MacOS and you are having troubles with connecting to _separetely_ run Mauiserver container, in `projects.cfg` use endpoint entry with `host.docker.internal` inplace of `localhost`. If you are using `docker-compose`, then in place of `localhost` the endpoint entry should have `mauiserver (or whatever name the service has you are trying to connect)`.
