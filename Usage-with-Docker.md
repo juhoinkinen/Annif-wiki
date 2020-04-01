@@ -4,9 +4,9 @@ To be able to use Docker in your system, you need to have installed Docker-engin
 
 # Running Annif in Docker container
 
-These instructions have been written for Linux use, but most of them should work also when using Windows or MacOS. In Windows you should use a Command Prompt or PowerShell terminal window for entering the commands. 
+These instructions have been written for Linux use, but most of them should work also when using Windows or MacOS. Windows and MacOS users should make sure the available memory for Docker is at least 8 GB (click the whale icon in the notification area, and select Settings -> Advanced). In Windows you should use a Command Prompt or PowerShell terminal window for entering the commands. 
 
-"Installation" is very easy: The following command will download the Docker image for Annif from quay.io registry  (if the image does not yet exist locally) and start the Bash shell in a container:
+"Installation" is very easy: The following command will download the Docker image for Annif from [quay.io](https://quay.io/) registry  (if the image does not yet exist locally) and start the Bash shell in a container:
 
     docker run -it quay.io/natlibfi/annif bash 
 
