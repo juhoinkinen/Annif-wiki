@@ -2,7 +2,7 @@ How to make a new release of Annif.
 
 1. Check that the `master` branch is in shape for a new release - tests are passing, no serious open issues etc.
 2. Make sure your local `master` branch is up to date w.r.t. GitHub: `git checkout master; git pull`
-3. Activate the pipenv with `pipenv shell` if you haven't already
+3. Activate the virtual environment with `source venv/bin/activate` if you haven't already
 4. Make a new version with bumpversion: `bumpversion release`
 5. Check with `git log` that the new version number matches your expectations.
 6. Push the commit to GitHub: `git push`
