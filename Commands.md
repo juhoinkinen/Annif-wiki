@@ -110,6 +110,7 @@ Parameters:
 * `limit`: maximum number of subjects to return
 * `threshold`: minimum score threshold, below which results will not be returned
 * `results-file`: Specify file in order to write non-aggregated results per subject. File directory must exists, existing file will be overwritten.
+* `jobs`: Number of parallel jobs (0 means all CPUs)
 * `backend-param`: Override a backend parameter of the config file
 * `projects`: Set path to projects.cfg
 
