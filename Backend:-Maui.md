@@ -1,6 +1,6 @@
 _**Note:** This page used to contain instructions on using MauiService. Nowadays the recommended method for integrating Annif with Maui is through Maui Server. The old MauiService instructions can still be found in the [history](https://github.com/NatLibFi/Annif/wiki/Backend:-Maui/324767fd4e47089f4d0964bdbe7be635c27c01ec) of this page. Unlike MauiService, Maui Server can be configured and trained directly through Annif using the normal `annif train` command, which makes it a lot easier to set up than MauiService._
 
-The `maui` backend can be used to integrate Annif with [Maui Server](https://github.com/TopQuadrant/MauiServer), which is a RESTful microservice wrapper around the [Maui](http://www.medelyan.com/software) automated indexing tool. Maui was originally created by Alyona Medelyan and described in her PhD thesis ["Human-competitive automated topic indexing"](http://www.medelyan.com/files/phd2009.pdf?attredirects=0&d=1). We will use a forked, enhanced version of Maui and the microservice wrapper Maui Server that were developed by Spatineo Inc. for the National Library of Finland.
+The `maui` backend can be used to integrate Annif with [Maui Server](https://github.com/TopQuadrant/MauiServer), which is a RESTful microservice wrapper, built by TopQuadrant Inc., around the [Maui](http://www.medelyan.com/software) automated indexing tool. Maui was originally created by Alyona Medelyan and described in her PhD thesis ["Human-competitive automated topic indexing"](http://www.medelyan.com/files/phd2009.pdf?attredirects=0&d=1). We will use a forked, enhanced version of Maui and the microservice wrapper Maui Server that were developed by the National Library of Finland in collaboration with Spatineo Inc.
 
 Maui is very good at detecting topics of text based on comparing terms in a controlled vocabulary to terms that appear in the document text. However, it cannot detect more abstract topics whose labels do not appear in text. For example, a topic such as "local history" would not be suggested for a document that describes the history of a village, unless that phrase is used in the document itself. Thus Maui works best when combined with another algorithm that relies on statistical associations.
 
@@ -12,44 +12,64 @@ You can start both Maui Server and Annif in Docker containers [using a compose f
 
 ## Setting up Maui Server using Tomcat
 
-Maui is a Java application and Maui Server is a servlet designed to run within a servlet container such as Apache Tomcat, so you will need to install these first. On Ubuntu 16.04 and 18.04, you can install the Java environment and Tomcat like this:
+### Downloading Maui Server
 
-    apt install tomcat8
+First you need to download the pre-built Web Application Resource package from [Maven Central](https://search.maven.org/search?q=g:fi.nationallibrary). You should download the newest `mauiserver` WAR.
 
-The Maui and Maui Server versions developed at the National Library of Finland also support a [Voikko](https://voikko.puimula.org/)-based Finnish language "stemmer" (actually a lemmatizer) called `FinnishStemmer`, which relies on the `libvoikko` native library. It can be installed from Ubuntu packages:
+### Installing Tomcat (and Voikko libraries)
+
+Maui is a Java application and Maui Server is a servlet designed to run within a servlet container such as Apache Tomcat, so you will need to install these first. On Ubuntu 18.04 and 20.04, you can install the Java environment and Tomcat version 9 like this:
+
+    apt install tomcat9
+
+The Maui and Maui Server versions developed at the National Library of Finland also support a [Voikko](https://voikko.puimula.org/)-based Finnish language "stemmer" (actually a lemmatizer) called `FinnishStemmer`, which relies on the `libvoikko` native library. If you need the Finnish language support for Maui, the Voikko libraries can be installed from Ubuntu packages:
 
     apt install libvoikko1 voikko-fi
 
-### Installing Maui Server
+Now ensure that the Tomcat daemon has started up properly:
 
-The easiest way to install Maui Server is to download the pre-built packages from [Maven Central](https://search.maven.org/search?q=g:fi.nationallibrary). You should download the newest `mauiserver` WAR. The examples below assume that you are downloading them under the `/srv/maui` directory.
+    service tomcat9 status
 
-### Running Maui Server
+If it says `active (running)` then Tomcat has been successfully installed.
 
-First ensure that the Tomcat daemon has started up properly:
+### Configuring Tomcat for Maui Server
 
-    service tomcat8 status
-
-Create a data directory for Maui Server. We will use the path `/var/lib/mauidata`. You also need to give Tomcat permissions to read and write files within that directory:
+First create a data directory for Maui Server. We will use the path `/var/lib/mauidata`. You also need to give Tomcat permissions to read and write files within that directory:
 
     mkdir /var/lib/mauidata
-    chown tomcat8:tomcat8 /var/lib/mauidata
+    chown tomcat:tomcat /var/lib/mauidata
 
-Then edit the Tomcat configuration, setting the `MauiServer.dataDir` property to point to the path of the configuration file using the `-D` command line option. You probably also need to give Tomcat more memory (e.g. `-Xmx2G`), as the default is usually way too low. On Debian/Ubuntu systems, you need to edit `/etc/default/tomcat8` and change the `JAVA_OPTS` setting to something like this:
+Then edit the Tomcat configuration, setting the `MauiServer.dataDir` property to point to the path of the configuration file using the `-D` command line option. You probably also need to give Tomcat more memory (e.g. `-Xmx2G`), as the default is often way too low. On Debian/Ubuntu systems, you need to edit `/etc/default/tomcat9` and add those options into the `JAVA_OPTS` setting so it looks something like this:
 
-    JAVA_OPTS="-Djava.awt.headless=true -Xmx2G -XX:+UseConcMarkSweepGC -DMauiServer.dataDir=/var/lib/mauidata"
+    JAVA_OPTS="-Xmx2G -DMauiServer.dataDir=/var/lib/mauidata -Djava.awt.headless=true"
 
-Then you will need to add the Maui Server servlet WAR to Tomcat. One easy way is to do this using a symlink, e.g.
+Under recent Ubuntu and Debian releases, Tomcat 9 is running in a sandbox set up using systemd, which is managing system services. The sandbox limits which parts of the file system web apps can access. We need to allow Tomcat to access the data directory. To do so, you need to customize the systemd unit file, which defines the service. The default unit file `/lib/systemd/system/tomcat9` has settings like this:
 
-    ln -s /srv/maui/mauiserver.war /var/lib/tomcat8/webapps/mauiserver.war
+    ProtectSystem=strict
+    ReadWritePaths=/etc/tomcat9/Catalina/
+    ReadWritePaths=/var/lib/tomcat9/webapps/
+    ReadWritePaths=/var/log/tomcat9/
 
-You probably don't want to include the version number in the webapp name, thus make sure to copy or symlink the WAR so it appears as `mauiserver.war` under the `webapps` directory.
+This means that only specific paths can be accessed. We need to allow also the data directory. So let’s customize it using the command
+
+    systemctl edit tomcat9
+
+This brings up a text editor with an empty file. Here we can override settings in the default systemd unit file. Add the following lines:
+
+    [Service]
+    ReadWritePaths=/var/lib/mauidata/
+
+When you exit the editor, the new systemd configuration should automatically take effect. If this doesn't happen, or you've edited the override file `/etc/systemd/system/tomcat9.service.d/override.conf` in another way, you can force reloading the systemd configuration using the command `systemctl daemon-reload`.
+
+Then you will need to add the Maui Server servlet WAR to Tomcat. You can just copy the downloaded WAR file to the Tomcat `webapps` directory so it will be deployed. You probably don't want to include the version number in the webapp name, thus make sure to copy or symlink the WAR so it appears as `mauiserver.war` under the `webapps` directory:
+
+    cp mauiserver-1.3.2.war /var/lib/tomcat9/webapps/mauiserver.war
 
 Finally restart Tomcat:
 
-    service tomcat8 restart
+    service tomcat9 restart
 
-You can verify that Maui Server is working using curl:
+You can verify that Maui Server is working using `curl` (or a web browser):
 
     curl http://localhost:8080/mauiserver/
 
@@ -57,7 +77,7 @@ If everything is working, this should give you a JSON object with information li
 
     {"title":"Maui Server","data_dir":"/var/lib/mauidata","default_lang":"en","version":"1.3.2","taggers":[]}
 
-If you get an error or other problem instead, check the Tomcat logs. The main one is `/var/log/tomcat8/logs/catalina.out`.
+If you get an error or other problem instead, check the Tomcat logs. The main one is `/var/log/tomcat9/logs/catalina.out`.
 
 ## Example configuration for Annif
 
