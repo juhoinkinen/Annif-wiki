@@ -22,7 +22,7 @@ A project has the following attributes:
 | backend    | The backend (algorithm) that the project uses. See below for details. |
 | analyzer   | The analyzer used to pre-process and tokenize text. See below for details. |
 | limit      | The maximum number of results (subjects/concepts) to return. |
-| input_limit| The maximum number of the characters of input document to use for making suggestions. With the value `0` (default) the limit is not applied. |
+| input_limit| The maximum number of the characters of an input document to pass to the backend. With the value `0` (default) the limit is not applied. |
 | vocab      | An identifier for the vocabulary used by this project |
 | access     | Access level when project is accessed via the REST API. Can be `public` (default), `hidden` or `private`, see below.
 
