@@ -42,7 +42,7 @@ The second most important backend is `maui`. Unfortunately setting it up takes a
 
 After getting these two to work you can move on to the ensembles, or try to get some of the other backends working. `omikuji` is highly recommended, as it tends to give excellent results with minimal (default) configuration. `fasttext` is another alternative to try, but a problem with fastText is that it has a lot of (hyper)parameters that need to be set just right to get good results.
 
-The `input_limit` is a common parameter of all Annif backends, which is simply the maximum number of characters of the input document that the backend uses in making suggestions. It can be used to base the suggestions only on the beginning part of a document, which can be very advantageous for long documents that have an abstract and/or introduction. For example for [JYU theses](https://github.com/NatLibFi/Annif-corpora/tree/master/fulltext/jyu-theses#theses-from-university-of-jyv%C3%A4skyl%C3%A4) a good value for `input_limit` is 5000.
+The `input_limit` is a common parameter of all Annif backends, which is simply the maximum number of characters of an input document that the backend uses in training, learning, and suggesting. It can be used to base the suggestions only on the beginning part of a document, which can be very advantageous for long documents that have an abstract and/or introduction. For example for [JYU theses](https://github.com/NatLibFi/Annif-corpora/tree/master/fulltext/jyu-theses#theses-from-university-of-jyv%C3%A4skyl%C3%A4) a good value for `input_limit` is 5000.
 
 # 5. Configure an ensemble
 
