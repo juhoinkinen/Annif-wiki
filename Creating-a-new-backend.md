@@ -9,9 +9,9 @@ A backend must define these fields:
 A backend needs to implement these key methods:
 
 * `initialize` (optional): set up the necessary internal data structures
-* `train` (optional): train the model on a given document corpus
+* `_train` (optional): train the model on a given document corpus
 * `_suggest`: this is the key method that is given a single document (text) and returns suggested subjects
 
 Learning backends additionally implement:
 
-* `learn`: continue training the model on the given corpus
+* `_learn`: continue training the model on the given corpus
