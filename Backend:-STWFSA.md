@@ -13,10 +13,9 @@ name=STWFSA YSO english
 language=en
 backend=stwfsa
 vocab=yso-en
-concept_type_uri=http://www.w3.org/2004/02/skos/core#Concept
 ```
 
-A configuration making use of hierarchical structure in the vocabulary.
+A configuration using custom classes for concept types, sub thesauri and their relation (see parameter documentation below for more information).
 ```
 [stwfsa-stw-en]
 name=STWFSA STW english
