@@ -62,6 +62,7 @@ Parameters:
 * `path`: path(s) to a directory containing text files in the corpus format, or a TSV file (possibly gzipped)
 * `projects`: Set path to config file
 * `backend-param`: Override a backend parameter of the config file
+* `docs-limit`: Maximum number of documents to use
 * `cached`: If set, reuse preprocessed training data from the previous run. See [[Reusing preprocessed training data]]
 
 This will train the project using all the documents from the given directory or TSV file in a single batch
@@ -77,6 +78,7 @@ Parameters:
 * `path`: path(s) to a directory containing text files in the corpus format, or a TSV file (possibly gzipped)
 * `projects`: Set path to config file
 * `backend-param`: Override a backend parameter of the config file
+* `docs-limit`: Maximum number of documents to use
 
 This will continue training an already trained project using all the documents from the given directory or TSV file in a single batch operation. Not supported by all backends.
 
@@ -112,6 +114,7 @@ Parameters:
 * `results-file`: Specify file in order to write non-aggregated results per subject. File directory must exists, existing file will be overwritten.
 * `jobs`: Number of parallel jobs (0 means all CPUs)
 * `backend-param`: Override a backend parameter of the config file
+* `docs-limit`: Maximum number of documents to use
 * `projects`: Set path to projects.cfg
 
 REST equivalent: N/A
@@ -129,6 +132,7 @@ Parameters:
 * `path`: path(s) to a directory containing text files in the corpus format or a TSV file (possibly gzipped)
 * `projects`: Set path to projects.cfg
 * `backend-param`: Override a backend parameter of the config file
+* `docs-limit`: Maximum number of documents to use
 
 REST equivalent: N/A
 
