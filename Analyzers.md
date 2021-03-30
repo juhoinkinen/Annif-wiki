@@ -1,5 +1,7 @@
 Analyzers are used to pre-process, tokenize and normalize text. If you happen to be familiar with analyzers in Lucene, Solr and/or Elasticsearch, the concept is exactly the same although the details may differ a little bit. Analyzers are typically language-specific.
 
+By default the tokenization discards all words that are shorter than three characters, but this can be configured by setting `token_min_length` in the analyzer parameters. For example, to discard only words of one character (when using the `snowball` analyzer for English), use `snowball(english,token_min_length=2)`.
+
 As of version 0.38, Annif supports three analyzers: `simple`, `snowball` and `voikko`. 
 
 ## `simple` analyzer
