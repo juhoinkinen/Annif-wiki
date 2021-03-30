@@ -1,6 +1,6 @@
 The `mllm` backend is an implementation of the MLLM algorithm, which stands for Maui-like Lexical Matching. It is a Python reimplementation of many ideas that were used in the Maui algorithm (see [Medelyan, 2019](https://hdl.handle.net/10289/3513)), with some adjustments. It is meant for long full-text documents and like Maui, it needs to be trained with a relatively small number (hundreds or thousands) of manually indexed documents so that the algorithm can choose the right mix of heuristics that achieves best results on a particular document collection. The MLLM algorithm relies on the same [Analyzer](https://github.com/NatLibFi/Annif/wiki/Analyzers) functionality as most other Annif backends and should thus work for all languages for which a suitable analyzer exists.
 
-Since the algorithm has not been described elsewhere, a short explanation follows. The general idea is the same as Maui, but some details are different. In empirical tests, the MLLM algorithm has so far performed as well as better than Maui in terms of the common quality measures (precision, recall, F1 score, NDCG).
+Since the algorithm has not been described elsewhere, a short explanation follows. The general idea is the same as Maui, but some details are different. In empirical tests, the MLLM algorithm has so far performed as well as or better than Maui in terms of the common quality measures (precision, recall, F1 score, NDCG).
 
 During training, the vocabulary is first processed and an index is constructed from all the terms (preferred, alternate and optionally also hidden labels). Additional data structures are initialized based on vocabulary structure: matrices are constructed from semantic relations between concepts (broader, narrower and related relationships) as well as members of SKOS Collections. Then the manually indexed example documents are processed, matching them with terms from the vocabulary via the term index. Each document will produce a number of matches; these are then consolidated into a set of candidate subjects for that document, and heuristic feature values will be calculated for each candidate; the heuristics rely, in part, on the vocabulary structure as well as more general features such as TF-IDF value, document length and spread. Finally, a machine learning classifier (an ensemble of 10 decision trees) is trained to predict which candidate features indicate that the subject is appropriate for the document, based on the manually assigned subjects. The indexes and the trained classifier are then saved to disk; together they constitute the trained MLLM model.
 
@@ -14,6 +14,7 @@ The main differences between MLLM and Maui are:
   * membership in the same SKOS Collection
   * matched via preferred label
   * ambiguity: whether the set of matched terms could also have been matched with other subjects
+* MLLM does not implement all the features in Maui, for example Wikipedia related features that are only useful for keyword extraction without a controlled vocabulary
 
 ## Example configuration
 
