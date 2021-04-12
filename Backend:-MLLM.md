@@ -51,7 +51,7 @@ max_samples | The fraction of samples to use for training each decision tree in 
 
 ## Hyperparameter optimization
 
-You can automate the search for the parameters using the `hyperopt` command. This requires that you have first trained the MLLM project on some training documents to initialize the data structures. You will also need a separate validation set of indexed documents (pypically hundreds or thousands) that will be used to measure how good results a particular combination of parameter values will give. The validation set should not include any of the documents in the training set. Here is an example how to try 100 different hyperparameter combinations, running 4 jobs in parallel on multiple CPU cores:
+You can automate the search for the parameters using the `hyperopt` command. This requires that you have first trained the MLLM project on some training documents to initialize the data structures. You will also need a separate validation set of indexed documents (typically hundreds or thousands) that will be used to measure how good results a particular combination of parameter values will give. The validation set should not include any of the documents in the training set. Here is an example on how to try 100 different hyperparameter combinations, running 4 jobs in parallel on multiple CPU cores:
 
     annif hyperopt yso-mllm-en --trials 100 --jobs 4 /path/to/validation-set/
 
