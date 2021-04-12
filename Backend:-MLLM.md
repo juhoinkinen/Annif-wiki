@@ -7,8 +7,8 @@ The following steps happen during training:
 1. A term index is constructed from all the terms (preferred, alternate and optionally also hidden labels)
 2. Additional indexes are initialized based on vocabulary structure: semantic relations between concepts (broader, narrower and related) as well as members of SKOS Collections
 3. The manually indexed training documents are processed, matching them with terms from the vocabulary via the term index constructed in step 1; the result is a set of matches within each document
-4. The matches for each document are combined into candidate subjects; for example, repeated matches for the same subject will be combined into a single candidate
-5. Numeric features are calculated for each candidate, based on heuristics that rely on general features such as document length, TF-IDF value ans spread, as well as the vocabulary indexes from step 2
+4. The matches for each document are combined into candidate subjects; repeated matches for the same subject will be combined into a single candidate
+5. Numeric features are calculated for each candidate, based on heuristics that rely on general features such as document length, TF-IDF value and spread, as well as the vocabulary indexes from step 2
 6. A machine learning classifier (an ensemble of 10 decision trees) is trained to predict which candidate features indicate that the subject is appropriate for the document, by comparing the candidates with the manually assigned subjects for the documents.
 7. The indexes and the classifier are saved to disk; together they constitute the trained MLLM model.
 
