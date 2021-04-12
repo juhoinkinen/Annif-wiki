@@ -21,8 +21,8 @@ The main differences between MLLM and Maui are:
 * Maui has only one feature for semantic relatedness, while MLLM uses distinct heuristics for broader, narrower and related relationships
 * MLLM includes features that are not used in Maui:
   * membership in the same SKOS Collection
-  * matched via preferred label
-  * ambiguity: whether the set of matched terms could also have been matched with other subjects
+  * matched via preferred label vs. non-preferred (alternate or hidden) label
+  * ambiguity: whether the set of matched tokens could also have been matched with other subjects
 * MLLM does not implement all the features in Maui, for example Wikipedia related features that are only useful for keyword extraction without a controlled vocabulary
 * Maui is a standalone Java application, while MLLM is implemented in Python as a part of the Annif code base and relies on some of the facilities that Annif provides, e.g. the configuration, vocabulary and analyzer functionality.
 
