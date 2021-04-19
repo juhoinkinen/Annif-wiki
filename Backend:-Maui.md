@@ -1,5 +1,5 @@
 _**Note:** 
-As Maui needs to be run as a separate service (either MauiServer or MauiService), it can be somewhat inconvenient to use. Since Annif 0.52, instead of Maui you can use the [MLLM backend](https://github.com/NatLibFi/Annif/wiki/Backend%3A-MLLM). MLLM is based on many ideas that are used in the Maui algorithm, but is implemented as an internal module in Annif, and it is recommended to use MLLM rather than Maui._
+As Maui needs to be run as a separate service (either via MauiServer or MauiService), it can be somewhat inconvenient to use. Since Annif 0.52, instead of Maui you can use the [MLLM backend](https://github.com/NatLibFi/Annif/wiki/Backend%3A-MLLM). MLLM is based on many ideas that are used in the Maui algorithm, but is implemented as an internal module in Annif, and it is recommended to use MLLM rather than Maui._
 
 _This page used to contain instructions on using MauiService. Nowadays the recommended method for integrating Annif with Maui is through Maui Server. The old MauiService instructions can still be found in the [history](https://github.com/NatLibFi/Annif/wiki/Backend:-Maui/324767fd4e47089f4d0964bdbe7be635c27c01ec) of this page. Unlike MauiService, Maui Server can be configured and trained directly through Annif using the normal `annif train` command, which makes it a lot easier to set up than MauiService._
 
