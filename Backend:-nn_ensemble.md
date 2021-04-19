@@ -33,6 +33,7 @@ nodes | The number of nodes (neurons) in the hidden layer of the neural network.
 dropout_rate | The amount of dropout to apply between layers (between 0.0 and 1.0) during training. Defaults to 0.2
 optimizer | The optimizer to use. Defaults to "adam"
 epochs | The number of passes over the initial training data to perform
+lr | The learning rate of the optimizer. Default depends on the optimizer
 
 The `nodes` setting determines the size of the neural network. Larger networks take up more memory, but may provide better results in some cases. The `dropout_rate` setting affects the amount of dropout regularization to apply in order to prevent overfitting. The `epochs` setting affects how much the network tries to learn from the initial training data (given using the `train` command). Some experimentation is necessary to find the optimal parameters.
 
