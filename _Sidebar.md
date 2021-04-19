@@ -17,6 +17,7 @@
   * [[fastText|Backend: fastText]]
   * [[Omikuji|Backend: Omikuji]]
   * [[Maui|Backend: Maui]]
+  * [[MLLM|Backend: MLLM]]
   * [[STWFSA|Backend: STWFSA]]
   * [[vw_multi|Backend: vw_multi]]
   * [[Ensemble|Backend: Ensemble]]
