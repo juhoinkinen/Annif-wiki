@@ -64,6 +64,7 @@ loss | Loss function: `ns`, `hs` or `softmax`. `hs` is much faster than the othe
 minn | Lower limit of character n-gram length
 maxn | Upper limit of character n-gram length
 minCount | Minimum word (or n-gram) frequency to include it in the model
+wordNgrams | maximum length of word n-grams (default: 1)
 
 ## Retraining with cached training data
 
