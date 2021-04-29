@@ -1,6 +1,6 @@
 The `fasttext` backend implements a text classification algorithm based on word embeddings and machine learning. It is a wrapper around the [fastText library](https://fasttext.cc/) created by Facebook Research. The model resembles a feed-forward neural network with one hidden layer, though some shortcuts are used for computational efficiency.
 
-The quality of results can be very good, but many parameters have to be selected to get optimal results. Training can be computationally intensive; by default it can train using up to 12 CPU cores in parallel.
+The quality of results can be very good, but many parameters have to be selected to get optimal results. Training can be computationally intensive; by default it can train using all cores in parallel. If you have a machine with a huge number of CPU cores (more than 8), it is probably wise to limit the number of cores used for training; a good starting point is `thread=12` beyond which additional CPU cores do not significantly speed up the training, so you will just end up wasting CPU resources.
 
 ## Installation
 
@@ -65,6 +65,7 @@ minn | Lower limit of character n-gram length
 maxn | Upper limit of character n-gram length
 minCount | Minimum word (or n-gram) frequency to include it in the model
 wordNgrams | maximum length of word n-grams (default: 1)
+thread | number of CPU cores to use for training (default: all of them)
 
 ## Retraining with cached training data
 
