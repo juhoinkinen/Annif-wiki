@@ -1,6 +1,6 @@
 The `yake` backend is a wrapper around [YAKE library](https://github.com/LIAAD/yake), which performs unsupervised automatic keyword extraction. 
 
-In the Annif backend the keywords found by YAKE are searched from an index, which is formed from the SKOS vocabulary labels. The index can include `prefLabels`, `altLabels` and/or `hiddenLabels`. Keywords and labels in the index are lemmatized and sorted alphabetically for mathing. 
+In the Annif backend the keywords found by YAKE are searched from an index, which is formed from the SKOS vocabulary labels. The index can include `prefLabels`, `altLabels` and/or `hiddenLabels`. Keywords and labels in the index are lemmatized and sorted alphabetically for matching. 
 
 The YAKE backend performs lexical matching, but does not perform as well as the other lexical backends (MLLM, STWFSA or Maui) as measured by evaluation results. However, the (free) keyword extraction operation offers a possibility to add new features in Annif, especially the feature for suggesting new terms for a vocabulary (the keywords not found in the vocabulary). Also the unsupervised approach can be useful in some cases: there is no need for training data.
 
