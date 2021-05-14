@@ -1,12 +1,20 @@
 The `yake` backend is a wrapper around [YAKE library](https://github.com/LIAAD/yake), which performs unsupervised automatic keyword extraction. 
 
-In the Annif backend the keywords found by YAKE are searched from an index, which is formed from the SKOS vocabulary labels. The index can include `prefLabels`, `altLabels` and/or `hiddenLabels`. Keywords and labels in the index are lemmatized and sorted alphabetically for matching. 
+In the backend the keywords found by YAKE are searched from an index, which is formed from the SKOS vocabulary labels. The index can include `prefLabels`, `altLabels` and/or `hiddenLabels`. Keywords and labels in the index are lemmatized and sorted alphabetically for matching.
 
-The YAKE backend performs lexical matching, but does not perform as well as the other lexical backends (MLLM, STWFSA or Maui) as measured by evaluation results. However, the (free) keyword extraction operation offers a possibility to add new features in Annif, especially the feature for suggesting new terms for a vocabulary (the keywords not found in the vocabulary). Also the unsupervised approach can be useful in some cases: there is no need for training data.
+The YAKE backend is based on lexical principle, but currently it does not perform as well as the other lexical backends (MLLM, STWFSA or Maui, which are from the beginning designed to utilize the SKOS vocabulary features). However, the (free) keyword extraction operation offers a possibility to add new features to Annif, especially the feature for suggesting new terms for a vocabulary (the keywords not found in the vocabulary).
+Currently the keywords not found from the vocabulary are shown in the debug log.
+Also the unsupervised approach can be useful in some cases: there is no need for training data.
 
 ## Installation
 
-Note that the YAKE library is licensed under GPLv3, and installing YAKE library for this optional backend may result in GPLv3 terms to cover the application. 
+Please note that the [YAKE](https://github.com/LIAAD/yake) library is licended
+under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.txt), while Annif is
+licensed under the Apache License 2.0. The licenses are compatible, but
+depending on legal interpretation, the terms of the GPLv3 (for example the
+requirement to publish corresponding source code when publishing an executable
+application) may be considered to apply to the whole of Annif+Yake if you
+decide to install the optional YAKE dependency.
 
 For installation see [Optional features and dependencies](https://github.com/NatLibFi/Annif/wiki/Optional-features-and-dependencies).
 
@@ -24,18 +32,21 @@ vocab=yso-en
 
 ### Backend-specific parameters
 
-The parameters of the first two lines used in the backend in constructing the label index and matching keywords to it, the parameters in the following lines are passed to YAKE when extracting keywords (see [description](https://github.com/LIAAD/yake#usage-command-line)):
+The `label_types` and `remove_parentheses` parameters are used for constructing the label index.
+Note that if these parameters are changed after the label index has been created, which occurs on the first `suggest` call for a project, the update does not change the index, but the project then needs to be reset by `annif clear <project>`.
+Resetting is needed also after vocabulary update.
+
+The other parameters are passed to YAKE when extracting keywords; for their detailed description see the [article](https://github.com/LIAAD/yake#usage-command-line).
 
 Parameter |  Description
 -------- | --------------------------------------------------
 label_types | SKOS label types to use in matching. Values are given in a comma separated list of `prefLabel`, `altLabel`, and/or `hiddenLabel`. Defaults to `prefLabel, altLabel`.
-remove_parentheses | Whether to remove parts of labels inside parentheses (a specifier in a label, e.g. `(photography)` in `films (photography)`). Value needs to be interpretable as a boolean, e.g. `True/False`. Defaults to `False`.
-max_ngram_size | 4,
-deduplication_threshold | 0.9
-deduplication_algo | `levs`
-window_size | 1
-num_keywords | 100
-features | None
+remove_parentheses | Whether to remove parts of SKOS labels inside parentheses (a specifier for a label, e.g. `(photography)` in `films (photography)`). Value needs to be interpretable as a boolean, e.g. `True/False`. Defaults to `False`.
+window_size | Distance (in number of tokens) considered when computing co-occurances of tokens. Defaults to 1.
+max_ngram_size | Maximum number of consequtive words to use in forming candidate keywords. Defaults to 4.
+deduplication_algo | Algorithm to measure the similarity of candidate keywords for deduplication: `levs`, `jaro` or `seqm`. Defaults to `levs`.
+deduplication_threshold | Threshold for the value of the similarity measure for deduplication. Defaults to 0.9.
+num_keywords | Limit for the number of keywords that YAKE extracts. Defaults to 100.
 
 ## Usage
 
