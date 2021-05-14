@@ -19,6 +19,7 @@
   * [[Maui|Backend: Maui]]
   * [[MLLM|Backend: MLLM]]
   * [[STWFSA|Backend: STWFSA]]
+  * [[YAKE|Backend: YAKE]]
   * [[vw_multi|Backend: vw_multi]]
   * [[Ensemble|Backend: Ensemble]]
   * [[PAV|Backend: PAV]]
