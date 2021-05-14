@@ -23,6 +23,7 @@ Welcome to the Annif wiki!
      * [[Backend: Maui]]
      * [[Backend: MLLM]]
      * [[Backend: STWFSA]]
+     * [[Backend: YAKE]]
      * [[Backend: vw_multi]]
   * Fusion/Ensemble backends that combine results from other backends
      * [[Backend: Ensemble]]
