@@ -4,6 +4,7 @@ In the backend the keywords found by YAKE are searched from an index, which is f
 
 The YAKE backend is based on lexical principle, but currently it does not perform as well as the other lexical backends (MLLM, STWFSA or Maui, which are from the beginning designed to utilize the SKOS vocabulary features). However, the (free) keyword extraction operation offers a possibility to add new features to Annif, especially the feature for suggesting new terms for a vocabulary (the keywords not found in the vocabulary).
 Currently the keywords not found from the vocabulary are shown in the debug log.
+
 Also the unsupervised approach can be useful in some cases: there is no need for training data.
 
 ## Installation
@@ -30,13 +31,15 @@ analyzer=snowball(english)
 vocab=yso-en
 ```
 
+For long texts it can be advantageous to use the `input_limit` [project setting](https://github.com/NatLibFi/Annif/wiki/Project-configuration) to limit the number of characters that are passed to YAKE. For Finnish thesis and dissertations good results can be achieved with `input_limit=20000`.
+
 ### Backend-specific parameters
 
 The `label_types` and `remove_parentheses` parameters are used for constructing the label index.
 Note that if these parameters are changed after the label index has been created, which occurs on the first `suggest` call for a project, the update does not change the index, but the project then needs to be reset by `annif clear <project>`.
 Resetting is needed also after vocabulary update.
 
-The other parameters are passed to YAKE when extracting keywords; for their detailed description see the [article](https://github.com/LIAAD/yake#usage-command-line).
+The other parameters are passed to YAKE when extracting keywords; for the detailed description of them and the YAKE algorithm see the [article by R. Campos et al.](https://www.sciencedirect.com/science/article/abs/pii/S0020025519308588?via%3Dihub).
 
 Parameter |  Description
 -------- | --------------------------------------------------
