@@ -49,6 +49,7 @@ Parameter | Description
 --------- | --------------------------------------------------
 chunksize | How many sentences per chunk
 limit | Maximum number of results to return
+ngram |	maximum length of word n-grams (default: 1)
 bit_precision | Determines size of feature space. VW default is rather low, usually 22-28 are better.
 learning_rate | Learning rate
 loss_function | Function used when training model. Valid values: `squared`, `logistic`, `hinge`
