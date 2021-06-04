@@ -1,6 +1,6 @@
 The `STWFSA` backend is a wrapper around [STWFSAPY](https://github.com/zbw/stwfsapy), a lexical algorithm based on finite state automata. 
 
-It achieves best results with short texts, i.e., titles and author keywords, and is best suited for English language data.
+It is best suited for English language data.
 
 
 ## Example configuration
