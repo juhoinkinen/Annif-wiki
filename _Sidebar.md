@@ -21,6 +21,7 @@
   * [[STWFSA|Backend: STWFSA]]
   * [[YAKE|Backend: YAKE]]
   * [[vw_multi|Backend: vw_multi]]
+  * [[SVC|Backend: SVC]]
   * [[Ensemble|Backend: Ensemble]]
   * [[PAV|Backend: PAV]]
   * [[nn_ensemble|Backend: nn_ensemble]]
