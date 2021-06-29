@@ -25,6 +25,7 @@ Welcome to the Annif wiki!
      * [[Backend: STWFSA]]
      * [[Backend: YAKE]]
      * [[Backend: vw_multi]]
+     * [[Backend: SVC]]
   * Fusion/Ensemble backends that combine results from other backends
      * [[Backend: Ensemble]]
      * [[Backend: PAV]]
