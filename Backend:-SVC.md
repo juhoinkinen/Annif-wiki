@@ -1,6 +1,6 @@
 The SVC that implements Linear Support Vector Classification. It is based on [LinearSVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html) in scikit-learn, which in turn is based on liblinear. This kind of algorithm is well suited for multiclass (but not multilabel) classification, for example classifying documents with the Dewey Decimal Classification or the [20 Newsgroups](http://qwone.com/~jason/20Newsgroups/) classification, which is used for the examples below. It requires relatively little training data. It is suitable for classifications of up to around 10,000 classes.
 
-Note that SVC cannot handle more than one class/subject per document during training. If there are more than one subject per document in the training file, only the first one will be used and the others will be ignored.
+Note that SVC cannot handle more than one class/subject per document during training. If there are more than one subject per document in the training file, a NotSupportedException is raised.
 
 ## Example configuration
 
