@@ -15,7 +15,7 @@ backend=stwfsa
 vocab=yso-en
 ```
 
-A configuration using custom classes for concept types, sub thesauri and their relation (see parameter documentation below for more information).
+A configuration using custom classes for concept types, sub thesauri and their relations (see parameter documentation below for more information).
 ```
 [stwfsa-stw-en]
 name=STWFSA STW english
@@ -40,14 +40,14 @@ thesaurus_relation_type_uri | Optional relation between sub thesauri and concept
 thesaurus_relation_is_specialisation | Set to false if `thesaurus_relation_type_uri` is a specialisation and not a generalisation. I.e., if you have (_concept_, `thesaurus_relation_type_uri`, _sub-thesaurus_) triples in your graph it should be set to `False`. Conversely it should be set to `True` if you have (_sub-thesaurus_, `thesaurus_relation_type_uri`, _concept_) in your graph. Defaults to `True`.
 remove_deprecated | Whether to remove deprecated concepts, enabled by default.
 handle_title_case | Disable to not match title case versions of concept labels, disabled by default.
-extract_upper_case_from_braces | Removes the explanation in braces from labels. I.e.m `GDP (Gross Domestic Product)` will be transformed to `GDP`
-extract_any_case_from_braces | Can extract content of braces in Labels. I.e., `R&D (research and discovery)` will be transformed to `research and discovery`. In contrast to `extract_upper_case_from_braces` it will extract the part inside the parenthesis and not the part before. Disabled by default.
+extract_upper_case_from_braces | Removes the explanation in braces from labels. I.e., `GDP (Gross Domestic Product)` will be transformed to `GDP`
+extract_any_case_from_braces | Can extract content of braces in labels. I.e., `R&D (research and discovery)` will be transformed to `research and discovery`. In contrast to `extract_upper_case_from_braces` it will extract the part inside the parenthesis and not the part before. Disabled by default.
 expand_ampersand_with_spaces | For labels that contain an ampersand it will also match text containing spaces around that symbol. I.e., `R & D` will be matched for label `R&D`. Enabled by default.
 expand_abbreviation_with_punctuation | For labels containing only uppercase letters it will also match text with punctuation added. I.e., `G.D.P.` for label `GDP`. Enabled by default.
-simple_english_plural_rules| Can detect simple English plural forms of labels. Disabled by default
+simple_english_plural_rules| Can detect simple English plural forms of labels. Disabled by default.
 
 
-If your vocabulary has a hierarchical structure you can use the parameters `sub_thesaurus_type_uri`, `thesaurus_relation_type_uri` and `thesaurus_relation_is_specialisation`. This will help the algorithm to detect structure in the vocabulary where it performs better than in others.
+If your vocabulary has a hierarchical structure you can use the parameters `sub_thesaurus_type_uri`, `thesaurus_relation_type_uri` and `thesaurus_relation_is_specialisation`. This will help the algorithm detect structure in the vocabulary where it performs better than in others.
 
 ## Usage
 
