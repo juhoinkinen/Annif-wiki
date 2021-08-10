@@ -8,6 +8,7 @@ name=TF-IDF English
 language=en
 backend=tfidf
 analyzer=snowball(english)
+transform=pass
 limit=100
 vocab=yso-en
 ```
@@ -22,7 +23,7 @@ A project has the following attributes:
 | backend    | The backend (algorithm) that the project uses. See below for details. |
 | analyzer   | The analyzer used to pre-process and tokenize text. See below for details. |
 | limit      | The maximum number of results (subjects/concepts) to return. |
-| input_limit| The maximum number of the characters of an input document to pass to the backend. With the value `0` (default) the limit is not applied. |
+| transform  | The transformation to apply to text, by default no transformation is applied. See below for details. |
 | vocab      | An identifier for the vocabulary used by this project |
 | access     | Access level when project is accessed via the REST API. Can be `public` (default), `hidden` or `private`, see below.
 
@@ -38,7 +39,11 @@ The [[ensemble|Backend: Ensemble]] backend provides a way of combining results f
  
 # Analyzers
 
-Analyzers are used to pre-process text. For a list of supported analyzers, see [[Analyzers]].
+Analyzers are used by backends to pre-process text. For a list of supported analyzers, see [[Analyzers]].
+
+# Transforms
+
+Before the text pre-processing by an analyzer a transformation can be applied to text. A transform can consist of multiple individual transforms, whose specifications are separated by comma. The specification for an individual transform is the name of a transform followed by possible arguments in parentheses. For example, `transform=pass,limit(5000)` defines a pass-through/identity transformation followed by limiting text to its first 5000 characters.
 
 # Vocabularies
 
