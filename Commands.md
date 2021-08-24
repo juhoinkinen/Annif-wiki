@@ -63,6 +63,7 @@ Parameters:
 * `projects`: Set path to config file
 * `backend-param`: Override a backend parameter of the config file
 * `docs-limit`: Maximum number of documents to use
+* `jobs´: Number of threads/CPUs to use (not supported by all backends)
 * `cached`: If set, reuse preprocessed training data from the previous run. See [[Reusing preprocessed training data]]
 
 This will train the project using all the documents from the given directory or TSV file in a single batch
