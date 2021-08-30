@@ -15,7 +15,7 @@ backend=stwfsa
 vocab=yso-en
 ```
 
-A configuration using custom classes for concept types, sub thesauri and their relations (see parameter documentation below for more information).
+A configuration using custom classes for concept types, sub-thesauri and their relations (see parameter documentation below for more information).
 ```
 [stwfsa-stw-en]
 name=STWFSA STW english
@@ -35,9 +35,9 @@ The parameters are:
 Parameter |  Description
 -------- | --------------------------------------------------
 concept_type_uri| The type of the concepts in your graph, defaults to `http://www.w3.org/2004/02/skos/core#Concept`.
-sub_thesaurus_type_uri | Optional type for sub thesaurus structure in your vocabulary, defaults to `http://www.w3.org/2004/02/skos/core#Collection`.
-thesaurus_relation_type_uri | Optional relation between sub thesauri and concepts. Defaults to `http://www.w3.org/2004/02/skos/core#member`
-thesaurus_relation_is_specialisation | Set to false if `thesaurus_relation_type_uri` is a specialisation and not a generalisation. I.e., if you have (_concept_, `thesaurus_relation_type_uri`, _sub-thesaurus_) triples in your graph it should be set to `False`. Conversely it should be set to `True` if you have (_sub-thesaurus_, `thesaurus_relation_type_uri`, _concept_) in your graph. Defaults to `True`.
+sub_thesaurus_type_uri | Optional type for sub-thesaurus structure in your vocabulary, defaults to `http://www.w3.org/2004/02/skos/core#Collection`.
+thesaurus_relation_type_uri | Optional type of relation between concepts and sub-thesaurus entries. Defaults to `http://www.w3.org/2004/02/skos/core#member`
+thesaurus_relation_is_specialisation | Set to false if `thesaurus_relation_type_uri` is a specialisation relation instead of a generalisation relation. I.e., if you have (_concept_, `thesaurus_relation_type_uri`, _sub-thesaurus_) triples in your graph it should be set to `False`. Conversely it should be set to `True` if you have (_sub-thesaurus_, `thesaurus_relation_type_uri`, _concept_) in your graph. Defaults to `True`.
 remove_deprecated | Whether to remove deprecated concepts, enabled by default.
 handle_title_case | Disable to not match title case versions of concept labels, disabled by default.
 extract_upper_case_from_braces | Removes the explanation in braces from labels. I.e., `GDP (Gross Domestic Product)` will be transformed to `GDP`
@@ -47,7 +47,7 @@ expand_abbreviation_with_punctuation | For labels containing only uppercase lett
 simple_english_plural_rules| Can detect simple English plural forms of labels. Disabled by default.
 
 
-If your vocabulary has a hierarchical structure you can use the parameters `sub_thesaurus_type_uri`, `thesaurus_relation_type_uri` and `thesaurus_relation_is_specialisation`. This will help the algorithm detect structure in the vocabulary where it performs better than in others.
+If your vocabulary has a hierarchical structure you can use the parameters `sub_thesaurus_type_uri`, `thesaurus_relation_type_uri` and `thesaurus_relation_is_specialisation`. This will help the algorithm detect structure in the vocabulary that it can exploit.
 
 ## Usage
 
