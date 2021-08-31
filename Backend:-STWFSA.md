@@ -69,6 +69,6 @@ Evaluate a directory full of files in fulltext [[document corpus|Document corpus
 
 ## Provenance / contact information
 
-[STWFSAPY](https://github.com/zbw/stwfsapy) has been developed as part of the automatization of subject indexing effort at ZBW – Leibniz Information Centre for Economics, [AutoSE](https://www.zbw.eu/en/about-us/key-activities/automated-subject-indexing).
+[STWFSAPY](https://github.com/zbw/stwfsapy) has been developed as part of the automatization effort for subject indexing at ZBW – Leibniz Information Centre for Economics, [AutoSE](https://www.zbw.eu/en/about-us/key-activities/automated-subject-indexing).
 
 If you have questions about the algorithm or about AutoSE in general, please write to <autose@zbw.eu>.
