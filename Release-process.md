@@ -1,5 +1,6 @@
-How to make a new release of Annif.
+How to make a new release of Annif. 
 
+## Normal release (for minor version)
 1. Check that the `master` branch is in shape for a new release - tests are passing, no serious open issues etc.
 2. Make sure your local `master` branch is up to date w.r.t. GitHub: `git checkout master; git pull`
 3. Activate the virtual environment with `source venv/bin/activate` if you haven't already
@@ -18,3 +19,12 @@ How to make a new release of Annif.
 16. Prepare the `master` branch for the next development release with bumpversion: `bumpversion --no-tag minor` (this should increment the second part of the version number and add a `-dev` suffix, but not create a new tag, as it would create confusion e.g. on PyPI)
 17. Check with `git log` that the new version number matches your expectations.
 18. Push the commit to GitHub: `git push`
+
+## Patch release
+1. Checkout the previous release, e.g. `git checkout v0.54.0`
+2. Create and checkout a new branch for the new release, e.g. `git checkout -b release-0.54.1`
+3. Include the wanted changes to the branch by cherry-picking commits or merging branches.
+4. Make a manual version bump by editing the version numbers in `setup.py` and `setup.cfg` appropriately and commit the changes with a message like `Manual version bump to 0.54.1`
+5. Manually create the git tag, e.g. `git tag v0.54.1`
+6. Follow the normal release process from step 6 (`git push`...)
+7. If necessary, change the GitHub milestones of the PRs included in this patch to point to the correct minor version (in case the milestones have originally been set to next minor release, e.g. 0.55).
