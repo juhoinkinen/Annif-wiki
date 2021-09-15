@@ -43,7 +43,7 @@ Analyzers are used by backends to pre-process text. For a list of supported anal
 
 # Transforms
 
-Before the text pre-processing by an analyzer a transformation can be applied to text. A transform can consist of multiple individual transforms, whose specifications are separated by comma. The specification for an individual transform is the name of a transform followed by possible arguments in parentheses. For example, `transform=pass,limit(5000)` defines a pass-through/identity transformation followed by limiting text to its first 5000 characters.
+Before text pre-processing by an analyzer the text can modified by applying a transformation to it, see [[Transforms]]. 
 
 # Vocabularies
 
