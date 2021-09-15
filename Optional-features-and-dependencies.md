@@ -17,6 +17,19 @@ If you have installed Annif from GitHub, use this instead:
     pip install .[voikko]
     pip install -e .  # make sure the Annif installation remains in editable mode
 
+# Language filtering with pycld3
+
+[lang_filter](https://github.com/NatLibFi/Annif/wiki/Transforms#filter_lang-transform) transform relies on [Compact Language Detector v3](https://github.com/google/cld3), which is implemented in C++, but binary packages of it are available on PyPI via [`pycld3`](https://pypi.org/project/pycld3/).
+
+Install the optional feature:
+
+    pip install annif[pycld3]
+
+If you have installed Annif from GitHub, use this instead:
+
+    pip install .[pycld3]
+    pip install -e .  # make sure the Annif installation remains in editable mode
+
 # fastText backend
 
 Using the fastText backend requires installing the fastText Python wrapper, which compiles into native code and is not included by default when installing Annif. We use the [fasttextmirror](https://pypi.org/project/fasttextmirror/) package from PyPI. First you need to ensure that the Python development files are available:
