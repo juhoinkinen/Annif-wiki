@@ -12,6 +12,7 @@ Welcome to the Annif wiki!
   * [[Subject vocabulary formats]]
 * [[Project configuration]]
 * [[Analyzers]]
+* [[Transforms]]
 * [[Achieving good results]]
 * [[Reusing preprocessed training data]]
 * [[Running as a WSGI service]]
