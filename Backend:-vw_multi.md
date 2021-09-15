@@ -1,3 +1,5 @@
+# DEPRECATION NOTE: THIS BACKEND WILL NO LONGER BE AVAILABLE IN ANNIF 0.56
+
 The `vw_multi` backend is a wrapper around the multiclass and multilabel classification algorithms (`oaa`, `ect`, `log_multi` and `multilabel_oaa`) implemented by the [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit) machine learning system. It is probably best suited for classification tasks with a relatively small number of classes/subjects (fewer than 1000) though this depends on the specific algorithm and its parameters.
 
 This backend also supports [online learning](https://en.wikipedia.org/wiki/Online_machine_learning), which means that it can be further trained during use via the `learn` command in the Annif CLI and REST API.
