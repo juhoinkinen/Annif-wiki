@@ -64,6 +64,8 @@ If this fails with an error like `Could not find a version that satisfies the re
 
 # Vowpal Wabbit based backends
 
+**DEPRECATION NOTE: THIS BACKEND WILL NO LONGER BE AVAILABLE IN ANNIF 0.56**
+
 Using the `vw_multi` or `vw_ensemble` backends requires installing the Vowpal Wabbit bindings for Python, which is not included by default when installing Annif. The bindings require building VW from source, so you need to install some libraries first (see [Dependencies](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies) in the VW wiki for more details if necessary). On a typical Ubuntu 16.04 or 18.04 system this should be enough:
 
     sudo apt install libboost-program-options-dev libboost-python-dev zlib1g-dev cmake libboost-system-dev libboost-thread-dev libboost-test-dev
