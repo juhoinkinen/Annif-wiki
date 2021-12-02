@@ -20,7 +20,7 @@ When performing subject indexing, NDCG is probably the easiest to optimize, and 
 
 If you happen to have both metadata (short text such as titles, with manually assigned subjects) and fulltext documents, you can use the metadata for training most Annif algorithms and use the fulltext documents for validation and final evaluation (test). However, if you have at least few thousand fulltext documents available, it is useful to split them into several subsets:
 
-* Most documents will go into the training set. The train set will be used to train Maui and ensemble models such as PAV.
+* Most documents will go into the training set. The train set will be used to train MLLM and ensemble models such as PAV or the NN ensemble.
 * Around 500 documents will go into the validation set. This will be used to test different (hyper)parameters for the algorithms, as well as limit and offset values that will give the best F1 score if you're aiming for that.
 * Around 500 documents will go into the test set. These will be put aside for the most part and only evaluate algorithms/models that have been tuned by using the validate set.
 
@@ -38,7 +38,7 @@ The easiest backend to get started with is `tfidf`, as it doesn't require any ba
 
 Note that sometimes the `tfidf` backend will give very bad suggestions. Don't give up hope yet, as it is possible that it is making systematic errors that can be corrected by a smart ensemble. I've had a `tfidf` algorithm give an F1 score of 0.02, which increased to around 0.60 when wrapped in a PAV ensemble, and even more when combined with other backends.
 
-The second most important backend is `maui`. Unfortunately setting it up takes a little bit of work, as it is a separate Java application that needs to run in a servlet container. But it is important to get it working because its lexical approach complements the statistical approaches used in other backends very well.
+The second most important backend is probably `mllm`. Its lexical approach complements the statistical approaches used in other backends very well. (Previously Maui was used for this but MLLM is better)
 
 After getting these two to work you can move on to the ensembles, or try to get some of the other backends working. `omikuji` is highly recommended, as it tends to give excellent results with minimal (default) configuration. `fasttext` is another alternative to try, but a problem with fastText is that it has a lot of (hyper)parameters that need to be set just right to get good results.
 
@@ -53,7 +53,3 @@ You can also check how changing the `token_min_length` parameter of the [analyze
 The basic backends alone do not usually give very good results, as they all have their weaknesses. Combining them into an ensemble can improve results quite a lot. It is easiest to start with a simple `ensemble` backend that just combines results from several backends by taking the mean of scores, i.e. letting the backends vote on what the best result is. However, don't expect a large improvement from this simple strategy - sometimes the results are better than for each individual algorithm, sometimes they are worse. The important step is to get combined results!
 
 Once you have a basic ensemble working, you can try a smart ensemble such as `pav` or `nn_ensemble`. They are otherwise similar to the basic ensemble but require some training documents - a few thousand is a good number. After training the smart ensemble you should see a significant improvement! Note that scores returned from PAV are probability estimates and if you are aiming for a high F1 score, the best strategy is often to pick a large limit value such as 15 and a relatively high threshold value of 0.25 or 0.3.
-
-# 6. Set up feedback / online learning
-
-Here I would tell you that the next step would be to continue training Annif models as new documents are coming in, but it's only partially implemented so far and not yet extensively tested, so I won't. Thanks for reading this far!
