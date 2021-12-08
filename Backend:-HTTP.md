@@ -1,4 +1,4 @@
-The `http` backend communicates with a REST API that provides a `suggest` method. It can be either another instance of Annif or a service such as MauiService (see [[Backend: Maui]] for more details about using MauiService).
+The `http` backend communicates with a REST API that provides a `suggest` method. It can be either another instance of Annif or a service such as [MauiServer](https://github.com/NatLibFi/MauiServer).
 
 ## Example configuration
 
