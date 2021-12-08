@@ -15,7 +15,7 @@ See [[Optional features and dependencies]]
 name=NN ensemble English
 language=en
 backend=nn_ensemble
-sources=tfidf-en,maui-en
+sources=tfidf-en,mllm-en
 limit=100
 vocab=yso-en
 nodes=100
@@ -39,9 +39,9 @@ The `nodes` setting determines the size of the neural network. Larger networks t
 
 The `sources` setting is a comma-separated list of projects whose results will be combined. Optional weights may be given like this:
 
-    sources=tfidf-en:1,maui-en:2
+    sources=tfidf-en:1,mllm-en:2
 
-This setting would give twice as much weight on results from `maui-en` compared to results from `tfidf-en`.
+This setting would give twice as much weight on results from `mllm-en` compared to results from `tfidf-en`.
 
 ## Notes on LMDB storage and memory usage
 
