@@ -9,7 +9,7 @@ The `pav` backend implements a trainable dynamic ensemble that intelligently com
 name=PAV ensemble English
 language=en
 backend=pav
-sources=tfidf-en,maui-en
+sources=tfidf-en,mllm-en
 min-docs=3
 limit=100
 vocab=yso-en
@@ -17,9 +17,9 @@ vocab=yso-en
 
 The `sources` setting is a comma-separated list of projects whose results will be combined. Optional weights may be given like this:
 
-    sources=tfidf-en:1,maui-en:2
+    sources=tfidf-en:1,mllm-en:2
 
-This setting would give twice as much weight on results from `maui-en` compared to results from `tfidf-en`.
+This setting would give twice as much weight on results from `mllm-en` compared to results from `tfidf-en`.
 
 The `min-docs` setting specifies how many positive examples of a concept are required in the training data in order to create a regression model for that concept. Recommended values are between 3 and 10. When not enough positive examples are available, raw scores are used instead, similar to the basic [[ensemble backend|Backend: Ensemble]].
 
