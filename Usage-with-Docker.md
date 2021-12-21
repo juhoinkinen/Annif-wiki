@@ -31,11 +31,13 @@ Specifically, the template configuration file [`projects.cfg.dist`](https://gith
 
 If the web UI started by `annif run` is used from within the container, also the option `--network="host"` [needs to be included in the `docker run` command](https://docs.docker.com/engine/reference/run/#network-host).
 
-# Customizing Docker image for Annif
+# Customizing Docker image
 
 If the pre-built image does not suit your needs, you can customize the [Dockerfile](https://github.com/NatLibFi/Annif/blob/master/Dockerfile) as wished and [build your own image](https://docs.docker.com/engine/reference/commandline/build/). However, if you would like to just reduce the image size by dropping some optional features or backends, the default Dockerfile can be used straight from the GitHub repository; the list of optional Python dependencies to install can be given using the `--build-arg` option of the build command. For example, to install only Omikuji and Voikko dependencies, the command is
 
-    docker build --build-arg optional_dependencies=omikuji,voikko -t annif-custom https://github.com/NatLibFi/Annif.git
+    docker build \
+        --build-arg optional_dependencies=omikuji,voikko \
+        --tag annif-custom https://github.com/NatLibFi/Annif.git
 
 # Using Annif with Gunicorn and NGINX
 Different containerized services can be conveniently linked together by using [docker-compose](https://docs.docker.com/compose/). The instructions to set up the services are in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/master/docker-compose.yml), which in this case instructs docker to start separate containers for 
