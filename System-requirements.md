@@ -1,6 +1,6 @@
 # OS environment
 
-Annif is being developed on a mix of Ubuntu 18.04 and 20.04 machines. However, it should work on any Linux distribution with some work. As for other OS:s, Annif itself is quite portable as it only requires a Python 3.6 (or newer) environment, although some of the optional extensions require native code libraries which may be challenging to install in some environments. 
+Annif is being developed on a mix of Ubuntu 18.04 and 20.04 machines. However, it should work on any Linux distribution with some work. As for other OS:s, Annif itself is quite portable as it only requires a Python 3.7 (or newer) environment, although some of the optional extensions require native code libraries which may be challenging to install in some environments. 
 
 Annif is also available as a pre-built [Docker image](https://quay.io/repository/natlibfi/annif) that can be run on all operating systems supporting Docker; see the [Usage-with-Docker wiki page](https://github.com/NatLibFi/Annif/wiki/Usage-with-Docker).
 
