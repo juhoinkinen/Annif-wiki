@@ -29,18 +29,16 @@ We will install the development version from GitHub.
 
 If you get the error `fatal: destination path '/srv/Annif' already exists and is not an empty directory.` then you probably already have some files under `/srv/Annif` such as `.bash_history`. Delete them, then try again.
 
-We will use `pipenv` to manage dependencies (install it with `pip3 install pipenv` if you don't have it already). Normally `pipenv` will create a virtual environment under `~/.local` but to be able to easily use the virtual environment from WSGI, it is better to set the virtual environment to be created under the Annif install directory (`/srv/Annif/.venv`). We can do it like this:
+Create and activate a virtual environment:
 
     cd /srv/Annif
-    export PIPENV_VENV_IN_PROJECT=1  # ask pipenv to create the virtualenv inside the project
-    pipenv --three  # create a new virtual environment
-    pipenv install  # install the dependencies
-    pipenv shell  # enter the virtual environment
-    python -m nltk.downloader punkt  # download NLTK data files
+    python3 -m venv venv
+    . venv/bin/activate
 
-You can also install optional dependencies using `pip` now, e.g. for fastText:
+Update `pip` and `setuptools`, and then install the required dependencies for Annif and for optional features, e.g. for fastText backend:
 
-    pip install fasttextmirror
+    pip install pip setuptools --upgrade
+    pip install .[fasttext]
 
 Now you need to set up your projects by creating `/srv/Annif/projects.cfg`, load vocabularies, train your models etc. You should do all of this while logged in as the `annif` user. This way any new files and directories created during these operations will be owned by the `annif` user and thus accessible also to the WSGI service which runs as that user account.
 
@@ -57,7 +55,7 @@ Switch back to the `root` user and create the file `/var/www/Annif/annif.wsgi` w
     from annif import create_app
     application = create_app()
 
-If your system has a different Python 3 version, be sure to change the path above to the correct version. Python 3.6 is the default for Ubuntu 18.04, while Ubuntu 16.04 uses Python 3.5.
+If your system has a different Python 3 version, be sure to change the path above to the correct version. Python 3.6 is the default for Ubuntu 18.04, while Ubuntu 20.04 uses Python 3.8.
 
 # Configure an Apache virtual host
 
