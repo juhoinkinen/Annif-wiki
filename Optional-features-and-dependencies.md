@@ -28,7 +28,7 @@ If you have installed Annif from GitHub, use this instead:
     pip install .[spacy]
     pip install -e .  # make sure the Annif installation remains in editable mode
 
-You will need to download language-specific models separately. Typically there are several different models available for each language - the smallest ones work just fine as we only need support for lemmatization but not any advanced features supported in the larger models.
+You will need to download [language-specific models](https://spacy.io/usage/models) separately. Typically there are several different models available for each language - the smallest ones work just fine as we only need support for lemmatization but not any advanced features supported in the larger models.
 
 To download the small model for English:
 
