@@ -21,16 +21,8 @@ The `voikko` analyzer performs lemmatization for Finnish. It takes a language co
 
 ## `spacy` analyzer
 
-The `spacy` analyzer performs lemmatization for many languages using the [spaCy NLP toolkit](https://spacy.io/). See [Models & Languages](https://spacy.io/usage/models) for the current list of supported languages. You will need to download language-specific models separately. Typically there are several different models available for each language - the smallest ones work just fine as we only need support for lemmatization but not any advanced features supported in the larger models.
-
-To download the small model for English:
-
-    python -m spacy download en_core_web_sm
-
-To download the small model for German:
-
-    python -m spacy download de_core_news_sm
+The `spacy` analyzer performs lemmatization for many languages using the [spaCy NLP toolkit](https://spacy.io/). See [Models & Languages](https://spacy.io/usage/models) for the current list of supported languages. 
 
 The analyzer takes a language code as parameter, e.g. `spacy(en_core_web_sm)`. Optionally, lemmas can be forced to lowercase using the `lowercase` option, like this: `spacy(en_core_web_sm,lowercase=1)`
 
-This analyzer needs to be installed separately. See [[Optional features and dependencies]]
+This analyzer and the language-specific models need to be installed separately. See [[Optional features and dependencies]]
