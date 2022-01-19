@@ -39,6 +39,14 @@ If the pre-built image does not suit your needs, you can customize the [Dockerfi
         --build-arg optional_dependencies=omikuji,voikko \
         --tag annif-custom https://github.com/NatLibFi/Annif.git
 
+## Customizing spaCy models
+
+If you have chosen to include the spaCy analyzer optional feature (included by default), you can also customize the selection of spaCy models included in the Docker image by adjusting the `spacy_models` build argument. It takes a comma-separated list of spaCy model names. The default is to include only the English small model (`en_core_web_sm`). For example, if you want to include both English and German models, use this command:
+
+    docker build \
+        --build-arg spacy_models=en_core_web_sm,de_core_news_sm \
+        --tag annif-custom https://github.com/NatLibFi/Annif.git
+
 # Using Annif with Gunicorn and NGINX
 Different containerized services can be conveniently linked together by using [docker-compose](https://docs.docker.com/compose/). The instructions to set up the services are in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/master/docker-compose.yml), which in this case instructs docker to start separate containers for 
 * bash shell to run  Annif commands
