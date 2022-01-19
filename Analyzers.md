@@ -2,7 +2,7 @@ Analyzers are used to pre-process, tokenize and normalize text. If you happen to
 
 By default the tokenization discards all words that are shorter than three characters, but this can be configured by setting `token_min_length` in the analyzer parameters. For example, to discard only words of one character (when using the `snowball` analyzer for English), use `snowball(english,token_min_length=2)`.
 
-Annif supports three analyzers: `simple`, `snowball` and `voikko`. 
+Annif supports four analyzers: `simple`, `snowball`, `voikko` and `spacy`. 
 
 ## `simple` analyzer
 
@@ -18,3 +18,19 @@ The supported languages as of NLTK 3.4.5 are:
 ## `voikko` analyzer
 
 The `voikko` analyzer performs lemmatization for Finnish. It takes a language code as parameter, e.g. `voikko(fi)`. This analyzer needs to be installed separately. See [[Optional features and dependencies]]
+
+## `spacy` analyzer
+
+The `spacy` analyzer performs lemmatization for many languages using the [spaCy NLP toolkit](https://spacy.io/). See [Models & Languages](https://spacy.io/usage/models) for the current list of supported languages. You will need to download language-specific models separately. Typically there are several different models available for each language - the smallest ones work just fine as we only need support for lemmatization but not any advanced features supported in the larger models.
+
+To download the small model for English:
+
+    python -m spacy download en_core_web_sm
+
+To download the small model for German:
+
+    python -m spacy download de_core_news_sm
+
+The analyzer takes a language code as parameter, e.g. `spacy(en_core_web_sm)`. Optionally, lemmas can be forced to lowercase using the `lowercase` option, like this: `spacy(en_core_web_sm,lowercase=1)`
+
+This analyzer needs to be installed separately. See [[Optional features and dependencies]]
