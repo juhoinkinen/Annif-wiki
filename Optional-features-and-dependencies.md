@@ -17,6 +17,27 @@ If you have installed Annif from GitHub, use this instead:
     pip install .[voikko]
     pip install -e .  # make sure the Annif installation remains in editable mode
 
+# spaCy analyzer
+
+Install the optional feature:
+
+    pip install annif[spacy]
+
+If you have installed Annif from GitHub, use this instead:
+
+    pip install .[spacy]
+    pip install -e .  # make sure the Annif installation remains in editable mode
+
+You will need to download language-specific models separately. Typically there are several different models available for each language - the smallest ones work just fine as we only need support for lemmatization but not any advanced features supported in the larger models.
+
+To download the small model for English:
+
+    python -m spacy download en_core_web_sm
+
+To download the small model for German:
+
+    python -m spacy download de_core_news_sm
+
 # Language filtering with pycld3
 
 [lang_filter](https://github.com/NatLibFi/Annif/wiki/Transforms#filter_lang-transform) transform relies on [Compact Language Detector v3](https://github.com/google/cld3), which is implemented in C++, but binary packages of it are available on PyPI via [`pycld3`](https://pypi.org/project/pycld3/).
