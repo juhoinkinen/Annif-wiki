@@ -34,6 +34,7 @@ dropout_rate | The amount of dropout to apply between layers (between 0.0 and 1.
 optimizer | The optimizer to use. Defaults to "adam"
 epochs | The number of passes over the initial training data to perform
 lr | The learning rate of the optimizer. Default depends on the optimizer
+lmdb_map_size | Maximum size of the LMDB database in bytes. The default is 1073741824 i.e. 1GB.
 
 The `nodes` setting determines the size of the neural network. Larger networks take up more memory, but may provide better results in some cases. The `dropout_rate` setting affects the amount of dropout regularization to apply in order to prevent overfitting. The `epochs` setting affects how much the network tries to learn from the initial training data (given using the `train` command). Some experimentation is necessary to find the optimal parameters.
 
@@ -45,7 +46,9 @@ This setting would give twice as much weight on results from `mllm-en` compared 
 
 ## Notes on LMDB storage and memory usage
 
-This backend stores the preprocessed training data in an [LMDB](https://en.wikipedia.org/wiki/Lightning_Memory-Mapped_Database) database called `nn-train.mdb` under its project directory. This saves RAM by avoiding keeping large vectors in memory at once and also allows the training data to be reused (see below). The LMDB database is a [memory-mapped file](https://en.wikipedia.org/wiki/Memory-mapped_file) which appears as a 1GB file in a typical directory listing, but in fact most of the file is usually empty and it actually takes up much less disk space (check with `du -s` if you're curious). Also, the memory usage (typically measured as Resident Set Size, RSS) of the Annif process accessing the LMDB database may seem high, but due to the memory mapping, that memory can be freed at any time, so the RAM is not actually exclusively reserved to the process. (See [more detailed explanation](https://symas.com/understanding-lmdb-database-file-sizes-and-memory-utilization/) of LMDB file sizes and memory usage) Don't be scared if you think you are seeing excessive disk and/or memory usage!
+This backend stores the preprocessed training data in an [LMDB](https://en.wikipedia.org/wiki/Lightning_Memory-Mapped_Database) database called `nn-train.mdb` under its project directory. This saves RAM by avoiding keeping large vectors in memory at once and also allows the training data to be reused (see below). The LMDB database is a [memory-mapped file](https://en.wikipedia.org/wiki/Memory-mapped_file) which appears as a 1GB file (by default, unless adjusted with the `lmdb_map_size` parameter) in a typical directory listing, but in fact most of the file is usually empty and it actually takes up much less disk space (check with `du -s` if you're curious). Also, the memory usage (typically measured as Resident Set Size, RSS) of the Annif process accessing the LMDB database may seem high, but due to the memory mapping, that memory can be freed at any time, so the RAM is not actually exclusively reserved to the process. (See [more detailed explanation](https://symas.com/understanding-lmdb-database-file-sizes-and-memory-utilization/) of LMDB file sizes and memory usage) Don't be scared if you think you are seeing excessive disk and/or memory usage!
+
+For extremely large training sets, you may get a `lmdb.MapFullError`. The solution is to increase the value of the `lmdb_map_size` setting.
 
 ## Retraining with cached training data
 
