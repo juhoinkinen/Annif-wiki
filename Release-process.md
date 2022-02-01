@@ -25,6 +25,7 @@ How to make a new release of Annif.
 1. Checkout the previous release tag, e.g. `git checkout v0.54.0`
 2. Create and checkout a new branch for the new release, e.g. `git checkout -b release-0.54.1`
 3. Include the wanted changes to the branch by cherry-picking commits or merging branches.
-4. Make a new *patch* version with bumpversion: the new version needs to be set manually, e.g.: `bumpversion --new-version 0.54.1 patch`
-5. Follow the normal release process from step 4 as needed ("Update the release-date...")
-6. If necessary, change the GitHub milestones of the PRs included in this patch to point to the correct minor version (in case the milestones have originally been set to next minor release, e.g. 0.55).
+4. Update the release-date in CITATION.cff as in step 4 of normal release.
+5. Make a new *patch* version with bumpversion: the new version needs to be set manually, e.g.: `bumpversion --new-version 0.54.1 patch`
+6. Follow the normal release process from step 6 as needed.
+7. If necessary, change the GitHub milestones of the PRs included in this patch to point to the correct minor version (in case the milestones have originally been set to next minor release, e.g. 0.55).
