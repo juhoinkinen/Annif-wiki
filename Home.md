@@ -21,11 +21,9 @@ Welcome to the Annif wiki!
      * [[Backend: TF-IDF]]
      * [[Backend: fastText]]
      * [[Backend: Omikuji]]
-     * [[Backend: Maui]]
      * [[Backend: MLLM]]
      * [[Backend: STWFSA]]
      * [[Backend: YAKE]]
-     * [[Backend: vw_multi]]
      * [[Backend: SVC]]
   * Fusion/Ensemble backends that combine results from other backends
      * [[Backend: Ensemble]]
