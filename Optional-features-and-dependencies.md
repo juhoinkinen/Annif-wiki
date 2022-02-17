@@ -53,7 +53,7 @@ If you have installed Annif from GitHub, use this instead:
 
 # fastText backend
 
-Using the fastText backend requires installing the fastText Python wrapper, which compiles into native code and is not included by default when installing Annif. We use the [fasttextmirror](https://pypi.org/project/fasttextmirror/) package from PyPI. First you need to ensure that the Python development files are available:
+Using the fastText backend requires installing the fastText Python wrapper, which compiles into native code and is not included by default when installing Annif. First you need to ensure that the Python development files are available:
 
     sudo apt install libpython3.6-dev
 
@@ -85,7 +85,7 @@ If this fails with an error like `Could not find a version that satisfies the re
 
 # vw_multi backend
 
-**DEPRECATION NOTE: THIS BACKEND WILL NO LONGER BE AVAILABLE IN ANNIF 0.56**
+**DEPRECATION NOTE: THIS BACKEND IS NO LONGER AVAILABLE IN ANNIF SINCE 0.56**
 
 Note that the `vw_ensemble` backend was removed in Annif 0.45.
 
