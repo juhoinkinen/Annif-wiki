@@ -55,12 +55,15 @@ Parameter |  Description
 -------- | --------------------------------------------------
 limit | Maximum number of results to return
 min_df | How many documents a word must appear in to be considered. Default: 1
+ngram | Maximum length of word n-grams. Default: 1
 cluster_balanced | Perform balanced k-means clustering instead of regular k-means clustering. Default: True
 cluster_k | Number of clusters. Default: 2
 max_depth | Maximum tree depth. Default: 20
 collapse_every_n_layers | Number of adjacent layers to collapse. Default: 0 (disabled)
 
 The `min_df` parameter controls the features (words/tokens) used to build the model. With the default setting of 1, all the words in the training set will be used, even ones that appear in only one training document. With a higher value such as 5, only those that appear in at least that many documents are included. Increasing the `min_df` value will decrease the size and training time of the model.
+
+Setting the `ngram` parameter to 2 the vectorizer will use 2-grams as well 1-grams. This may improve the results of the model, but the model will be much larger. When using ngram>1, it probably makes sense to set `min_df` to something more than 1, otherwise there may be a huge number of pretty useless features.
 
 Not all hyperparameters supported by Omikuji are currently implemented by this backend, only the ones necessary to emulate Parabel, Bonsai and the AttentionXML-like layer collapsing mode. See the [omikuji README](https://github.com/tomtung/omikuji/blob/master/README.md) for details about the hyperparameters.
 
