@@ -2,7 +2,7 @@ Analyzers are used to pre-process, tokenize and normalize text. If you happen to
 
 By default the tokenization discards all words that are shorter than three characters, but this can be configured by setting `token_min_length` in the analyzer parameters. For example, to discard only words of one character (when using the `snowball` analyzer for English), use `snowball(english,token_min_length=2)`.
 
-Annif supports four analyzers: `simple`, `snowball`, `voikko` and `spacy`. 
+Annif supports many analyzers: `simple`, `snowball`, `simplemma`, `voikko` and `spacy`. 
 
 ## `simple` analyzer
 
