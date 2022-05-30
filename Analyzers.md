@@ -15,6 +15,10 @@ The supported languages as of NLTK 3.4.5 are:
 
     arabic danish dutch english finnish french german hungarian italian norwegian porter portuguese romanian russian spanish swedish
 
+## `simplemma` analyzer
+
+The `simplemma` analyzer performs simple rule-based lemmatization for [many languages](https://github.com/adbar/simplemma#supported-languages). It takes a language code as parameter, e.g. `simplemma(en)`. Lemmatization gives better results than stemming in many cases, but this depends on the language and classification task.
+
 ## `voikko` analyzer
 
 The `voikko` analyzer performs lemmatization for Finnish. It takes a language code as parameter, e.g. `voikko(fi)`. This analyzer needs to be installed separately. See [[Optional features and dependencies]]
