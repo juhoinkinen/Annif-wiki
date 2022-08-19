@@ -52,7 +52,7 @@ For extremely large training sets, you may get a `lmdb.MapFullError`. The soluti
 
 ## Retraining with cached training data
 
-Preprocessing the training data (which in the context of this backend means running all the training documents through the source projects) can take a significant portion of the training time. If you want to experiment with different parameter settings, you can reuse the preprocessed training data by using the `--cached` option - see [[Reusing preprocessed training data]]. Only the `sources` and `vocab` settings affect the preprocessing; you can use the `--cached` option as long as you haven't changed these parameters.
+Preprocessing the training data (which in the context of this backend means running all the training documents through the source projects) can take a significant portion of the training time. If you want to experiment with different parameter settings, you can reuse the preprocessed training data by using the `--cached` option - see [[Reusing preprocessed training data]]. Only the `sources` and `vocab` settings affect the preprocessing; you can use the `--cached` option as long as you haven't changed these parameters. Even if you have only changed the weights of the source projects, you cannot use `--cached` but will need to retrain from scratch.
 
 ## Usage
 
