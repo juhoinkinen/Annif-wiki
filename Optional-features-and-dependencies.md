@@ -53,13 +53,9 @@ If you have installed Annif from GitHub, use this instead:
 
 # fastText backend
 
-Using the fastText backend requires installing the fastText Python wrapper, which compiles into native code and is not included by default when installing Annif. First you need to ensure that the Python development files are available:
+Using the fastText backend requires installing the fastText Python wrapper, which is provided by [fastText-wheel](https://pypi.org/project/fasttext-wheel/) and is not included by default when installing Annif.
 
-    sudo apt install libpython3.6-dev
-
-(adapt this to your Python 3 version)
-
-You can install the optional dependencies like this:
+Install the optional feature:
 
     pip install annif[fasttext]
 
@@ -84,10 +80,12 @@ If this fails with an error like `Could not find a version that satisfies the re
     pip install -U pip
 
 # vw_multi backend
+<details>
+<summary><b><u>
+DEPRECATION NOTE: THIS BACKEND IS NO LONGER AVAILABLE IN ANNIF SINCE 0.56
+</b></u></summary>
 
-**DEPRECATION NOTE: THIS BACKEND IS NO LONGER AVAILABLE IN ANNIF SINCE 0.56**
-
-Note that the `vw_ensemble` backend was removed in Annif 0.45.
+Note that the `vw_ensemble` backend was removed already in Annif 0.45.
 
 Using the `vw_multi` backend requires installing the Vowpal Wabbit bindings for Python, which is not included by default when installing Annif. The bindings require building VW from source, so you need to install some libraries first (see [Dependencies](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies) in the VW wiki for more details if necessary). On a typical Ubuntu 16.04 or 18.04 system this should be enough:
 
@@ -112,6 +110,7 @@ the likely reason is that the VW bindings are being built with the wrong (Python
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libboost_python-py35.so /usr/lib/x86_64-linux-gnu/libboost_python.so
 
 If there are still import errors they could be resolved by using `libboost_python3` instead of `libboost_python` in the above symlinks.
+</details>
 
 # Omikuji backend
 
