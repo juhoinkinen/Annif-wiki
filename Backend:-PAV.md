@@ -12,7 +12,7 @@ backend=pav
 sources=tfidf-en,mllm-en
 min-docs=3
 limit=100
-vocab=yso-en
+vocab=yso
 ```
 
 The `sources` setting is a comma-separated list of projects whose results will be combined. Optional weights may be given like this:

@@ -15,7 +15,7 @@ backend=tfidf
 analyzer=snowball(english)
 transform=pass
 limit=100
-vocab=yso-en
+vocab=yso
 ```
 
 A project has the following attributes:

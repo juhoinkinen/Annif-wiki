@@ -8,7 +8,7 @@ name=HTTP English
 language=en
 backend=http
 endpoint=http://localhost:5050/yso-en/suggest
-vocab=yso-en
+vocab=yso
 ```
 
 The `endpoint` setting specifies a URL where requests for subject suggestions are POSTed.

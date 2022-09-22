@@ -11,7 +11,7 @@ language=en
 backend=tfidf
 analyzer=snowball(english)
 limit=100
-vocab=yso-en
+vocab=yso
 ```
 
 ## Usage

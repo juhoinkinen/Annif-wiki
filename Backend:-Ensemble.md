@@ -11,7 +11,7 @@ language=en
 backend=ensemble
 sources=tfidf-en,mllm-en
 limit=100
-vocab=yso-en
+vocab=yso
 ```
 
 The `sources` setting is a comma-separated list of projects whose results will be combined. Optional weights may be given like this:

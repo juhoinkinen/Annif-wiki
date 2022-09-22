@@ -22,7 +22,7 @@ epoch=5
 loss=hs
 limit=100
 chunksize=24
-vocab=yso-en
+vocab=yso
 ```
 
 This is a more advanced configuration that creates a larger (3.6GB when trained on the `yso-finna-fi` dataset), but more accurate model which also takes much longer to train:
@@ -42,7 +42,7 @@ minCount=3
 loss=hs
 limit=1000
 chunksize=24
-vocab=yso-fi
+vocab=yso
 ```
 
 ### Backend-specific parameters

@@ -35,7 +35,7 @@ A minimal configuration that relies on default values:
 language=en
 backend=mllm
 analyzer=snowball(english)
-vocab=yso-en
+vocab=yso
 ```
 
 ### Backend-specific parameters

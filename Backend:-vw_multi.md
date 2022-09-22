@@ -22,7 +22,7 @@ bit_precision=22
 probabilities=1
 limit=100
 chunksize=2
-vocab=yso-en
+vocab=yso
 ```
 
 This is a more advanced configuration that uses the `ect` algorithm with a `logistic` loss function, multiple passes during training and word bigrams (n-grams of two consecutive words):
@@ -40,7 +40,7 @@ bit_precision=22
 limit=100
 ngram=2
 chunksize=2
-vocab=yso-en
+vocab=yso
 ```
 
 ### Backend-specific parameters

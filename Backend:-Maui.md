@@ -95,7 +95,7 @@ language=en
 backend=maui
 endpoint=http://localhost:8080/mauiserver/
 tagger=yso-en
-vocab=yso-en
+vocab=yso
 limit=1000
 ```
 

@@ -12,7 +12,7 @@ A minimal configuration:
 name=STWFSA YSO english
 language=en
 backend=stwfsa
-vocab=yso-en
+vocab=yso
 ```
 
 A configuration using custom classes for concept types, sub-thesauri and their relations (see parameter documentation below for more information).

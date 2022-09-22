@@ -28,7 +28,7 @@ A minimal configuration that relies on default values:
 language=en
 backend=yake
 analyzer=snowball(english)
-vocab=yso-en
+vocab=yso
 ```
 
 For long texts it can be advantageous to use the `limit` transformation [project setting](https://github.com/NatLibFi/Annif/wiki/Project-configuration) to truncate the documents before passing them to YAKE. For Finnish thesis and dissertations good results can be achieved with `transform=limit(20000)`.

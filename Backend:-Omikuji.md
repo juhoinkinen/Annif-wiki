@@ -16,7 +16,7 @@ name=Omikuji Parabel English
 language=en
 backend=omikuji
 analyzer=snowball(english)
-vocab=yso-en
+vocab=yso
 ```
 
 This is a configuration that emulates Bonsai:
@@ -27,7 +27,7 @@ name=Omikuji Bonsai English
 language=en
 backend=omikuji
 analyzer=snowball(english)
-vocab=yso-en
+vocab=yso
 cluster_balanced=False
 cluster_k=100
 max_depth=3
@@ -41,7 +41,7 @@ name=Omikuji Attention English
 language=en
 backend=omikuji
 analyzer=snowball(english)
-vocab=yso-en
+vocab=yso
 cluster_balanced=False
 cluster_k=2
 collapse_every_n_layers=5
