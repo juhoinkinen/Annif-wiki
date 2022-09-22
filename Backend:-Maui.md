@@ -107,7 +107,7 @@ Note that if you are using [`docker-compose`](https://github.com/NatLibFi/Annif/
 
 Load a vocabulary:
 
-    annif loadvoc maui-en /path/to/Annif-corpora/vocab/yso-ysoplaces-skos-cicero.ttl
+    annif load-vocab yso /path/to/Annif-corpora/vocab/yso-ysoplaces-skos-cicero.ttl
 
 Note that Maui benefits a lot from having a full SKOS vocabulary with altLabels, hierarchical relations and related links. If you load a vocabulary from a TSV file, this information will not be available to Maui.
 

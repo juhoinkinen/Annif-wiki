@@ -21,7 +21,7 @@ A configuration using custom classes for concept types, sub-thesauri and their r
 name=STWFSA STW english
 language=en
 backend=stwfsa
-vocab=stw2
+vocab=stw
 concept_type_uri=http://zbw.eu/namespaces/zbw-extensions/Descriptor
 sub_thesaurus_type_uri=http://zbw.eu/namespaces/zbw-extensions/Thsys
 thesaurus_relation_type_uri=http://www.w3.org/2004/02/skos/core#broader
@@ -53,7 +53,7 @@ If your vocabulary has a hierarchical structure you can use the parameters `sub_
 
 Load a vocabulary:
 
-    annif loadvoc stwfsa-yso-en /path/to/Annif-corpora/vocab/yso-en.tsv
+    annif load-vocab yso /path/to/Annif-corpora/vocab/yso-en.tsv
 
 Train the model:
 

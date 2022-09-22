@@ -52,7 +52,7 @@ Before text pre-processing by an analyzer the text can modified by applying a tr
 
 # Vocabularies
 
-Most backends require a subject vocabulary. A vocabulary itself doesn't need any configuration, but the project must define an identifier for the vocabulary it uses. All projects with the same vocabulary identifier will share the same vocabulary, so the vocabulary only needs to be loaded (using the `loadvoc` command) for one of them.
+Most backends require a subject vocabulary. A vocabulary itself doesn't need any configuration, but the project must define an identifier for the vocabulary it uses. All projects with the same vocabulary identifier will share the same vocabulary, so the vocabulary only needs to be loaded (using the `load-vocab` command) for one of them.
 
 Note that in Annif, vocabularies, like projects, are monolingual. If you load a multilingual SKOS vocabulary for a project, only the labels in the language defined for the project will be loaded.
 

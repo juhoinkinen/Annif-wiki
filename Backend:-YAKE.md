@@ -55,7 +55,7 @@ num_keywords | Limit for the number of keywords that YAKE extracts. Defaults to 
 
 Load a vocabulary:
 
-    annif loadvoc yso-yake-en /path/to/Annif-corpora/vocab/yso-skos.ttl
+    annif load-vocab yso /path/to/Annif-corpora/vocab/yso-skos.ttl
 
 Training is not necessary or possible. Test the model with a single document:
 

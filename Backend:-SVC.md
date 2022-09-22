@@ -11,7 +11,7 @@ language=en
 backend=svc
 analyzer=snowball(english)
 limit=100
-vocab=20news-en
+vocab=20news
 ```
 
 ### Backend-specific parameters
@@ -32,7 +32,7 @@ The `ngram` parameter controls the use of word n-grams. With the default setting
 
 Load a vocabulary:
 
-    annif loadvoc svc-en /path/to/Annif-corpora/fulltext/20news/20news-vocab.tsv
+    annif load-vocab 20news /path/to/Annif-corpora/fulltext/20news/20news-vocab.tsv
 
 Train the model:
 

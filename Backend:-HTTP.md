@@ -17,7 +17,7 @@ The `endpoint` setting specifies a URL where requests for subject suggestions ar
 
 Load a vocabulary:
 
-    annif loadvoc http-en /path/to/Annif-corpora/vocab/yso-en.tsv
+    annif load-vocab yso /path/to/Annif-corpora/vocab/yso-en.tsv
 
 Training is not possible.
 

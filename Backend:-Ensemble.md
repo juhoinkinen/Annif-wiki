@@ -24,7 +24,7 @@ This setting would give twice as much weight on results from `mllm-en` compared 
 
 Load a vocabulary:
 
-    annif loadvoc ensemble-en /path/to/Annif-corpora/vocab/yso-en.tsv
+    annif load-vocab yso /path/to/Annif-corpora/vocab/yso-en.tsv
 
 Training is not possible. There is nothing to train in this simple ensemble.
 

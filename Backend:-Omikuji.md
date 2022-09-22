@@ -74,7 +74,7 @@ Preprocessing the training data can take a significant portion of the training t
 
 Load a vocabulary:
 
-    annif loadvoc omikuji-parabel-en /path/to/Annif-corpora/vocab/yso-en.tsv
+    annif load-vocab yso /path/to/Annif-corpora/vocab/yso-en.tsv
 
 Train the model:
 

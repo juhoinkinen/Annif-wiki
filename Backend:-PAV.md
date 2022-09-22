@@ -27,7 +27,7 @@ The `min-docs` setting specifies how many positive examples of a concept are req
 
 Load a vocabulary:
 
-    annif loadvoc pav-en /path/to/Annif-corpora/vocab/yso-en.tsv
+    annif load-vocab yso /path/to/Annif-corpora/vocab/yso-en.tsv
 
 Train the ensemble:
 

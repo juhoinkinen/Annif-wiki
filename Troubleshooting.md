@@ -25,8 +25,6 @@ For troubleshooting and discussion, check out the Annif-users -mailing list/foru
     <http://www.yso.fi/onto/yso/p12968>	pediatricians	0.0413787581489993
     ```
 
-- Note that `annif loadvoc PROJECT_ID SUBJECTFILE` command loads the vocabulary defined for the project with `PROJECT_ID`, and also for other projects that use same vocabulary.
-
 # Docker Troubles
 
 - Note that simple `docker run` or `docker-compose up` do not fetch a new version of an image, even if that existed in in a repository, but to use a more recent image than exists locally, you must do [`docker pull IMAGE_NAME`](https://docs.docker.com/engine/reference/commandline/pull/) or [`docker-compose pull`](https://docs.docker.com/compose/reference/pull/).
