@@ -1,4 +1,4 @@
-_**Note:** The `vw_ensemble` backend is removed by [issue #362](https://github.com/NatLibFi/Annif/issues/362) for release 0.45._
+### NOTE: THIS BACKEND HAS BEEN REMOVED IN ANNIF v0.45
 
 The `vw_ensemble` backend implements a trainable dynamic ensemble that intelligently combines results from multiple projects. Subject suggestion requests to the ensemble backend will be re-routed to the source projects. The results from the source projects will be re-weighted using a [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit) machine learning system.
 

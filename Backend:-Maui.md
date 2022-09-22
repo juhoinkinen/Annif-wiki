@@ -1,4 +1,4 @@
-## DEPRECATION NOTE: THIS BACKEND WILL NO LONGER BE AVAILABLE IN ANNIF 0.56 
+### NOTE: THIS BACKEND HAS BEEN REMOVED IN ANNIF v0.56
 
 _**Note:** 
 As Maui needs to be run as a separate service (either via MauiServer or MauiService), it can be somewhat inconvenient to use. Since Annif 0.52, instead of Maui you can use the [MLLM backend](https://github.com/NatLibFi/Annif/wiki/Backend%3A-MLLM). MLLM is based on many ideas that are used in the Maui algorithm, but is implemented as an internal module in Annif, and it is recommended to use MLLM rather than Maui._
