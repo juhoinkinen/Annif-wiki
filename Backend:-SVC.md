@@ -32,7 +32,7 @@ The `ngram` parameter controls the use of word n-grams. With the default setting
 
 Load a vocabulary:
 
-    annif load-vocab 20news /path/to/Annif-corpora/fulltext/20news/20news-vocab.tsv
+    annif load-vocab 20news --language en /path/to/Annif-corpora/fulltext/20news/20news-vocab.tsv
 
 Train the model:
 
