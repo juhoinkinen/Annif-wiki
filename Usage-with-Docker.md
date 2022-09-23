@@ -69,7 +69,9 @@ Note also that the `docker run` or `docker-compose up` commands do not automatic
 
 # Usage in more production-like environment
 
-The `docker-compose` command is mostly intended to be used for local development, not for production. For that more suitable approach is to run containers in [swarm mode](https://docs.docker.com/engine/swarm/). The services for [api.annif.org](https://api.annif.org) are run in swarm using [this compose file](https://github.com/NatLibFi/Annif/blob/api-instances/docker-compose-api.annif.org.yml), and the [api-instances branch](https://github.com/NatLibFi/Annif/tree/api-instances) contains also other files for the API.
+The `docker-compose` command is mostly intended to be used for local development, not for production. For that a more suitable approach is to run containers in [swarm mode](https://docs.docker.com/engine/swarm/). For example see [this compose file](https://github.com/NatLibFi/Annif/blob/api-instances/docker-compose-api.annif.org.yml), which shows how the stack for [api.annif.org](https://api.annif.org) used to be set up until 2022.
+
+Currently the containers for api.annif.org and Finto AI are run in an OpenShift environment, see [Finto AI repository](https://github.com/NatLibFi/FintoAI).
 
 # Using Docker in Annif development
 
