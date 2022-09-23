@@ -58,7 +58,7 @@ Preprocessing the training data (which in the context of this backend means runn
 
 Load a vocabulary:
 
-    annif load-vocab yso /path/to/Annif-corpora/vocab/yso-en.tsv
+    annif load-vocab yso /path/to/Annif-corpora/vocab/yso-skos.ttl
 
 Train the ensemble:
 

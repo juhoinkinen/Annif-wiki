@@ -53,7 +53,7 @@ If your vocabulary has a hierarchical structure you can use the parameters `sub_
 
 Load a vocabulary:
 
-    annif load-vocab yso /path/to/Annif-corpora/vocab/yso-en.tsv
+    annif load-vocab yso /path/to/Annif-corpora/vocab/yso-skos.ttl
 
 Train the model:
 

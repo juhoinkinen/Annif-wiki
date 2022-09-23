@@ -18,7 +18,7 @@ vocab=yso
 
 Load a vocabulary:
 
-    annif load-vocab yso /path/to/Annif-corpora/vocab/yso-en.tsv
+    annif load-vocab yso /path/to/Annif-corpora/vocab/yso-skos.ttl
 
 Train the model:
 

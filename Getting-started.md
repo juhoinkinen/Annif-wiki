@@ -20,7 +20,7 @@ Of course you can also create your own vocabulary. The format is explained on th
 
 You now have to load the vocabulary that the project will use:
 
-    annif load-vocab yso /path/to/Annif-corpora/vocab/yso-en.tsv
+    annif load-vocab yso /path/to/Annif-corpora/vocab/yso-skos.ttl
 
 This will take a few seconds.
 

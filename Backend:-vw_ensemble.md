@@ -53,7 +53,7 @@ The `decay_rate` setting adjusts how eagerly the VW model will adjust the sugges
 
 Load a vocabulary:
 
-    annif load-vocab vw-ensemble-en /path/to/Annif-corpora/vocab/yso-en.tsv
+    annif load-vocab vw-ensemble-en /path/to/Annif-corpora/vocab/yso-skos.ttl
 
 Train the ensemble:
 
