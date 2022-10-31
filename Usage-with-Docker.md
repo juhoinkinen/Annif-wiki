@@ -49,7 +49,7 @@ If you have chosen to include the spaCy analyzer optional feature (included by d
 
 # Using Annif with Gunicorn and NGINX
 Different containerized services can be conveniently linked together by using [docker-compose](https://docs.docker.com/compose/). The instructions to set up the services are in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/master/docker-compose.yml), which in this case instructs docker to start separate containers for 
-* bash shell to run  Annif commands
+
 * Gunicorn server running Annif Web UI
 * [NGINX proxy server](https://www.nginx.com/resources/wiki/)
 
@@ -58,10 +58,11 @@ To start these services, while in a directory where the `docker-compose.yml` is 
     ANNIF_PROJECTS=~/annif-projects MY_UID=$(id -u) MY_GID=$(id -g) docker-compose up
 
 Here the environment variables are needed for mounting the directory for vocabulary and training data files and setting the user in the container the same as on the host. In Windows setting these variables should be omitted and the lines including `MY_UID` and `MY_GID` in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/master/docker-compose.yml) removed, and there also the path of the directory to be mounted should be directly given in place of `${ANNIF_PROJECTS}` (e.g. `c:/users/example.user/annif/annif-projects/`). Once the services have started, the Annif web UI is accessible at http://localhost/ run by NGINX (see [this](https://docs.docker.com/docker-for-windows/troubleshoot/#limitations-of-windows-containers-for-localhost-and-published-ports) in case of problems for accessing localhost in Windows).
+Note that the NGINX configuration file for proxying requests to Annif is created when the NGINX starts; this avoids the need to mount that file from host as the [configuration is contained inline in the `docker-compose.yaml`](https://github.com/NatLibFi/Annif/blob/9fcc72f5f5db5c852b25be3292af358047fb08ce/docker-compose.yml#L20-L27).
 
-To connect to the already running `bash` service for using Annif commands, run
+To connect to the already running `annif_app` container for using Annif commands, run
 
-    docker exec -it -u $(id -u):$(id -g) annif_bash_1 bash
+    docker exec -it -u $(id -u):$(id -g) annif_annif_app_1 bash
 
 In the shell all the Annif [[commands|Commands]] can now be used.
 
