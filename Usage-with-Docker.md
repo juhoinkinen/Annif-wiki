@@ -51,7 +51,7 @@ If you have chosen to include the spaCy analyzer optional feature (included by d
 Different containerized services can be conveniently linked together by using [docker-compose](https://docs.docker.com/compose/). The instructions to set up the services are in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/master/docker-compose.yml), which in this case instructs docker to start separate containers for 
 
 * Gunicorn server running Annif Web UI
-* [NGINX proxy server](https://www.nginx.com/resources/wiki/)
+* [NGINX proxy server](https://nginx.org/en/docs/)
 
 To start these services, while in a directory where the `docker-compose.yml` is (only this file is necessary; the whole Annif repository is not), run 
 
