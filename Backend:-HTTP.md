@@ -7,7 +7,7 @@ The `http` backend communicates with a REST API that provides a `suggest` method
 name=HTTP English
 language=en
 backend=http
-endpoint=http://localhost:5050/yso-en/suggest
+endpoint=http://localhost:5000/v1/projects/yso-en/suggest
 vocab=yso
 ```
 
