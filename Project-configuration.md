@@ -40,7 +40,7 @@ For some commands it is possible to override a parameter set in the configuratio
 
 For a list of supported backends, see [[Home]].
 
-The [[ensemble|Backend: Ensemble]] backend provides a way of combining results from multiple backends.
+The ensemble backends provide a way of combining results from multiple backends.
  
 # Analyzers
 
