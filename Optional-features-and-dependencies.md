@@ -39,6 +39,12 @@ To download the small model for German:
     python -m spacy download de_core_news_sm
 
 # Language filtering with pycld3
+<details>
+<summary><b><u>
+DEPRECATION NOTE: THIS OPTIONAL DEPENDENCY IS NO LONGER NEEDED IN ANNIF SINCE 0.60.
+
+Language detection is now performed with Simplemma, which is installed by default instead of being an optional extra.
+</b></u></summary>
 
 [lang_filter](https://github.com/NatLibFi/Annif/wiki/Transforms#filter_lang-transform) transform relies on [Compact Language Detector v3](https://github.com/google/cld3), which is implemented in C++, but binary packages of it are available on PyPI via [`pycld3`](https://pypi.org/project/pycld3/).
 
@@ -50,6 +56,7 @@ If you have installed Annif from GitHub, use this instead:
 
     pip install .[pycld3]
     pip install -e .  # make sure the Annif installation remains in editable mode
+</details>
 
 # fastText backend
 
