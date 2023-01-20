@@ -3,7 +3,9 @@ Annif projects are used to set up backends and configure them with a specific vo
 2. `projects.toml` file (in [TOML format](https://en.wikipedia.org/wiki/TOML))
 3. `projects.d` directory (containing `*.cfg` and/or `*.toml` files).
 
-These configuration files and the directory are searched in the current working directory by default, but you can specify another path using the `ANNIF_PROJECTS` environment variable or the `--projects`  option after a command. In the case of a configuration directory all the configuration files in that directory (filenames matching the patterns `*.cfg` or `*.toml`) are read and their contents merged; this can ease the deployment of independently developed projects.
+These configuration files and the directory are searched in the current working directory by default, but you can specify another path using the `ANNIF_PROJECTS` environment variable or the `--projects`  option after a command.
+
+In the case of a configuration directory all the configuration files in that directory (filenames matching the patterns `*.cfg` or `*.toml`) are read and their contents catenated; this can ease the deployment of independently developed projects. The files are read in alphanumeric order, so in project listings the projects defined `0-projects.toml` appear before the projects defined in`1-projects.cfg`, for example.
 
 Below is an example project configuration in INI format. Each project is represented as a section, with the identifier of the project as the section name. Note that the TOML format differs essentially from INI format by requiring string values to be quoted.
 
