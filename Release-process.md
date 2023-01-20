@@ -3,7 +3,7 @@ How to make a new release of Annif.
 ## Normal release (minor version)
 1. Check that the `master` branch is in shape for a new release - tests are passing, no serious open issues etc.
 2. Make sure your local `master` branch is up to date w.r.t. GitHub: `git checkout master; git pull`
-3. Activate the virtual environment with `source venv/bin/activate` if you haven't already
+3. Activate the virtual environment with `poetry shell` if you haven't already
 4. Update the release-date in CITATION.cff: `sed -ri "s/date-released\:\s[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}/date-released: $(date '+%Y-%m-%d')/g" CITATION.cff; git diff CITATION.cff` and commit: `git add CITATION.cff; git commit -m "Update release-date"`
 5. Make a new version with bumpversion: `bumpversion release`
 6. Check with `git log` that the new version number matches your expectations.
