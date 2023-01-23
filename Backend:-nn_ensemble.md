@@ -4,6 +4,8 @@ This backend is similar in spirit to the [[PAV|Backend: PAV]] backend, but unlik
 
 TensorFlow may be able to utilize a GPU if the system has one available - see the TensorFlow documentation for details. In practice, when training an ensemble, the great majority of processing time is typically spent processing the document in the source projects, so the extra benefit of a GPU is likely to be minimal.
 
+See also the [Annif-tutorial exercise about NN ensemble project](https://github.com/NatLibFi/Annif-tutorial/blob/master/exercises/OPT_nn_ensemble_project.md).
+
 ## Installation
 
 See [[Optional features and dependencies]]
