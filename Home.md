@@ -7,6 +7,7 @@ Welcome to the Annif wiki!
 * [[Architecture]]
 * [[Commands]]
 * [[Web user interface]]
+* [[REST API]]
 * [[Corpus formats]]
   * [[Document corpus formats]]
   * [[Subject vocabulary formats]]
