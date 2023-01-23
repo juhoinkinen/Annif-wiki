@@ -6,6 +6,7 @@
 * [[Architecture]]
 * [[Commands]]
 * [[Web user interface]]
+* [[REST API]]
 * [[Corpus formats]]
 * [[Project configuration]]
 * [[Analyzers]]
