@@ -2,6 +2,8 @@ The `omikuji` backend is a wrapper around [Omikuji](https://github.com/tomtung/o
 
 The quality of results has generally been extremely good, even without tuning of hyperparameters. Training can be computationally intensive; by default it will use all available CPU cores in parallel during the training phase. Also large amounts of RAM (several GB) may be required during training, but during use the memory usage is lower.
 
+See also the [Annif-tutorial exercise about Omikuji project](https://github.com/NatLibFi/Annif-tutorial/blob/master/exercises/OPT_omikuji_project.md).
+
 ## Installation
 
 See [[Optional features and dependencies]]
