@@ -2,6 +2,8 @@ The `tfidf` backend implements a baseline algorithm for automated subject indexi
 
 It is really easy to get started using the TF-IDF backend since it doesn't require any algorithm-specific configuration.
 
+See also the [Annif-tutorial exercise about TFIDF project](https://github.com/NatLibFi/Annif-tutorial/blob/master/exercises/02_tfidf_project.md).
+
 ## Example configuration
 
 ```
