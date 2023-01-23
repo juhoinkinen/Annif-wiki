@@ -1,5 +1,7 @@
 A document corpus (or several) is needed for training statistical or machine learning based models as well as for evaluating how well those models work. Annif supports two document corpus formats: one that is more suitable for longer documents (full text or long abstracts) and another that is better suited for short texts such as when you only have document titles.
 
+See also the [Annif-tutorial exercise with jupyter notebook for creating a custom corpus](https://github.com/NatLibFi/Annif-tutorial/blob/master/exercises/OPT_custom_corpus.md).
+
 ## Full-text document corpus (directory)
 
 The full text corpus is a directory with UTF-8 encoded text files that have the file extension `.txt`.
