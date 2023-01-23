@@ -26,6 +26,8 @@ The main differences between MLLM and Maui are:
 * MLLM does not implement all the features in Maui, for example Wikipedia related features that are only useful for keyword extraction without a controlled vocabulary
 * Maui is a standalone Java application, while MLLM is implemented in Python as a part of the Annif code base and relies on some of the facilities that Annif provides, e.g. the configuration, vocabulary and analyzer functionality.
 
+See also the [Annif-tutorial exercise about MLLM project](https://github.com/NatLibFi/Annif-tutorial/blob/master/exercises/05_mllm_project.md).
+
 ## Example configuration
 
 A minimal configuration that relies on default values:
