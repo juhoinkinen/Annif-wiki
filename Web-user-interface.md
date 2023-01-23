@@ -7,3 +7,5 @@ There are buttons for selecting the maximum number of suggested subjects, and a 
 [[/images/annif-web-ui.png|Annif web UI screenshot]]
 
 The UI also includes a link to the interactive OpenAPI documentation that can be used to inspect and test the REST API.
+
+See also the [Annif-tutorial exercise about Web UI](https://github.com/NatLibFi/Annif-tutorial/blob/master/exercises/03_web_ui.md).
