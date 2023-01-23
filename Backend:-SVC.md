@@ -2,6 +2,8 @@ The SVC that implements Linear Support Vector Classification. It is based on [Li
 
 Note that SVC cannot handle more than one class/subject per document during training. If a document in the training corpus has more than one subject, a random one of the subjects is picked and a warning is shown.
 
+See also the [Annif-tutorial exercise about classification using SVC](https://github.com/NatLibFi/Annif-tutorial/blob/master/exercises/OPT_classification.md).
+
 ## Example configuration
 
 ```
