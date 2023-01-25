@@ -14,7 +14,7 @@ How to make a new release of Annif.
 11. Close the milestone corresponding to the release (and create a new one for the next release).
 12. Update the wiki documentation to match features of the new release (e.g. new or updated backends) and check that [API documentation](https://annif.readthedocs.io/en/latest/index.html) has been correctly updated (updating should happen on all commits to `master`).
 13. Announce the release on [annif-users](https://groups.google.com/forum/#!forum/annif-users) and other channels (e.g. twitter) 
-14. Create a blog post (in Finnish) in the [Finto wiki](https://www.kiwi.fi/display/Finto/Tervetuloa) about the new release (make sure to include a Label `finto`)
+14. Create a blog post (in Finnish) in the [Finto wiki](https://www.kiwi.fi/display/Finto/Tervetuloa) about the new release (make sure to include at least the label `finto`, preferably also `fintoai`)
 15. Announce the release on [@Fintopalvelu](https://twitter.com/Fintopalvelu) twitter, with a link to the blog post
 16. Post the announcement to the mailing lists `finto-tiedotus` and `automaattinen-kuvailu` (make sure the message is not held up in moderation)
 17. Prepare the `master` branch for the next development release with bumpversion: `bumpversion --no-tag minor` (this should increment the second part of the version number and add a `-dev` suffix, but not create a new tag, as it would create confusion e.g. on PyPI)
