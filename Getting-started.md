@@ -1,3 +1,7 @@
+# Introduction
+
+This is a very brief overview of how to get started using Annif. For more in-depth, hands-on materials, please take a look at the [Annif tutorial](https://github.com/NatLibFi/Annif-tutorial) - it provides introductory videos and exercises for learning how to use and apply Annif.
+
 # Install Annif
 
 First you need to install Annif. Follow the instructions in the top level [README](https://github.com/NatLibFi/Annif/blob/master/README.md) file.
@@ -85,9 +89,9 @@ The Swagger UI documentation for the REST API is at http://localhost:5000/v1/ui/
 
 # Next steps
 
-Once you have one project/backend working you can start adding more projects and trying out more backends. See [[Project configuration]] for more information.
+Once you have one project/backend working you can start adding more projects and trying out more backends. See [[Project configuration]] for more information. Also, remember to check out the [Annif tutorial](https://github.com/NatLibFi/Annif-tutorial).
 
-For production use you should try [[Running as a WSGI service]].
+For production use you should try [[Running as a WSGI service]] and/or [[Usage with Docker]].
 
 # Troubleshooting, questions and discussion
 
