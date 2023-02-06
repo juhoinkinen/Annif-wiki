@@ -47,7 +47,6 @@ You will need a wrapper script that is executable via WSGI and initializes Annif
 Switch back to the `root` user. Create the directory `/var/www/Annif` and the file `/var/www/Annif/annif.wsgi` with this content:
 
     import sys
-    sys.path.append('/srv/Annif')
     sys.path.append('/srv/Annif/venv/lib/python3.10/site-packages')
     
     from annif import create_app
