@@ -1,12 +1,12 @@
 This page explains how to set up Annif as a WSGI service under Apache. In this mode Annif will run as a long-lived process that preloads all the projects, vocabularies and models into memory and is able to serve requests to the REST API quickly.
 
-It assumes you are using Ubuntu 18.04 but the process should be similar for other Linux distributions and Ubuntu releases. We will install Annif itself under `/srv/Annif` and a wrapper script under `/var/www/Annif`. You can choose other paths if appropriate.
+It assumes you are using Ubuntu 22.04 but the process should be similar for other Linux distributions and Ubuntu releases. We will install Annif itself under `/srv/Annif` and a wrapper script under `/var/www/Annif`. You can choose other paths if appropriate.
 
-# Install Apache and mod_wsgi
+# Install Apache, mod_wsgi, curl and support for Python virtual environments:
 
 Run the following to install the necessary packages:
 
-    sudo apt install apache2 libapache2-mod-wsgi-py3
+    sudo apt install apache2 libapache2-mod-wsgi-py3 curl python3-venv
 
 # Create a system user and group
 
@@ -23,57 +23,49 @@ Now we can switch to the `annif` user account for the remainder of the install:
 
     sudo su annif
 
-We will install the development version from GitHub.
-
-    git clone https://github.com/NatLibFi/Annif.git /srv/Annif
-
-If you get the error `fatal: destination path '/srv/Annif' already exists and is not an empty directory.` then you probably already have some files under `/srv/Annif` such as `.bash_history`. Delete them, then try again.
-
-Create and activate a virtual environment:
+Create and activate a Python virtual environment under /srv/Annif/venv:
 
     cd /srv/Annif
     python3 -m venv venv
     . venv/bin/activate
 
-Update `pip` and `setuptools`, and then install the required dependencies for Annif and for optional features, e.g. for fastText backend:
+Update `pip`, `wheel` and `setuptools` (these are all Python package management tools), and then install Annif and any optional features, e.g. for fastText and Omikuji backends:
 
-    pip install pip setuptools --upgrade
-    pip install .[fasttext]
+    pip install pip wheel setuptools --upgrade
+    pip install annif[fasttext,omikuji]
 
-Now you need to set up your projects by creating `/srv/Annif/projects.cfg`, load vocabularies, train your models etc. You should do all of this while logged in as the `annif` user. This way any new files and directories created during these operations will be owned by the `annif` user and thus accessible also to the WSGI service which runs as that user account.
+Then install the punkt tokenizer for NLTK:
+
+    python -m nltk.downloader punkt
+
+Now you need to set up your projects by creating `/srv/Annif/projects.cfg`, load vocabularies, train your models etc. You should do all of this while logged in as the `annif` user and staying in the `/srv/Annif` directory. This way any new files and directories created during these operations will be owned by the `annif` user and thus accessible also to the WSGI service which runs as that user account.
 
 # Create a WSGI wrapper script
 
-You will need a wrapper script that is executable via WSGI and that initializes Annif from within its virtual environment.
+You will need a wrapper script that is executable via WSGI and initializes Annif from within its virtual environment.
 
-Switch back to the `root` user and create the file `/var/www/Annif/annif.wsgi` with this content:
+Switch back to the `root` user. Create the directory `/var/www/Annif` and the file `/var/www/Annif/annif.wsgi` with this content:
 
     import sys
     sys.path.append('/srv/Annif')
-    sys.path.append('/srv/Annif/.venv/lib/python3.6/site-packages')
+    sys.path.append('/srv/Annif/venv/lib/python3.10/site-packages')
     
     from annif import create_app
     application = create_app()
 
-If your system has a different Python 3 version, be sure to change the path above to the correct version. Python 3.6 is the default for Ubuntu 18.04, while Ubuntu 20.04 uses Python 3.8.
+If your system has a different Python 3 version, be sure to change the path above to the correct version. Python 3.10 is the default for Ubuntu 22.04, while Ubuntu 20.04 uses Python 3.8.
 
 # Configure an Apache virtual host
 
-You will need to create a new virtual host or edit the default virtual host configuration under `/etc/apache/sites-available/000-default.conf`. In either case, you should add these directives:
+You will need to create a new Apache virtual host or edit the default virtual host configuration under `/etc/apache/sites-available/000-default.conf`. In either case, you should add these directives:
 
     WSGIDaemonProcess annif user=annif group=annif threads=5 home=/srv/Annif locale=en_US.UTF-8 lang=en_US.UTF-8
     WSGIScriptAlias / /var/www/Annif/annif.wsgi
-
-    Alias /static /srv/Annif/annif/static
 
     <Directory /var/www/Annif>
         WSGIProcessGroup annif
         WSGIApplicationGroup %{GLOBAL}
         WSGIScriptReloading On
-        Require all granted
-    </Directory>
-
-    <Directory /srv/Annif/annif/static>
         Require all granted
     </Directory>
 
