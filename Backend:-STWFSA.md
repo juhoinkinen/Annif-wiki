@@ -8,7 +8,7 @@ It is best suited for English language data.
 A minimal configuration:
 
 ```
-[stwfsa-yso-en]
+[yso-stwfsa-en]
 name=STWFSA YSO english
 language=en
 backend=stwfsa
@@ -17,7 +17,7 @@ vocab=yso
 
 A configuration using custom classes for concept types, sub-thesauri and their relations (see parameter documentation below for more information).
 ```
-[stwfsa-stw-en]
+[stw-stwfsa-en]
 name=STWFSA STW english
 language=en
 backend=stwfsa
@@ -57,15 +57,15 @@ Load a vocabulary:
 
 Train the model:
 
-    annif train stwfsa-yso-en /path/to/Annif-corpora/training/yso-finna-en.tsv.gz
+    annif train yso-stwfsa-en /path/to/Annif-corpora/training/yso-finna-en.tsv.gz
 
 Test the model with a single document:
 
-    cat document.txt | annif suggest stwfsa-yso-en
+    cat document.txt | annif suggest yso-stwfsa-en
 
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
-    annif eval stwfsa-yso-en /path/to/documents/
+    annif eval yso-stwfsa-en /path/to/documents/
 
 ## Provenance / contact information
 
