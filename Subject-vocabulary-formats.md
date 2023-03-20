@@ -8,6 +8,7 @@ The simple TSV subject vocabulary format only specifies URIs and labels for conc
 <http://example.org/thesaurus/subj1>	networking
 <http://example.org/thesaurus/subj2>	computer science
 <http://example.org/thesaurus/subj3>	Internet Protocol	42.42
+```
 
 ## Subject vocabulary as CSV
 
