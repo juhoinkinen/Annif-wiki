@@ -1,6 +1,6 @@
 Annif follows [semantic versioning](https://semver.org/) principles. The guiding SemVer principle is that if the public API is changed, a new major version should be released. 
 
-In order to apply the SemVer principles to the case of Annif, it is necessary to define what is considered the public API of Annif. Annif is primarily a toolkit and its "API" consists of many parts, such as the command line interface, the REST API, the web user interface, Python code as well as configuration and data files. This document aims to define the policy for what may and may not change in different parts of the public API for **minor releases** (e.g. 1.0.0 -> 1.1.0).
+In order to apply the SemVer principles to the case of Annif, it is necessary to define what is considered the public API of Annif. Annif is primarily a toolkit and its "API" consists of many parts, such as the command line interface, the REST API, the web user interface, Python code as well as configuration and data files. This document aims to define the **policy for what may and may not change** in different parts of the public API for **minor releases** (e.g. 1.0.0 -> 1.1.0).
 
 For patch releases (e.g. 1.0.0 -> 1.0.1) that are meant only for bug fixes, backward compatibility requirements are obviously more strict; only the minimum amount of changes necessary to fix the bug(s) will be made to the Annif codebase and if there are any worries about introducing backward compatibility issues for users, a minor version is released instead of a patch release.
 
