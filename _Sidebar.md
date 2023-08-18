@@ -14,6 +14,7 @@
 * [[Achieving good results]]
 * [[Reusing preprocessed training data]]
 * [[Running as a WSGI service]]
+* [[Backward compatibility between Annif releases]]
 * Backends
   * [[TF-IDF|Backend: TF-IDF]]
   * [[fastText|Backend: fastText]]
