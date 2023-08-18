@@ -14,7 +14,7 @@ The **output of `eval` and `hyperopt` commands must stay the same** except that 
 
 # REST API method calls
 
-The REST API already includes a version number prefix (currently `/v1/`) so it is expected that **any backwards incompatible changes require incrementing that version prefix**. support for the old API version is removed, **a new major release of Annif must be made**. 
+The REST API already includes a version number prefix (currently `/v1/`) so it is expected that **any backwards incompatible changes require incrementing that version prefix**. If support for the old API version is removed, **a new major release of Annif must be made**. 
 
 Defining a breaking change for the REST API is out of scope for the discussion on Annif version numbers. For identifying the difference of two OpenAPI specifications the [openapi-diff](https://github.com/OpenAPITools/openapi-diff) tool can be used.
 
@@ -50,8 +50,8 @@ Any incompatibility **must not silently lead to erroneous suggestion results**.
 
 # Docker images
 
-The Python version used in the Docker image of Annif **is allowed to be updated** as long as existing models and vocabularies remain compatible.
+The Python version used in the Docker image of Annif **is allowed to be updated**. 
 
-The base image that we use is an official Python image from DockerHub, which are based on Debian. The operating system should not affect Annif functionality, so **updating the base image to a new OS version is allowed**, as long as existing models and vocabularies remain compatible.
+The base image that we use is an [official Python image from DockerHub](https://hub.docker.com/_/python), which is based on Debian. The operating system should not affect Annif functionality, so **updating the base image to a new OS version is allowed**.
 
 The image of a given Annif version will be occasionally rebuilt to apply security updates to it. The vocabularies and models/projects **must remain compatible** between the rebuilds.
