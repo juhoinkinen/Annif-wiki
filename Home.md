@@ -17,6 +17,7 @@ Welcome to the Annif wiki!
 * [[Achieving good results]]
 * [[Reusing preprocessed training data]]
 * [[Running as a WSGI service]]
+* [[Backward compatibility between Annif releases]]
 * Backends/Algorithms supported by Annif
   * Regular backends for automated subject indexing and classification
      * [[Backend: TF-IDF]]
