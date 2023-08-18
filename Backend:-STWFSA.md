@@ -2,6 +2,9 @@ The `STWFSA` backend is a wrapper around [STWFSAPY](https://github.com/zbw/stwfs
 
 It is best suited for English language data.
 
+## Installation
+
+See [Optional features and dependencies](https://github.com/NatLibFi/Annif/wiki/Optional-features-and-dependencies).
 
 ## Example configuration
 
