@@ -4,9 +4,9 @@ How to make a new release of Annif.
 1. Check that the `main` branch is in shape for a new release - tests are passing, no serious open issues etc.
 2. Make sure your local `main` branch is up to date w.r.t. GitHub: `git checkout main; git pull`
 3. Activate the virtual environment with `poetry shell` if you haven't already
-4. Update the release-date in CITATION.cff: `sed -ri "s/date-released\:\s[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}/date-released: $(date '+%Y-%m-%d')/g" CITATION.cff; git diff CITATION.cff` and commit: `git add CITATION.cff; git commit -m "Update release-date"`
+4. Update the release-date in CITATION.cff: `sed -ri "s/date-released\:\s[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}/date-released: $(date '+%Y-%m-%d')/g" CITATION.cff; git diff CITATION.cff` and commit: `git commit -m "Update release-date" CITATION.cff`
 5. Make a new version with bumpversion: `bumpversion release`
-6. Check with `git log` that the new version number matches your expectations.
+6. Check with `git show` that the new version number matches your expectations (and that `requires = ["poetry-core>=x]` has not been inadvertently modified).
 7. Push the commit to GitHub: `git push`
 8. Push the version tag too: `git push --tags`
 9. Wait for [GitHub Actions jobs](https://github.com/NatLibFi/Annif/actions) to complete. The version tag should trigger a distribution build that is uploaded to [PyPI](https://pypi.org/project/annif/).
@@ -26,6 +26,6 @@ How to make a new release of Annif.
 2. Create and checkout a new branch for the new release, e.g. `git checkout -b release-0.54.1`
 3. Include the wanted changes to the branch by cherry-picking commits or merging branches.
 4. Update the release-date in CITATION.cff as in step 4 of normal release.
-5. Make a new *patch* version with bumpversion: the new version needs to be set manually, e.g.: `bumpversion --new-version 0.54.1 patch`
+5. Make a new *patch* version with bumpversion: the new version needs to be set manually, e.g.: `bumpversion --new-version 0.54.1 patch`. 
 6. Follow the normal release process from step 6 as needed.
 7. If necessary, change the GitHub milestones of the PRs included in this patch to point to the correct minor version (in case the milestones have originally been set to next minor release, e.g. 0.55).
