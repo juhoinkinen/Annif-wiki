@@ -4,6 +4,8 @@ Downloads are possible from public repositories without logging in to Hugging Fa
 
 The integration utilizes the [Hugging Face Hub cache-system](https://huggingface.co/docs/huggingface_hub/guides/manage-cache); to explore the cache, use `huggingface-cli scan-cache` command, and to delete items from the cache, use `huggingface-cli delete-cache`. 
 
+Note that using [glob wildcards](https://en.wikipedia.org/wiki/Glob_(programming)) (e.g. `*` or `?`) in the projects patterns for the below commands can make the shell to [expand the wildcards](https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html) to matching _filenames_, instead of the intended projects, because the shell expansion happens before Annif processes the command arguments. At least when targeting all projects with `*` pattern the shell expands it to all filenames in the directory. To avoid shell expansion, use quotion marks around the pattern, e.g. `"*"`.
+
 # Downloading projects from Hugging Face Hub
 
 The download command enables to download selected projects and their associated vocabularies from a specified Hugging Face Hub repository. This command retrieves project and vocabulary archives along with their configuration files from the designated repository and extracts them to the local `data/` directory and `projects.d/` directory, respectively. 
@@ -18,7 +20,7 @@ yso-mllm-en.cfg: 100%|███████████████████�
 vocabs/yso.zip: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61.6M/61.6M [00:05<00:00, 11.2MB/s]
 ```
 
-To download all YSO projects with English language, use project pattern `yso-*en` in place of `yso-mllm-en`.
+To download all YSO projects with English language, use projects pattern `"yso-*en"` in place of `yso-mllm-en`.
 
 If any file contained in the archive already exists locally, the extraction does not overwrite the local file, but skips its extraction. To force overwrite of the existing local file, you can use the `--force/-f` option.
 
@@ -32,4 +34,4 @@ The yso-mllm-en project had been uploaded like this:
 
     Uploading project(s): yso-mllm-en
 
-Also the upload command targets the projects with a pattern of project IDs, so `yso-*en` could be used to upload all local YSO English projects.
+Also the upload command targets the projects with a pattern of project IDs, so `"yso-*en"` could be used to upload all local YSO English projects.
