@@ -26,7 +26,7 @@ To download all YSO projects with English language, use projects pattern `"yso-*
 
 If any file contained in the archive already exists locally, the extraction does not overwrite the local file, but skips its extraction. To force overwrite of the existing local file, you can use the `--force/-f` option.
 
-A specific revision (commit hash, branch name or tag) to download can be selected using the `--revision` option; see below for versioning projects with git tags.
+A specific revision (commit hash, branch name or tag) to download can be selected using the `--revision` option; see below for versioning projects.
 
 # Uploading projects to Hugging Face Hub
 
@@ -42,13 +42,19 @@ Also the upload command targets the projects with a pattern of project IDs, so `
 
 The commit message can be specified with `--commit-message` option; the default commit message is _"Upload project(s) \<project-ID-pattern\> with Annif"_.
 
+The branch to upload to can set by the `--revision` option, the default branch is `main`. Note that the branch needs to exist before upload, see below how to create branches.
+
 # Versioning projects
 
-Git tags can be used for versioning Annif projects in Hugging Face Hub.
-Currently ([v0.22](https://github.com/huggingface/huggingface_hub/releases/tag/v0.22.0)) the Hugging Face Hub commandline tool does not support git tag processing, but this will change in the future.
-However, the tags can be processed with Hugging Face Python client. For example, to list tags in a repository, use command
+Git branches and tags can be used for versioning Annif projects in Hugging Face Hub.
+Currently ([v0.22](https://github.com/huggingface/huggingface_hub/releases/tag/v0.22.0)) the Hugging Face Hub commandline tool does not support git branches or tags processing, but this will change in the future.
+However, the tags can be processed with Hugging Face Python client. For example, to list branches and tags in the NatLibFi/FintoAI-data-YSO repository, use command
 
-    python -c "from huggingface_hub import HfApi; client=HfApi(); refs=client.list_repo_refs(repo_id='NatLibFi/FintoAI-data-YSO'); print([t.ref for t in refs.tags])"
+    python -c "from huggingface_hub import HfApi; client=HfApi(); refs=client.list_repo_refs(repo_id='NatLibFi/FintoAI-data-YSO'); print([t.ref for t in refs.branches]); print([t.ref for t in refs.tags])"
+
+A new branch, e.g. `release-2024-04`, can be created with command
+
+    python -c "from huggingface_hub import HfApi; client=HfApi(); client.create_branch(repo_id='NatLibFi/FintoAI-data-YSO', branch='release-2024-04')"
 
 A new tag, e.g. `2024-04`, can be created with command
 
