@@ -11,6 +11,7 @@
 * [[Project configuration]]
 * [[Analyzers]]
 * [[Transforms]]
+* [[Hugging Face Hub integration]]
 * [[Achieving good results]]
 * [[Reusing preprocessed training data]]
 * [[Running as a WSGI service]]
