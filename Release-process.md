@@ -8,6 +8,7 @@ How to make a new release of Annif.
 5. Make a new version with bumpversion: `bumpversion release`
 6. Check with `git show` that the new version number matches your expectations (and that `requires = ["poetry-core>=x]` has not been inadvertently modified).
 7. Push the commit to GitHub: `git push`
+   - If you have prevented pushes to main branch by `git config branch.main.pushRemote no_push`, undo the prevention by `git config branch.main.pushRemote origin`
 8. Push the version tag too: `git push --tags`
 9. Wait for [GitHub Actions jobs](https://github.com/NatLibFi/Annif/actions) to complete. The version tag should trigger a distribution build that is uploaded to [PyPI](https://pypi.org/project/annif/).
 10. In GitHub [Releases](https://github.com/NatLibFi/Annif/releases) tab, turn the tag into a release and add release notes. This should trigger archiving on [Zenodo](https://doi.org/10.5281/zenodo.2578948).
