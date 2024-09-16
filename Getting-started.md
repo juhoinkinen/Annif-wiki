@@ -28,7 +28,7 @@ You now have to load the vocabulary that the project will use:
 
 This will take a few seconds.
 
-Then you need some training data. We will train the model using the the English language training data generated from Finna.fi metadata:
+Then you need some training data. We will train the model using the the English language training data generated from Finna.fi metadata (given in gzipped [short text corpus format](https://github.com/NatLibFi/Annif/wiki/Document-corpus-formats#short-text-document-corpus-tsv-file)):
 
     annif train tfidf-en /path/to/Annif-corpora/training/yso-finna-en.tsv.gz
 
@@ -95,4 +95,4 @@ For production use you should try [[Running as a WSGI service]] and/or [[Usage w
 
 # Troubleshooting, questions and discussion
 
-Check out the [[Annif-users -mailing list/forum | https://groups.google.com/forum/#!forum/annif-users]] and feel free to join the discussion or ask questions!
+Check out the [[Annif-users -mailing list/forum | https://groups.google.com/forum/#!forum/annif-users]] and feel free to join the discussion or ask questions! Also see [[Annif-tutorial | https://github.com/NatLibFi/Annif-tutorial]] for comprehensive video instructions and exercises to help learn Annif features!
