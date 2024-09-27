@@ -58,6 +58,14 @@ The commit message can be specified with `--commit-message` option; the default 
 
 The branch to upload to can set by the `--revision` option, the default branch is `main`. Note that the branch needs to exist before upload, see below how to create branches.
 
+## Model Cards
+The Hugging Face Hub has good support for metadata of the models by using [Model Cards](https://huggingface.co/docs/hub/model-cards). 
+Annif automatically creates or updates some information of the Model Cards on project uploads. By default when running `annif upload` (without `--no-modelcard` option):
+- if Model Card does not exist in the destination repository, it is created with default contents,
+- if Model Card exists, its project list and metadata are updated as necessary.
+
+The metadata of the Model Card that are automatically set include model task "text-classification", a custom tag "annif" and the languages of the projects. The automatically inserted text content consist of a heading, Usage section and Projects section with a list of the projects that are stored in the repository (detected by the `.cfg` files in the repository); the project list is updated on every upload.
+
 # Versioning projects
 
 Git branches and tags can be used for versioning Annif projects in Hugging Face Hub.
