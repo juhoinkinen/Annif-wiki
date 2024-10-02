@@ -1,5 +1,3 @@
-### NOTE: THIS FEATURE IS EXPERIMENTAL IN ANNIF V1.1 AND SUBJECT TO CHANGE
-
 Annif integration with Hugging Face Hub allows to easily upload and download projects and their associated vocabularies to and from [Hugging Face Hub model repositories](https://huggingface.co/docs/hub/models). This integration provides a convenient way to share Annif projects and collaborate on text classification tasks within the Hugging Face ecosystem.
 
 Downloads are possible from public repositories without logging in to Hugging Face Hub, but for all uploads and for downloads from private repositories you need to have logged in using the [`huggingface-cli login` command](https://huggingface.co/docs/huggingface_hub/guides/cli#huggingface-cli-login) or to give a [User Access token](https://huggingface.co/docs/hub/security-tokens) with the `--token` option of the `annif upload` or `annif download` commands.
@@ -10,11 +8,14 @@ Note that using [glob wildcards](https://en.wikipedia.org/wiki/Glob_(programming
 
 # Downloading projects from Hugging Face Hub
 
-The download command enables to download selected projects and their associated vocabularies from a specified Hugging Face Hub repository. This command retrieves project and vocabulary archives along with their configuration files from the designated repository and extracts them to the local `data/` directory and `projects.d/` directory, respectively. After download the projects are directly usable by Annif (if projects.{cfg,toml} does not exists or by using the `--projects` option to override them).
+The download command enables to download selected projects and their associated vocabularies from a specified Hugging Face Hub repository. This command retrieves project and vocabulary archives along with their configuration files from the designated repository and extracts them to the local `data/` directory and `projects.d/` directory, respectively. After download the projects are directly usable by Annif (if `projects.{cfg,toml}` does not exists or by using the `--projects` option to override them).
+
+### Caution!
+The `annif download` command has a `--trust-repo` option, which needs to be used if the repository to download from has not been used previously (that is if the repository does not appear in the local Hugging Face Hub cache). This option is to remind of the risks of using models from the internet; **the project downloads should only be done from trusted sources**. For more information of the risks see the [Hugging Face Hub documentation](https://huggingface.co/docs/hub/en/security-pickle).
 
 For example, download the yso-mllm-en project from [NatLibFi/FintoAI-data-YSO repository](https://huggingface.co/NatLibFi/FintoAI-data-YSO) and show the fetched files:
 ```
-$ annif download yso-mllm-en NatLibFi/FintoAI-data-YSO
+$ annif download yso-mllm-en NatLibFi/FintoAI-data-YSO  # --trust-repo is needed if this is the first download from the repo 
 
 Downloading project(s): yso-mllm-en
 projects/yso-mllm-en.zip: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2.11M/2.11M [00:00<00:00, 8.72MB/s]
