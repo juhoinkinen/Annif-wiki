@@ -10,8 +10,8 @@ Note that using [glob wildcards](https://en.wikipedia.org/wiki/Glob_(programming
 
 The download command enables to download selected projects and their associated vocabularies from a specified Hugging Face Hub repository. This command retrieves project and vocabulary archives along with their configuration files from the designated repository and extracts them to the local `data/` directory and `projects.d/` directory, respectively. After download the projects are directly usable by Annif (if `projects.{cfg,toml}` does not exists or by using the `--projects` option to override them).
 
-### Caution!
-The `annif download` command has a `--trust-repo` option, which needs to be used if the repository to download from has not been used previously (that is if the repository does not appear in the local Hugging Face Hub cache). This option is to remind of the risks of using models from the internet; **the project downloads should only be done from trusted sources**. For more information of the risks see the [Hugging Face Hub documentation](https://huggingface.co/docs/hub/en/security-pickle).
+> [!CAUTION]
+> The `annif download` command has a `--trust-repo` option, which needs to be used if the repository to download from has not been used previously (that is if the repository does not appear in the local Hugging Face Hub cache). This option is to remind of the risks of using models from the internet; **the project downloads should only be done from trusted sources**. For more information of the risks see the [Hugging Face Hub documentation](https://huggingface.co/docs/hub/en/security-pickle).
 
 For example, download the yso-mllm-en project from [NatLibFi/FintoAI-data-YSO repository](https://huggingface.co/NatLibFi/FintoAI-data-YSO) and show the fetched files:
 ```
