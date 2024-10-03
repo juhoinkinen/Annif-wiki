@@ -10,6 +10,7 @@
 * [[Corpus formats]]
 * [[Project configuration]]
 * [[Analyzers]]
+* [[Language detection]]
 * [[Transforms]]
 * [[Hugging Face Hub integration]]
 * [[Achieving good results]]
