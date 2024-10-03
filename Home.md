@@ -14,6 +14,7 @@ Welcome to the Annif wiki!
 * [[Project configuration]]
 * [[Analyzers]]
 * [[Transforms]]
+* [[Language detection]]
 * [[Hugging Face Hub integration]]
 * [[Achieving good results]]
 * [[Reusing preprocessed training data]]
