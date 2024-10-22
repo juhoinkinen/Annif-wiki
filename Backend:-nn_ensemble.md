@@ -23,6 +23,7 @@ vocab=yso
 nodes=100
 dropout_rate=0.2
 epochs=10
+learn-epochs=1
 ```
 
 ### Backend-specific parameters
@@ -34,7 +35,8 @@ Parameter | Description
 nodes | The number of nodes (neurons) in the hidden layer of the neural network. Defaults to 100
 dropout_rate | The amount of dropout to apply between layers (between 0.0 and 1.0) during training. Defaults to 0.2
 optimizer | The optimizer to use. Defaults to "adam"
-epochs | The number of passes over the initial training data to perform
+epochs | The number of passes over the initial training data to perform. Defaults to 10
+learn-epochs | The number of passes over the data to perform when performing online learning. Defaults to 1
 lr | The learning rate of the optimizer. Default depends on the optimizer
 lmdb_map_size | Maximum size of the LMDB database in bytes. The default is 1073741824 i.e. 1GB.
 
