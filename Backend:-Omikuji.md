@@ -2,7 +2,10 @@ The `omikuji` backend is a wrapper around [Omikuji](https://github.com/tomtung/o
 
 The quality of results has generally been extremely good, even without tuning of hyperparameters. Training can be computationally intensive; by default it will use all available CPU cores in parallel during the training phase. Also large amounts of RAM (several GB) may be required during training, but during use the memory usage is lower.
 
-For example, the current Omikuji Bonsai project for Finnish, Swedish and English running for [Finto AI service](https://ai.finto.fi/?locale=en) take 4, 2 and 1 GBs of _disk space_, respectively. The memory requirement for the projects is yet somewhat more. See below about the `min_df` and `ngram` configuration parameters that affect the memory demand.
+For example, the current Omikuji Bonsai project for Finnish, English and Swedish running for [Finto AI service](https://ai.finto.fi/?locale=en) take 4, 2 and 1 GBs of _disk space_, respectively (the variation is due to different number of training documents between languages). The memory requirement for the projects is yet somewhat more. See below about the `min_df` and `ngram` configuration parameters that affect the memory demand.
+
+> [!NOTE]  
+> If training gets interrupted with just a `Killed` message the reason is probably that the process ran out of memory.
 
 See also the [Annif-tutorial exercise about Omikuji project](https://github.com/NatLibFi/Annif-tutorial/blob/master/exercises/OPT_omikuji_project.md).
 
