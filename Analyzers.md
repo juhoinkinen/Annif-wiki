@@ -33,6 +33,6 @@ This analyzer and the language-specific models need to be installed separately. 
 
 ## `estnltk` analyzer
 
-The `estnltk` analyzer performs lemmatization for the Estonian language using the [EstNLTK toolkit](https://github.com/estnltk/estnltk). It takes no parameters.
+The `estnltk` analyzer (new in Annif 1.3) performs lemmatization for the Estonian language using the [EstNLTK toolkit](https://github.com/estnltk/estnltk). It takes no parameters.
 
 This analyzer needs to be installed separately. See [[Optional features and dependencies]]
