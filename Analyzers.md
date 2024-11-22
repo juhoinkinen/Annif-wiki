@@ -2,7 +2,7 @@ Analyzers are used to pre-process, tokenize and normalize text. If you happen to
 
 By default the tokenization discards all words that are shorter than three characters, but this can be configured by setting `token_min_length` in the analyzer parameters. For example, to discard only words of one character (when using the `snowball` analyzer for English), use `snowball(english,token_min_length=2)`.
 
-Annif supports many analyzers: `simple`, `snowball`, `simplemma`, `voikko` and `spacy`. 
+Annif supports many analyzers: `simple`, `snowball`, `simplemma`, `voikko`, `spacy` and `estnltk`. 
 
 ## `simple` analyzer
 
@@ -30,3 +30,9 @@ The `spacy` analyzer performs lemmatization for many languages using the [spaCy 
 The analyzer takes a language model name as parameter, e.g. `spacy(en_core_web_sm)`. Optionally, lemmas can be forced to lowercase using the `lowercase` option, like this: `spacy(en_core_web_sm,lowercase=1)`
 
 This analyzer and the language-specific models need to be installed separately. See [[Optional features and dependencies]]
+
+## `estnltk` analyzer
+
+The `estnltk` analyzer performs lemmatization for the Estonian language using the [EstNLTK toolkit](https://github.com/estnltk/estnltk). It takes no parameters.
+
+This analyzer needs to be installed separately. See [[Optional features and dependencies]]
