@@ -14,8 +14,7 @@ Then install the optional feature:
 
 If you have installed Annif from GitHub, use this instead:
 
-    pip install .[voikko]
-    pip install -e .  # make sure the Annif installation remains in editable mode
+    poetry install -E voikko
 
 # spaCy analyzer
 
@@ -25,8 +24,7 @@ Install the optional feature:
 
 If you have installed Annif from GitHub, use this instead:
 
-    pip install .[spacy]
-    pip install -e .  # make sure the Annif installation remains in editable mode
+    poetry install -E spacy
 
 You will need to download [language-specific models](https://spacy.io/usage/models) separately. Typically there are several different models available for each language - the smallest ones work just fine as we only need support for lemmatization but not any advanced features supported in the larger models.
 
@@ -37,6 +35,16 @@ To download the small model for English:
 To download the small model for German:
 
     python -m spacy download de_core_news_sm
+
+# estnltk analyzer
+
+Install the optional feature:
+
+    pip install annif[estnltk]
+
+If you have installed Annif from GitHub, use this instead:
+
+    poetry install -E estnltk
 
 # Language filtering with pycld3
 <details>
@@ -68,8 +76,7 @@ Install the optional feature:
 
 If you have installed Annif from GitHub, use this instead:
 
-    pip install .[fasttext]
-    pip install -e .  # make sure the Annif installation remains in editable mode
+    poetry install -E fasttext
 
 # Neural network backend (nn_ensemble)
 
@@ -79,8 +86,7 @@ Using the nn_ensemble backend requires TensorFlow 2. PyPI provides pre-built pac
 
 If you have installed Annif from GitHub, use this instead:
 
-    pip install .[nn]
-    pip install -e .  # make sure the Annif installation remains in editable mode
+    poetry install -E nn
 
 If this fails with an error like `Could not find a version that satisfies the requirement tensorflow==2.0.*`, you may need to upgrade your `pip` first, like this:
 
@@ -129,8 +135,7 @@ Install the optional feature:
 
 If you have installed Annif from GitHub, use this instead:
 
-    pip install .[omikuji]
-    pip install -e .  # make sure the Annif installation remains in editable mode
+    poetry install -E omikuji
 
 # STWFSA backend
 
@@ -140,8 +145,7 @@ Install the optional feature:
 
 If you have installed Annif from GitHub, use this instead:
 
-    pip install .[stwfsa]
-    pip install -e .  # make sure the Annif installation remains in editable mode
+    poetry install -E stwfsa
 
 # YAKE backend
 
@@ -153,5 +157,4 @@ Install the optional feature:
 
 If you have installed Annif from GitHub, use this instead:
 
-    pip install .[yake]
-    pip install -e .  # make sure the Annif installation remains in editable mode
+    poetry install -E yake
