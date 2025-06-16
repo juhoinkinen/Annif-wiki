@@ -21,7 +21,7 @@
 * 🎯 Optimization & Best Practices
   * [[Achieving good results]]
   * [[Reusing preprocessed training data]]
-* 🧩 Backends
+* 🧩 [[Backends]]
   * [[TF-IDF|Backend: TF-IDF]]
   * [[fastText|Backend: fastText]]
   * [[Omikuji|Backend: Omikuji]]
