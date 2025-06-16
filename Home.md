@@ -23,6 +23,7 @@ Welcome to the Annif wiki!
 * 🎯 Optimization & Best Practices
   * [[Achieving good results]]
   * [[Reusing preprocessed training data]]
+  * [[Generating synthetic training data]]
 * 🧩 [[Backends]]
   * [[TF-IDF|Backend: TF-IDF]]
   * [[fastText|Backend: fastText]]
