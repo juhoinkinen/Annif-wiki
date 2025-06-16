@@ -72,7 +72,7 @@ LRAP:                   0.2467723479191469
 True positives:         48
 False positives:        232
 False negatives:        84
-Documents evaluated:    28 
+Documents evaluated:    28
 ```
 
 # Start up the application
@@ -96,3 +96,7 @@ For production use you should try [[Running as a WSGI service]] and/or [[Usage w
 # Troubleshooting, questions and discussion
 
 Check out the [[Annif-users -mailing list/forum | https://groups.google.com/forum/#!forum/annif-users]] and feel free to join the discussion or ask questions! Also see [[Annif-tutorial | https://github.com/NatLibFi/Annif-tutorial]] for comprehensive video instructions and exercises to help learn Annif features!
+
+---
+
+| [[↑ Wiki home|Home]] | [[System requirements →|System-requirements]]
