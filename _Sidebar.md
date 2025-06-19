@@ -41,5 +41,6 @@
   * [[Creating a new backend]]
 * 🆘 Troubleshooting & Support
   * [Annif-users mailing list/forum](https://groups.google.com/forum/#!forum/annif-users)
+  * [GitHub Issues](https://github.com/NatLibFi/Annif/issues)
   * [Security Policy](https://github.com/NatLibFi/Annif/security/policy)
 <!--- - [[Troubleshooting]]: Common issues and solutions--->

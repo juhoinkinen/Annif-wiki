@@ -60,5 +60,6 @@ For contributors.
 ## 🆘 Troubleshooting & Support
 <!--- - [[Troubleshooting]]: Common issues and solutions--->
 - [Annif-users mailing list/forum](https://groups.google.com/forum/#!forum/annif-users): Community support
+- [GitHub Issues](https://github.com/NatLibFi/Annif/issues): Create an issue here to report bugs or request features
 - [Security Policy](https://github.com/NatLibFi/Annif/security/policy): Guidelines for reporting vulnerabilities and security issues
 
