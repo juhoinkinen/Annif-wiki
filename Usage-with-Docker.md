@@ -10,7 +10,7 @@ These instructions have been written for Linux use, but most of them should work
 
     docker run -it --rm quay.io/natlibfi/annif bash 
 
-In the shell it is possible to run Annif [[commands|Commands]] (here the `-it` option is for enabling interactive mode and `--rm` for removing the container when it is exited). The container can be exited with `exit` command. (Note that by default Docker image with the `latest` tag is used, which in case of Annif is build on the current `master` git branch; to use an image of a specific release, append the image name with a colon and the release version number, use e.g. `quay.io/natlibfi/annif:0.42`. The first release with Docker image is 0.42) 
+In the shell it is possible to run Annif [[commands|Commands]] (here the `-it` option is for enabling interactive mode and `--rm` for removing the container when it is exited). The container can be exited with `exit` command. (Note that by default Docker image with the `latest` tag is used, which in case of Annif is build on the current `main` git branch; to use an image of a specific release, append the image name with a colon and the release version number, use e.g. `quay.io/natlibfi/annif:0.42`. The first release with Docker image is 0.42) 
 
 However, the Annif image itself does not contain any vocabulary or training data. A directory containing these can be [bind mounted](https://docs.docker.com/storage/bind-mounts/) from the host file system to the container using the syntax `-v /absolute_path/on/host:/path/in/container` after the `docker run` command. (Alternatively, it is possible to create and mount a [named volume](https://success.docker.com/article/different-types-of-volumes), which initially is empty, and get data into it by [copying](https://docs.docker.com/engine/reference/commandline/cp/) from host or fetching from internet, e.g. using wget in a running container to dowload [Annif-corpora GitHub repository](https://github.com/NatLibFi/Annif-corpora).
 
@@ -25,15 +25,16 @@ With the bind-mount and user-setting options the command to run bash in a contai
 
 Here the `annif-projects/` directory is assumed to exist in home directory on host (and it is mounted with the same name on the root of the container filesystem). From here on the post-installation steps for using Annif in [[Getting Started]] can be followed. 
 
-Specifically, the template configuration file [`projects.cfg.dist`](https://github.com/NatLibFi/Annif/blob/master/projects.cfg.dist) can be placed to `~/annif-projects/` in the host system with the name `projects.cfg` along the vocabulary and training data (e.g. [Annif-corpora](https://github.com/NatLibFi/Annif-corpora)).
+Specifically, the template configuration file [`projects.cfg.dist`](https://github.com/NatLibFi/Annif/blob/main/projects.cfg.dist) can be placed to `~/annif-projects/` in the host system with the name `projects.cfg` along the vocabulary and training data (e.g. [Annif-corpora](https://github.com/NatLibFi/Annif-corpora)).
 
-*Note that any data should not be stored in other locations in the container but in the mounted directory*, as after the container has stopped, [it is not convenient to gain access to the data again](https://docs.docker.com/engine/reference/commandline/commit/).
+> [!NOTE]
+> Any data should not be stored in other locations in the container but in the mounted directory, as after the container has stopped, [it is not convenient to gain access to the data again](https://docs.docker.com/engine/reference/commandline/commit/).
 
 If the web UI started by `annif run` is used from within the container, also the option `--network="host"` [needs to be included in the `docker run` command](https://docs.docker.com/engine/reference/run/#network-host).
 
 # Customizing Docker image
 
-If the pre-built image does not suit your needs, you can customize the [Dockerfile](https://github.com/NatLibFi/Annif/blob/master/Dockerfile) as wished and [build your own image](https://docs.docker.com/engine/reference/commandline/build/). However, if you would like to just reduce the image size by dropping some optional features or backends, the default Dockerfile can be used straight from the GitHub repository; the list of optional Python dependencies to install can be given using the `--build-arg` option of the build command. For example, to install only Omikuji and Voikko dependencies, the command is
+If the pre-built image does not suit your needs, you can customize the [Dockerfile](https://github.com/NatLibFi/Annif/blob/main/Dockerfile) as wished and [build your own image](https://docs.docker.com/engine/reference/commandline/build/). However, if you would like to just reduce the image size by dropping some optional features or backends, the default Dockerfile can be used straight from the GitHub repository; the list of optional Python dependencies to install can be given using the `--build-arg` option of the build command. For example, to install only Omikuji and Voikko dependencies, the command is
 
     docker build \
         --build-arg optional_dependencies=omikuji,voikko \
@@ -48,7 +49,7 @@ If you have chosen to include the spaCy analyzer optional feature (included by d
         --tag annif-custom https://github.com/NatLibFi/Annif.git
 
 # Using Annif with Gunicorn and NGINX
-Different containerized services can be conveniently linked together by using [docker-compose](https://docs.docker.com/compose/). The instructions to set up the services are in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/master/docker-compose.yml), which in this case instructs docker to start separate containers for 
+Different containerized services can be conveniently linked together by using [docker-compose](https://docs.docker.com/compose/). The instructions to set up the services are in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/main/docker-compose.yml), which in this case instructs docker to start separate containers for 
 
 * Gunicorn server running Annif Web UI
 * [NGINX proxy server](https://nginx.org/en/docs/)
@@ -57,7 +58,7 @@ To start these services, while in a directory where the `docker-compose.yml` is 
 
     ANNIF_PROJECTS=~/annif-projects MY_UID=$(id -u) MY_GID=$(id -g) docker-compose up
 
-Here the environment variables are needed for mounting the directory for vocabulary and training data files and setting the user in the container the same as on the host. In Windows setting these variables should be omitted and the lines including `MY_UID` and `MY_GID` in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/master/docker-compose.yml) removed, and there also the path of the directory to be mounted should be directly given in place of `${ANNIF_PROJECTS}` (e.g. `c:/users/example.user/annif/annif-projects/`). Once the services have started, the Annif web UI is accessible at http://localhost/ run by NGINX (see [this](https://docs.docker.com/docker-for-windows/troubleshoot/#limitations-of-windows-containers-for-localhost-and-published-ports) in case of problems for accessing localhost in Windows).
+Here the environment variables are needed for mounting the directory for vocabulary and training data files and setting the user in the container the same as on the host. In Windows setting these variables should be omitted and the lines including `MY_UID` and `MY_GID` in [`docker-compose.yml`](https://github.com/NatLibFi/Annif/blob/main/docker-compose.yml) removed, and there also the path of the directory to be mounted should be directly given in place of `${ANNIF_PROJECTS}` (e.g. `c:/users/example.user/annif/annif-projects/`). Once the services have started, the Annif web UI is accessible at http://localhost/ run by NGINX (see [this](https://docs.docker.com/docker-for-windows/troubleshoot/#limitations-of-windows-containers-for-localhost-and-published-ports) in case of problems for accessing localhost in Windows).
 Note that the NGINX configuration file for proxying requests to Annif is created when the NGINX starts; this avoids the need to mount that file from host as the [configuration is contained inline in the `docker-compose.yaml`](https://github.com/NatLibFi/Annif/blob/9fcc72f5f5db5c852b25be3292af358047fb08ce/docker-compose.yml#L20-L27).
 
 To connect to the already running `annif_app` container for using Annif commands, run
