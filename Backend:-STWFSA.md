@@ -1,4 +1,4 @@
-The `STWFSA` backend is a wrapper around [STWFSAPY](https://github.com/zbw/stwfsapy), a lexical algorithm based on finite state automata. 
+The `STWFSA` backend is a wrapper around [STWFSAPY](https://github.com/zbw/stwfsapy), a lexical algorithm based on finite state automata.
 
 It is best suited for English language data.
 

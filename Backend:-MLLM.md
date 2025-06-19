@@ -16,7 +16,7 @@ During inference (use on new documents), steps 3-5 are repeated for each documen
 
 The main differences between MLLM and Maui are:
 
-* Maui can be used for both keyphrase extraction (without a controlled vocabulary) and subject indexing (with a vocabulary). MLLM assumes that there is a defined vocabulary and only does the latter 
+* Maui can be used for both keyphrase extraction (without a controlled vocabulary) and subject indexing (with a vocabulary). MLLM assumes that there is a defined vocabulary and only does the latter
 * the lexical matching process in MLLM is based on sets of (normalized) tokens instead of word n-grams; in practice, matching in MLLM is less strict than in Maui, leading to higher recall at the cost of precision;
 * Maui has only one feature for semantic relatedness, while MLLM uses distinct heuristics for broader, narrower and related relationships
 * MLLM includes features that are not used in Maui:

@@ -4,7 +4,7 @@ It is really easy to get started using the TF-IDF backend since it doesn't requi
 
 See also the [Annif-tutorial exercise about TFIDF project](https://github.com/NatLibFi/Annif-tutorial/blob/master/exercises/02_tfidf_project.md).
 
-> [!NOTE]  
+> [!NOTE]
 > The `tfidf` backend is mostly meant to introduce Annif core features by allowing a quick setup; most probably other (Omikuji, MLLM) will give significantly better suggestions (even 25 %-points better F1@5 scores).
 
 ## Example configuration

@@ -4,7 +4,7 @@ There are some optional features that depend on external native code libraries:
 
 # voikko analyzer
 
-Assuming you are using Ubuntu, you fill first need to install the `libvoikko1` and `voikko-fi` packages:
+Assuming you are using Ubuntu, you will first need to install the `libvoikko1` and `voikko-fi` packages:
 
     sudo apt install libvoikko1 voikko-fi
 

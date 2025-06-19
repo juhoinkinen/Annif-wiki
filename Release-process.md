@@ -1,10 +1,10 @@
-How to make a new release of Annif. 
+This page describes the steps for making a new Annif release. It is intended for maintainers and contributors responsible for preparing and publishing releases. Review this checklist before starting a release to ensure all steps are followed.
 
 ## Normal release (minor version)
 1. Check that the `main` branch is in shape for a new release - tests are passing, no serious open issues, **no warnings** from installation or tests that should be addressed etc.
 2. Make sure your local `main` branch is up to date w.r.t. GitHub: `git checkout main; git pull`
 3. Activate the virtual environment with `eval $(poetry env activate)` if you haven't already (previously `poetry shell`)
-4. Update the release-date in CITATION.cff: 
+4. Update the release-date in CITATION.cff:
    - `sed -ri "s/date-released\:\s[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}/date-released: $(date '+%Y-%m-%d')/g" CITATION.cff; git diff CITATION.cff`
    - `git commit -m "Update release-date" CITATION.cff`
 5. Make a new version with bumpversion: `bumpversion release`
@@ -30,6 +30,6 @@ How to make a new release of Annif.
 2. Create and checkout a new branch for the new release, e.g. `git checkout -b release-0.54.1`
 3. Include the wanted changes to the branch by cherry-picking commits or merging branches.
 4. Update the release-date in CITATION.cff as in step 4 of normal release.
-5. Make a new *patch* version with bumpversion: the new version needs to be set manually, e.g.: `bumpversion --new-version 0.54.1 patch`. 
+5. Make a new *patch* version with bumpversion: the new version needs to be set manually, e.g.: `bumpversion --new-version 0.54.1 patch`.
 6. Follow the normal release process from step 6 as needed.
 7. If necessary, change the GitHub milestones of the PRs included in this patch to point to the correct minor version (in case the milestones have originally been set to next minor release, e.g. 0.55).

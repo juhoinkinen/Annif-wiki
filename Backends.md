@@ -1,4 +1,6 @@
-Backends in Annif are the way to use the algorithms responsible for performing automated subject indexing. Each backend has its own strengths, requirements and ideal use cases.
+Annif includes multiple backends that implement or use (via external libraries) algorithms for automated subject indexing. Each backend has its own strengths, requirements, and ideal use cases. The table below provides a quick comparison—see each backend's page for details and configuration options.
+
+> **Tip:** Choose a backend based on your corpora size and available resources. For a quick setup, start with TF-IDF; for best results, try fastText, Omikuji and MLLM combined in ensembles.
 
 The below table aims to provide the basic information of all the backends.
 

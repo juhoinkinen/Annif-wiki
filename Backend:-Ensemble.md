@@ -2,6 +2,9 @@ The `ensemble` backend implements a simple ensemble, i.e. a method for combining
 
 It is easy to start using because it requires no algorithm-specific configuration apart from the `sources` setting.
 
+> [!TIP]
+> Use the ensemble backend to improve results by combining complementary backends, such as Omikuji (associative) and MLLM (lexical).
+
 See also the [Annif-tutorial exercise about ensemble project](https://github.com/NatLibFi/Annif-tutorial/blob/master/exercises/06_ensemble_project.md).
 
 ## Example configuration

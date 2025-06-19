@@ -1,21 +1,22 @@
-The `yake` backend is a wrapper around [YAKE library](https://github.com/LIAAD/yake), which performs unsupervised automatic keyword extraction. 
+The `yake` backend is a wrapper around [YAKE library](https://github.com/LIAAD/yake), which performs unsupervised automatic keyword extraction.
 
-In the backend the keywords found by YAKE are searched from an index, which is formed from the SKOS vocabulary labels. The index can include `prefLabels`, `altLabels` and/or `hiddenLabels`. Keywords and labels in the index are lemmatized and sorted alphabetically for matching.
+As YAKE is based on an unsupervised algorithm, the projects using it do not require training.
+
+The keywords found by YAKE are searched from an index, which is formed from the SKOS vocabulary labels. The index can include `prefLabels`, `altLabels` and/or `hiddenLabels`. Keywords and labels in the index are lemmatized and sorted alphabetically for matching.
 
 The YAKE backend is based on lexical principle, but currently it does not perform as well as the other lexical backends (MLLM or STWFSA, which are from the beginning designed to utilize the SKOS vocabulary features). However, the (free) keyword extraction operation offers a possibility to add new features to Annif, especially the feature for suggesting new terms for a vocabulary (the keywords not found in the vocabulary).
 Currently the keywords not found from the vocabulary are shown in the debug log. However, at the moment setting the log-level for server mode (command `annif run`) is not possible.
 
-Also the unsupervised approach can be useful in some cases: there is no need for training data.
-
 ## Installation
 
-Please note that the [YAKE](https://github.com/LIAAD/yake) library is licended
-under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.txt), while Annif is
-licensed under the Apache License 2.0. The licenses are compatible, but
-depending on legal interpretation, the terms of the GPLv3 (for example the
-requirement to publish corresponding source code when publishing an executable
-application) may be considered to apply to the whole of Annif+Yake if you
-decide to install the optional YAKE dependency.
+> [!NOTE]
+> Please note that the [YAKE](https://github.com/LIAAD/yake) library is licended
+> under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.txt), while Annif is
+> licensed under the Apache License 2.0. The licenses are compatible, but
+> depending on legal interpretation, the terms of the GPLv3 (for example the
+> requirement to publish corresponding source code when publishing an executable
+> application) may be considered to apply to the whole of Annif+Yake if you
+> decide to install the optional YAKE dependency.
 
 For installation see [Optional features and dependencies](https://github.com/NatLibFi/Annif/wiki/Optional-features-and-dependencies).
 

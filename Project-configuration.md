@@ -43,14 +43,14 @@ For some commands it is possible to override a parameter set in the configuratio
 For a list of supported backends, see [[Home]].
 
 The ensemble backends provide a way of combining results from multiple backends.
- 
+
 # Analyzers
 
 Analyzers are used by backends to pre-process text. For a list of supported analyzers, see [[Analyzers]].
 
 # Transforms
 
-Before text pre-processing by an analyzer the text can modified by applying a transformation to it, see [[Transforms]]. 
+Before text pre-processing by an analyzer the text can modified by applying a transformation to it, see [[Transforms]].
 
 # Vocabularies
 

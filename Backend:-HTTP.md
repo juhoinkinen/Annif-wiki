@@ -1,4 +1,7 @@
-The `http` backend communicates with a REST API that provides a `suggest` method. It can be either another instance of Annif or a service such as [MauiServer](https://github.com/NatLibFi/MauiServer).
+The `http` backend allows Annif to delegate subject suggestion requests to an external system via communicating it with REST API. The target system can be either another Annif instance or a compatible service that implements the necessary functionality:
+a `suggest` method that accepts a document and returns a list of suggested subjects.
+
+See for example [MauiServer](https://github.com/NatLibFi/MauiServer).
 
 ## Example configuration
 
