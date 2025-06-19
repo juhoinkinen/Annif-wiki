@@ -3,22 +3,22 @@
   * [[System requirements]]
   * [[Corpus formats]]
   * [[Project configuration]]
-  * [[Architecture]]
-* 🚀 Installation & Deployment
   * [[Optional features and dependencies]]
+  * [[Backward compatibility between releases]]
+  * [[Architecture]]
+* 🚀 Deployment
   * [[Usage with Docker]]
   * [[Running as a WSGI service]]
-  * [[Backward compatibility between Annif releases]]
 * 🖥️ User Interfaces
-  * [[Commands]]
+  * [[Command line interface]]
   * [[Web user interface]]
   * [[REST API]]
-* ⚙️ Functionality & Features
+* ⚙️ Preprocessing & Supporting Features
   * [[Analyzers]]
   * [[Transforms]]
   * [[Language detection]]
   * [[🤗 Hugging Face Hub integration|Hugging Face Hub integration]]
-* 🎯 Optimization & Best Practices
+* 🎯 Optimization Techniques
   * [[Achieving good results]]
   * [[Reusing preprocessed training data]]
   * [[Generating synthetic training data]]
