@@ -42,3 +42,6 @@ The below table aims to provide the basic information of all the backends.
 - Supports hyperopt: Whether the backend supports hyperparameter optimization using `annif hyperopt` command. The optimized parameters are
     - the hyperparameters of the tree algorithm with the MLLM backend
     - the source project weights with the ensemble backend
+
+---
+[[← Generating synthetic training data|Generating-synthetic-training-data]] | [[Development flow, branches and tags →|Development-flow,-branches-and-tags]]

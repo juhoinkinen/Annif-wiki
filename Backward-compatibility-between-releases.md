@@ -1,4 +1,4 @@
-Annif follows [semantic versioning](https://semver.org/) principles. The guiding SemVer principle is that if the public API is changed, a new major version should be released. 
+Annif follows [semantic versioning](https://semver.org/) principles. The guiding SemVer principle is that if the public API is changed, a new major version should be released.
 
 In order to apply the SemVer principles to the case of Annif, it is necessary to define what is considered the public API of Annif. Annif is primarily a toolkit and its "API" consists of many parts, such as the command line interface, the REST API, the web user interface, Python code as well as configuration and data files. This document aims to define the **policy for what may and may not change** in different parts of the public API for **minor releases** (e.g. 1.0.0 -> 1.1.0).
 
@@ -14,7 +14,7 @@ The **output of `eval` and `hyperopt` commands must stay the same** except that 
 
 # REST API method calls
 
-The REST API already includes a version number prefix (currently `/v1/`) so it is expected that **any backwards incompatible changes require incrementing that version prefix**. If support for the old API version is removed, **a new major release of Annif must be made**. 
+The REST API already includes a version number prefix (currently `/v1/`) so it is expected that **any backwards incompatible changes require incrementing that version prefix**. If support for the old API version is removed, **a new major release of Annif must be made**.
 
 Defining a breaking change for the REST API is out of scope for the discussion on Annif version numbers. For identifying the difference of two OpenAPI specifications the [openapi-diff](https://github.com/OpenAPITools/openapi-diff) tool can be used.
 
@@ -50,8 +50,11 @@ Any incompatibility **must not silently lead to erroneous suggestion results**.
 
 # Docker images
 
-The Python version used in the Docker image of Annif **is allowed to be updated**. 
+The Python version used in the Docker image of Annif **is allowed to be updated**.
 
 The base image that we use is an [official Python image from DockerHub](https://hub.docker.com/_/python), which is based on Debian. The operating system should not affect Annif functionality, so **updating the base image to a new OS version is allowed**.
 
 The image of a given Annif version will be occasionally rebuilt to apply security updates to it. The vocabularies and models/projects **must remain compatible** between the rebuilds.
+
+---
+[[← Optional features and dependencies|Optional-features-and-dependencies]] | [[Architecture →|Architecture]]

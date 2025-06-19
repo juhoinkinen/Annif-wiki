@@ -63,3 +63,6 @@ For contributors.
 - [GitHub Issues](https://github.com/NatLibFi/Annif/issues): Create an issue here to report bugs or request features
 - [Security Policy](https://github.com/NatLibFi/Annif/security/policy): Guidelines for reporting vulnerabilities and security issues
 
+---
+[[Getting started →|Getting-started]]
+

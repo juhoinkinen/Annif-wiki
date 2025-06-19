@@ -85,3 +85,7 @@ It is possible to mount also the Annif source code into the container, which all
         -w /Annif \
         -it quay.io/natlibfi/annif pytest
 
+---
+
+[[← Architecture|Architecture]] | [[Running as a WSGI service →|Running-as-a-WSGI-service]]
+

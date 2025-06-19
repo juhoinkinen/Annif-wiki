@@ -36,3 +36,6 @@ For troubleshooting and discussion, check out the Annif-users -mailing list/foru
 - "[A version prior to Windows 10 18.09, published ports on Windows containers have an issue with loopback to the localhost. You can only reach container endpoints from the host using the container’s IP and port.](https://docs.docker.com/docker-for-windows/troubleshoot/#limitations-of-windows-containers-for-localhost-and-published-ports)"
 
 - In case you are using Docker on Windows or MacOS and you are having troubles with connecting to _separetely_ run Mauiserver container, in `projects.cfg` use endpoint entry with `host.docker.internal` inplace of `localhost`. If you are using `docker-compose`, then in place of `localhost` the endpoint entry should have `mauiserver (or whatever name the service has you are trying to connect)`.
+
+---
+[[← Creating a new backend|Creating-a-new-backend]]

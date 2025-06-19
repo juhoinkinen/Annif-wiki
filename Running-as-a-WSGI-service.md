@@ -75,3 +75,7 @@ Then reload the Apache configuration using `service apache2 reload`. If everythi
 This should eventually output a JSON list of projects. However, the request may take some time to complete as Annif will on the first request load all projects into memory - if you look at the process list, you will see that one of the Apache processes is busy. Subsequent requests will be a lot faster.
 
 If you have problems, make sure to check the Apache error log, which is `/var/log/apache2/error.log` for the default virtual host.
+
+---
+
+[[← Usage with Docker|Usage-with-Docker]] | [[Command line interface →|Command-line-interface]]

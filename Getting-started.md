@@ -106,4 +106,4 @@ Check out the [[Annif-users -mailing list/forum | https://groups.google.com/foru
 
 ---
 
-| [[↑ Wiki home|Home]] | [[System requirements →|System-requirements]]
+[[← Home|Home]] | [[System requirements →|System-requirements]]

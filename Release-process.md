@@ -33,3 +33,6 @@ This page describes the steps for making a new Annif release. It is intended for
 5. Make a new *patch* version with bumpversion: the new version needs to be set manually, e.g.: `bumpversion --new-version 0.54.1 patch`.
 6. Follow the normal release process from step 6 as needed.
 7. If necessary, change the GitHub milestones of the PRs included in this patch to point to the correct minor version (in case the milestones have originally been set to next minor release, e.g. 0.55).
+
+---
+[[← Development flow, branches and tags|Development-flow,-branches-and-tags]] | [[Creating a new backend →|Creating-a-new-backend]]

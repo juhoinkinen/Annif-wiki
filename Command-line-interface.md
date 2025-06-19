@@ -23,3 +23,6 @@ Then make the script to be automatically sourced for new terminal sessions by ad
     source ~/.annif-complete.bash
 
 For details and usage for other shells see [Click documentation](https://click.palletsprojects.com/en/8.1.x/shell-completion/).
+
+---
+[[← Running as a WSGI service|Running-as-a-WSGI-service]] | [[Web user interface →|Web-user-interface]]

@@ -17,3 +17,6 @@ Generally, any text-parts in a "foreign" language are just useless or act as noi
 The language detection is performed with [Simplemma](https://github.com/adbar/simplemma). Detection and filtering is performed sentence-by-sentence. Because language detection for short sentences is unreliable, all sentences shorter than the `sentence_min_length` parameter value (in characters, by default 50) bypass the filtering. Also, if the whole text is shorter than `text_min_length` (by default 500) it bypasses the language filtering as one.
 
 When `filter_lang` is combined with the `limit` transform, for performance reasons it can be useful to apply an initial limit transform to avoid passing unnecessary amount of text to the language detection, for example with a transform setting like `transform=limit(15000),filter_lang,limit(5000)`.
+
+---
+[[← Analyzers|Analyzers]] | [[Language detection →|Language-detection]]

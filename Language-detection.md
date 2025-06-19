@@ -48,3 +48,6 @@ sv	0.3714
 fi	0.0857
 ?	0.0571
 ```
+
+---
+[[← Transforms|Transforms]] | [[🤗 Hugging Face Hub integration →|Hugging-Face-Hub-integration]]

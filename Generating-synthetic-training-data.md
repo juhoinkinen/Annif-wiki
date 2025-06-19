@@ -26,3 +26,6 @@ This helps the model better align with real-world data and prevents overfitting 
 
 [[/images/effect-of-synthetic-data.png|Effect of synthetic-data]]
 Learning curve showing the effect of adding synthetic training data for Omikuji Bonsai models (Figure 3 in the [SemEval-2025 paper](https://arxiv.org/html/2504.19675v1#A1)).
+
+---
+[[← Reusing preprocessed training data|Reusing-preprocessed-training-data]] | [[Backends →|Backends]]

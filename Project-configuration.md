@@ -63,3 +63,6 @@ project by giving the language code in parentheses after the vocabulary id
 # Access levels
 
 Access levels can be used to restrict which projects are available via the REST API. The default access level is `public`, meaning that the project is visible in the response for the `projects` method and can be used for suggesting concepts. The `hidden` level makes the project invisible, but it can still be accessed if the project ID is known. The `private` level means that the project is not available at all via the REST API.
+
+---
+[[← Corpus formats|Corpus-formats]] | [[Optional features and dependencies →|Optional-features-and-dependencies]]

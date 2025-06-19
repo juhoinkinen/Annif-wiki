@@ -159,3 +159,7 @@ Install the optional feature:
 If you have installed Annif from GitHub, use this instead:
 
     poetry install -E yake
+
+---
+
+[[← Project configuration|Project-configuration]] | [[Backward compatibility between releases →|Backward-compatibility-between-releases]]

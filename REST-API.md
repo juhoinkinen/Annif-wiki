@@ -5,3 +5,6 @@ See the interactive [Swagger/OpenAPI documentation](https://ai.dev.finto.fi/v1/u
 [Project access levels](https://github.com/NatLibFi/Annif/wiki/Project-configuration#access-levels) can be used to restrict which projects are available via the REST API.
 
 See also the [Annif-tutorial exercise about REST API](https://github.com/NatLibFi/Annif-tutorial/blob/master/exercises/OPT_rest_api.md).
+
+---
+[[← Web user interface|Web-user-interface]] | [[Analyzers →|Analyzers]]

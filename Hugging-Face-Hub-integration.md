@@ -82,3 +82,7 @@ A new branch, e.g. `release-2024-04`, can be created with command
 A new tag, e.g. `2024-04`, can be created with command
 
     $ python -c "from huggingface_hub import HfApi; client=HfApi(); client.create_tag(repo_id='NatLibFi/FintoAI-data-YSO', tag='2024-04')"
+
+---
+
+[[← Language detection|Language-detection]] | [[Achieving good results →|Achieving-good-results]]
