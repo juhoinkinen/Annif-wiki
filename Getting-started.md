@@ -10,7 +10,7 @@ First you need to install Annif. Follow the instructions in the top level [READM
 
 Projects and their backends can be defined in the `projects.cfg` file. By default Annif looks for this file in the current directory where it is executed, but the path can be overridden by using the `ANNIF_PROJECTS` environment variable or the `--projects` option after a command. The template file [`projects.cfg.dist`](https://github.com/NatLibFi/Annif/blob/master/projects.cfg.dist) already contains some projects, you can just copy it to `projects.cfg` to get started. See [Project configuration](https://github.com/NatLibFi/Annif/wiki/Project-configuration) for details and options for the projects configuration.
 
-It's easiest to start with one of the predefined TF-IDF projects. If you use these, you will not need to touch the configuration files. Further down we will assume that you are using the `tfidf-en` project. 
+It's easiest to start with one of the predefined TF-IDF projects. If you use these, you will not need to touch the configuration files. Further down we will assume that you are using the `tfidf-en` project.
 
 > [!NOTE]
 > The `tfidf` backend is mostly meant to introduce Annif core features by allowing a quick setup; most probably other (Omikuji, MLLM) will give significantly better suggestions (even 25 %-points better F1@5 scores).
@@ -41,13 +41,15 @@ This will take a few minutes. Now your Annif is ready for action!
 
 # Test with an example document
 
-You can test by piping a UTF-8-encoded text file into Annif like this:
+You can test feeding a UTF-8-encoded text file into Annif like this:
 
-    cat document.txt | annif suggest tfidf-en
+    annif suggest tfidf-en document.txt
 
 (NB. The command was called `analyze` before Annif 0.40)
 
 After a while you should get a tab-separated list of subjects. This is a very inefficient way of using Annif since the model has to be loaded each time, which takes tens of seconds, but good for initial testing that everything works.
+
+The `suggest` command also accepts multiple file paths or standard input as an argument.
 
 # Evaluate with a directory full of files
 

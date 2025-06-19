@@ -1,6 +1,7 @@
 Annif includes multiple backends that implement or use (via external libraries) algorithms for automated subject indexing. Each backend has its own strengths, requirements, and ideal use cases. The table below provides a quick comparison—see each backend's page for details and configuration options.
 
-> **Tip:** Choose a backend based on your corpora size and available resources. For a quick setup, start with TF-IDF; for best results, try fastText, Omikuji and MLLM combined in ensembles.
+> [!TIP]
+> For a quick setup, start with TF-IDF; for best results, try fastText, Omikuji and MLLM combined in ensembles.
 
 The below table aims to provide the basic information of all the backends.
 
@@ -24,7 +25,7 @@ The below table aims to provide the basic information of all the backends.
 | LLM-ensemble| Ensemble    | Yes             | Uses an LLM to rate the subject suggestions by the source projects.                                         | NA                  |       | No                |
 --->
 
-# Column descriptions
+## Column descriptions
 - Name: The identifier of the backend.
 - Type: The general approach used by the backend:
     - Associative: Learns associations between input text and subject terms from training data.

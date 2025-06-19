@@ -1,4 +1,4 @@
-Transforms are optional pre-processing steps that modify an input text before it is passed to an [[analyzer|analyzers]] and backend. You can combine multiple transforms, which are then applied sequentially.
+Transforms are optional pre-processing steps that modify an input text before it is passed to an [[analyzer|analyzers]] and [[backend|Backends]]. You can combine multiple transforms, which are then applied sequentially.
 
 The specification for an individual transform is the name of a transform followed by possible arguments in parentheses, and multiple transforms can be given by separating them with commas. For example `transform=filter_lang,limit(5000)`.
 

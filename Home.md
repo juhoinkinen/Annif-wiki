@@ -4,7 +4,7 @@ Welcome to the Annif usage documentation!
 
 ## 🧑‍💻 Introduction & Getting Started
 Get started with Annif, understand system requirements, and learn about supported corpus formats and configuration options.
-- [[Getting started]]: Step-by-step installation and first steps
+- [[Getting started]]: The first steps
 - [[System requirements]]: OS, hardware, and dependencies
 - [[Corpus formats]]: Supported input and vocabulary formats
 - [[Project configuration]]: How to set up and manage projects

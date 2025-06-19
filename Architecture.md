@@ -1,5 +1,3 @@
-# Annif architecture
-
 ## Basic concepts
 
 An installation of Annif may contain multiple independent **projects**, each

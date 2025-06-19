@@ -149,7 +149,8 @@ If you have installed Annif from GitHub, use this instead:
 
 # YAKE backend
 
-The yake backend is a wrapper around [YAKE library](https://github.com/LIAAD/yake), which is licended under GPLv3, while Annif is licensed under the Apache License 2.0. The licenses are compatible, but depending on legal interpretation, the terms of the GPLv3 (for example the requirement to publish corresponding source code when publishing an executable application) may be considered to apply to the whole of Annif+Yake if you decide to install the optional YAKE dependency.
+> [!NOTE]
+> The yake backend is a wrapper around [YAKE library](https://github.com/LIAAD/yake), which is licended under GPLv3, while Annif is licensed under the Apache License 2.0. The licenses are compatible, but depending on legal interpretation, the terms of the GPLv3 (for example the requirement to publish corresponding source code when publishing an executable application) may be considered to apply to the whole of Annif+Yake if you decide to install the optional YAKE dependency.
 
 Install the optional feature:
 
