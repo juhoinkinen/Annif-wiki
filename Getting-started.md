@@ -10,7 +10,12 @@ First you need to install Annif. Follow the instructions in the top level [READM
 
 Projects and their backends can be defined in the `projects.cfg` file. By default Annif looks for this file in the current directory where it is executed, but the path can be overridden by using the `ANNIF_PROJECTS` environment variable or the `--projects` option after a command. The template file [`projects.cfg.dist`](https://github.com/NatLibFi/Annif/blob/master/projects.cfg.dist) already contains some projects, you can just copy it to `projects.cfg` to get started. See [Project configuration](https://github.com/NatLibFi/Annif/wiki/Project-configuration) for details and options for the projects configuration.
 
-It's easiest to start with one of the predefined TF-IDF projects. If you use these, you will not need to touch the configuration files. Further down we will assume that you are using the `tfidf-en` project.
+It's easiest to start with one of the predefined TF-IDF projects. If you use these, you will not need to touch the configuration files. Further down we will assume that you are using the `tfidf-en` project. 
+
+> [!NOTE]
+> The `tfidf` backend is mostly meant to introduce Annif core features by allowing a quick setup; most probably other (Omikuji, MLLM) will give significantly better suggestions (even 25 %-points better F1@5 scores).
+
+See [[Backends]] for a comparison of the features and requirements of all backends.
 
 # Prepare and load a subject vocabulary
 
@@ -89,7 +94,7 @@ The Swagger UI documentation for the REST API is at http://localhost:5000/v1/ui/
 
 # Next steps
 
-Once you have one project/backend working you can start adding more projects and trying out more backends. See [[Project configuration]] for more information. Also, remember to check out the [Annif tutorial](https://github.com/NatLibFi/Annif-tutorial).
+Once you have one project/backend working you can start adding more projects and trying out more [[backends|Backends]]. See [[Project configuration]] for more information. Also, remember to check out the [Annif tutorial](https://github.com/NatLibFi/Annif-tutorial).
 
 For production use you should try [[Running as a WSGI service]] and/or [[Usage with Docker]].
 
