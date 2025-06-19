@@ -53,3 +53,7 @@ You can also check how changing the `token_min_length` parameter of the [analyze
 The basic backends alone do not usually give very good results, as they all have their weaknesses. Combining them into an ensemble can improve results quite a lot. It is easiest to start with a simple `ensemble` backend that just combines results from several backends by taking the mean of scores, i.e. letting the backends vote on what the best result is. However, don't expect a large improvement from this simple strategy - sometimes the results are better than for each individual algorithm, sometimes they are worse. The important step is to get combined results!
 
 Once you have a basic ensemble working, you can try a smart ensemble such as `pav` or `nn_ensemble`. They are otherwise similar to the basic ensemble but require some training documents - a few thousand is a good number. After training the smart ensemble you should see a significant improvement! Note that scores returned from PAV are probability estimates and if you are aiming for a high F1 score, the best strategy is often to pick a large limit value such as 15 and a relatively high threshold value of 0.25 or 0.3.
+
+
+---
+[[← 🤗 Hugging Face Hub integration |Hugging-Face-Hub-integration]] | [[Reusing preprocessed training data →|Reusing-preprocessed-training-data]]
