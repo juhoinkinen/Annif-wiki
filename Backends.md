@@ -1,9 +1,8 @@
-Annif includes multiple backends that implement or use (via external libraries) algorithms for automated subject indexing. Each backend has its own strengths, requirements, and ideal use cases. The table below provides a quick comparison—see each backend's page for details and configuration options.
+Annif includes multiple backends that implement or use (via external libraries) algorithms that can be used for automated subject indexing. Each backend has its own strengths, requirements and ideal use cases. The table below provides a quick comparison—see each backend's page for details and configuration options.
 
 > [!TIP]
 > For a quick setup, start with TF-IDF; for best results, try fastText, Omikuji and MLLM combined in ensembles.
 
-The below table aims to provide the basic information of all the backends.
 
 | Name | Type | Requires extra dependencies | Description | # train documents | Train documents length | Supports hyperopt |
 |-------------|-------------|-----|-------------------------------------------------------------------------------------------------------------|--------------|------------|-----|
