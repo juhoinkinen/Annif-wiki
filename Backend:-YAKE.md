@@ -65,3 +65,6 @@ Training is not necessary or possible. Test the model with a single document:
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
     annif eval yso-yake-en /path/to/documents/
+
+---
+[[← STWFSA|Backend:-STWFSA]] | [[SVC →|Backend:-SVC]]

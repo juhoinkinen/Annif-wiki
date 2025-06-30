@@ -92,3 +92,6 @@ Test the model with a single document:
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
     annif eval fasttext-en /path/to/documents/
+
+---
+[[← TF-IDF|Backend:-TF-IDF]] | [[Omikuji →|Backend:-Omikuji]]

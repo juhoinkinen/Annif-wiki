@@ -76,3 +76,6 @@ Test the model with a single document:
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
     annif eval yso-mllm-en /path/to/documents/
+
+---
+[[← Omikuji|Backend:-Omikuji]] | [[STWFSA →|Backend:-STWFSA]]

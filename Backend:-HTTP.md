@@ -31,3 +31,6 @@ Test with a single document:
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
     annif eval http-en /path/to/documents/
+
+---
+[[← nn_ensemble|Backend:-nn_ensemble]] | [[Dummy →|Backend:-Dummy]]

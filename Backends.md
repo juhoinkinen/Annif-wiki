@@ -43,4 +43,4 @@ Annif includes multiple backends that implement or use (via external libraries) 
     - the source project weights with the ensemble backend
 
 ---
-[[← Generating synthetic training data|Generating-synthetic-training-data]] | [[Development flow, branches and tags →|Development-flow,-branches-and-tags]]
+[[← Generating synthetic training data|Generating-synthetic-training-data]] | [[TF-IDF →|Backend:-TF-IDF]]

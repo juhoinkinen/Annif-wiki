@@ -41,3 +41,6 @@ Test the model with a single document:
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
     annif eval pav-en /path/to/documents/
+
+---
+[[← Ensemble|Backend:-Ensemble]] | [[nn_ensemble →|Backend:-nn_ensemble]]

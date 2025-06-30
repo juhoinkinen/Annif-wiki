@@ -94,3 +94,6 @@ Test the model with a single document:
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
     annif eval omikuji-parabel-en /path/to/documents/
+
+---
+[[← fastText|Backend:-fastText]] | [[MLLM →|Backend:-MLLM]]

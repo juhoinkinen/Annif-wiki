@@ -47,3 +47,6 @@ Test the model with a single document:
 Evaluate a files in short text [[document corpus|Document corpus formats]] format:
 
     annif eval svc-en /path/to/Annif-corpora/fulltext/20news/20news-test.tsv
+
+---
+[[← YAKE|Backend:-YAKE]] | [[Ensemble →|Backend:-Ensemble]]

@@ -79,3 +79,6 @@ Learn from additional documents:
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
     annif eval nn-ensemble-en /path/to/documents/
+
+---
+[[← PAV|Backend:-PAV]] | [[HTTP →|Backend:-HTTP]]

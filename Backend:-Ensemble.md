@@ -40,3 +40,6 @@ Test the model with a single document:
 Evaluate a directory full of files in fulltext [[document corpus|Document corpus formats]] format:
 
     annif eval ensemble-en /path/to/documents/
+
+---
+[[← SVC|Backend:-SVC]] | [[PAV →|Backend:-PAV]]
