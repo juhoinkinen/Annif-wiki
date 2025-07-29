@@ -1,3 +1,11 @@
+# Note: Outdated content!
+
+**This guide no longer works since Annif [upgraded to Connexion 3](https://github.com/NatLibFi/Annif/pull/702)**. We need a better guide!
+
+See [this discussion](https://groups.google.com/g/annif-users/c/yKihTSQsMVM/m/vlGPtZ7QAQAJ) on annif-users.
+
+# Old guide, not working anymore
+
 This page explains how to set up Annif as a WSGI service under Apache. In this mode Annif will run as a long-lived process that preloads all the projects, vocabularies and models into memory and is able to serve requests to the REST API quickly.
 
 It assumes you are using Ubuntu 22.04 but the process should be similar for other Linux distributions and Ubuntu releases. We will install Annif itself under `/srv/Annif` and a wrapper script under `/var/www/Annif`. You can choose other paths if appropriate.
