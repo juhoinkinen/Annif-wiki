@@ -8,6 +8,11 @@ Truncates an input document to a given length. It takes the number of characters
 
 This transform can be advantageous in case of long documents that have an abstract and/or introduction as it enables the backend to consider only those representative parts of the text. For example for [JYU theses](https://github.com/NatLibFi/Annif-corpora/tree/master/fulltext/jyu-theses) a good value for limit is 5000.
 
+## `select` transform
+This transform is used to select which parts of a document (main text and/or metadata fields) are given as input to the backend. For example `select(title)` or `select(title,description,text)`.
+
+This can be used to set up projects that operate only on e.g. the abstract or title of a document.
+
 ## `filter_lang` transform
 
 Filters out sentences of the text whose language is different than the project language. It can take `text_min_length` and/or `sentence_min_length` keyword parameters.

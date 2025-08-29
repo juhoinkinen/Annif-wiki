@@ -24,6 +24,7 @@ nodes=100
 dropout_rate=0.2
 epochs=10
 learn-epochs=1
+allow_learn=true
 ```
 
 ### Backend-specific parameters
@@ -39,6 +40,7 @@ epochs | The number of passes over the initial training data to perform. Default
 learn-epochs | The number of passes over the data to perform when performing online learning. Defaults to 1
 lr | The learning rate of the optimizer. Default depends on the optimizer
 lmdb_map_size | Maximum size of the LMDB database in bytes. The default is 1073741824 i.e. 1GB.
+allow_learn | Whether to allow using the learn method via REST API (`/v1/<project>/learn`). By default this is not allowed.
 
 The `nodes` setting determines the size of the neural network. Larger networks take up more memory, but may provide better results in some cases. The `dropout_rate` setting affects the amount of dropout regularization to apply in order to prevent overfitting. The `epochs` setting affects how much the network tries to learn from the initial training data (given using the `train` command). Some experimentation is necessary to find the optimal parameters.
 

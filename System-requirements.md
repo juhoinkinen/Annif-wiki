@@ -1,7 +1,7 @@
 # Supported Operating Systems
 
 - **Linux:** Annif is being developed on Ubuntu machines. However, it should work on any Linux distribution with some work.
-- **Other OS:** Annif itself runs anywhere Python 3.9+ is available. Some optional features may require native libraries that are harder to install on non-Linux systems.
+- **Other OS:** Annif itself runs anywhere Python 3.10+ is available. Some optional features may require native libraries that are harder to install on non-Linux systems.
 - **OS with Docker:** Annif is available as a pre-built [Docker image](https://quay.io/repository/natlibfi/annif), which can be used on any OS supporting Docker. See the [[Usage-with-Docker]] page for details.
 
 # Hardware Recommendations
