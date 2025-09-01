@@ -1,10 +1,30 @@
 A document corpus (or several) is needed for training statistical or machine learning based models as well as for evaluating how well those models work. Annif supports two kinds document corpus formats: full text formats with each document in a separate file that is more suitable for longer documents (full text or long abstracts) and short text formats with many documents in a single file that is better suited for situations when you only have document titles and/or short descriptions or abstracts.
 
+Here's an overview table summarizing the document corpus formats supported by Annif:
+
+| Format Name         | Type       | Subject URIs / Labels          | Supports Metadata | Supports `document_id` |
+|---------------------|------------|--------------------------------|-------------------|------------------------|
+| TXT + TSV/KEY files | Full-text  | Both (TSV) / Labels only (KEY) | No                | No                     |
+| JSON files          | Full-text  | Both                           | Yes               | Yes                    |
+| TSV file            | Short text | URIs only                      | No                | No                     |
+| CSV file            | Short text | URIs only                      | Yes               | Yes                    |
+| JSON Lines file     | Short text | Both                           | Yes               | Yes                    |
+
+**Notes:**
+
+- **Full-text formats** store documents in separate files (in a directory) and are suitable for longer documents
+- **Short text formats** store multiple documents in a single file and are ideal for titles/short descriptions
+- **Subjects** can be expressed either as URIs or as labels, depending on format
+- **Metadata** support varies by format, with JSON and CSV/JSON Lines supporting richer metadata
+- **`document_id`** is supported in JSON and CSV/JSON Lines formats
+- For TSV format, the simple .key format only supports labels, while the .tsv format supports both URIs and labels
+- All formats use UTF-8 encoding
+
 See also the [Annif-tutorial exercise with jupyter notebook for creating a custom corpus](https://github.com/NatLibFi/Annif-tutorial/blob/master/exercises/OPT_custom_corpus.md).
 
 ## Full-text document corpus formats
 
-### TXT + TSV format (directory)
+### TXT + TSV/KEY files
 
 The full text corpus is a directory with UTF-8 encoded text files that have the file extension `.txt`.
 
@@ -39,7 +59,7 @@ Any additional columns beyond the first two are ignored.
 
 When using this format, subject comparison is performed based on URIs, not the labels. Since URIs are (or should be) more persistent than labels, this ensures that subjects can be matched even if the labels have changed in the subject vocabulary.
 
-### JSON format (directory)
+### JSON files
 
 The JSON corpus format is a directory of files with the extension `.json`, each representing one document. The JSON structure for each file looks like this:
 
@@ -65,7 +85,7 @@ The `text` field contains the document text. The `metadata` field can be used to
 
 Short text formats are especially useful when only titles are known, or for very short documents. All documents are stored in a single file. Annif supports TSV, CSV and JSON Lines formats for short text corpora.
 
-### TSV file format
+### TSV file
 
 A document corpus is stored in a single UTF-8 encoded TSV file. There is no header row. The first column contains the text of the document (e.g. title or title + abstract) while the second column contains a whitespace-separated list of subject URIs (again within angle brackets) for that document. For example:
 
@@ -79,7 +99,7 @@ Note that it is also possible to separate the subjects with tabs, thus creating 
 
 The TSV file may be compressed using gzip compression. A compressed file must have the extension `.gz`.
 
-### CSV file format
+### CSV file
 
 A document corpus is stored in a single UTF-8 encoded [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) file, following typical CSV conventions: columns are separated by commas and values may optionally be enclosed in double quotes; some characters must be encoded by quoting. 
 
@@ -101,16 +121,14 @@ GoToHarmful,"Go To Statement Considered Harmful","<http://example.org/thesaurus/
 
 An uncompressed CSV file must have the extension `.csv`. It may be compressed using gzip compression. A compressed file must have the extension `.csv.gz`.
 
-### JSON Lines file format
+### JSON Lines file
 
-A document corpus is stored in a single UTF-8 encoded [JSON Lines](https://jsonlines.org/) file. This is a JSON-derived format where each line in the file is a separate JSON record. The records use the same JSON structure as the JSON fulltext format above. 
-
-An uncompressed JSON Lines file must have the extension `.jsonl`. It may be compressed using gzip compression. A compressed file must have the extension `.jsonl.gz`.
-
-Example:
+A document corpus is stored in a single UTF-8 encoded [JSON Lines](https://jsonlines.org/) file. This is a JSON-derived format where each line in the file is a separate JSON record. The records use the same JSON structure as the JSON files fulltext format above. Example:
 
 ```json
 {"text": "RFC 791: Internet Protocol", "subjects": [{"uri": "http://example.org/thesaurus/subj1"}, {"uri": "http://example.org/thesaurus/subj3"}]}
 {"text": "RFC 1925: The Twelve Networking Truths", "subjects": [{"uri": "http://example.org/thesaurus/subj1"}, {"uri": "http://example.org/thesaurus/subj2"}]}
 {"text": "Go To Statement Considered Harmful", "subjects": [{"uri": "http://example.org/thesaurus/subj2"}]}
 ```
+
+An uncompressed JSON Lines file must have the extension `.jsonl`. It may be compressed using gzip compression. A compressed file must have the extension `.jsonl.gz`.
