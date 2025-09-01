@@ -2,13 +2,13 @@ A document corpus (or several) is needed for training statistical or machine lea
 
 Here's an overview table summarizing the document corpus formats supported by Annif:
 
-| Format Name         | Type       | Subject URIs / Labels          | Supports Metadata | Supports `document_id` |
-|---------------------|------------|--------------------------------|-------------------|------------------------|
-| TXT + TSV/KEY files | Full-text  | Both (TSV) / Labels only (KEY) | No                | No                     |
-| JSON files          | Full-text  | Both                           | Yes               | Yes                    |
-| TSV file            | Short text | URIs only                      | No                | No                     |
-| CSV file            | Short text | URIs only                      | Yes               | Yes                    |
-| JSON Lines file     | Short text | Both                           | Yes               | Yes                    |
+| Format Name                               | Type       | Subject URIs / Labels          | Supports Metadata | Supports `document_id` |
+|-------------------------------------------|------------|--------------------------------|-------------------|------------------------|
+| [TXT + TSV/KEY files](#txt--tsvkey-files) | Full text  | Both (TSV) / Labels only (KEY) | No                | No                     |
+| [JSON files](#json-files)                 | Full text  | Both                           | Yes               | Yes                    |
+| [TSV file](#tsv-file)                     | Short text | URIs only                      | No                | No                     |
+| [CSV file](#csv-file)                     | Short text | URIs only                      | Yes               | Yes                    |
+| [JSON Lines file](#json-lines-file)       | Short text | Both                           | Yes               | Yes                    |
 
 **Notes:**
 
