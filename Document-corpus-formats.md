@@ -4,11 +4,11 @@ Here's an overview table summarizing the document corpus formats supported by An
 
 | Format Name                               | Type       | Subject URIs / Labels          | Supports Metadata | Supports `document_id` |
 |-------------------------------------------|------------|--------------------------------|-------------------|------------------------|
-| [TXT + TSV/KEY files](#txt--tsvkey-files) | Full text  | Both (TSV) / Labels only (KEY) | No                | No                     |
-| [JSON files](#json-files)                 | Full text  | Both                           | Yes               | Yes                    |
-| [TSV file](#tsv-file)                     | Short text | URIs only                      | No                | No                     |
-| [CSV file](#csv-file)                     | Short text | URIs only                      | Yes               | Yes                    |
-| [JSON Lines file](#json-lines-file)       | Short text | Both                           | Yes               | Yes                    |
+| [TXT + TSV/KEY files](#txt--tsvkey-files) | Full text  | Both (TSV) / Labels only (KEY) | ❌ No             | ❌ No                  |
+| [JSON files](#json-files)                 | Full text  | Both                           | ✅ Yes            | ✅ Yes                 |
+| [TSV file](#tsv-file)                     | Short text | URIs only                      | ❌ No             | ❌ No                  |
+| [CSV file](#csv-file)                     | Short text | URIs only                      | ✅ Yes            | ✅ Yes                 |
+| [JSON Lines file](#json-lines-file)       | Short text | Both                           | ✅ Yes            | ✅ Yes                 |
 
 **Notes:**
 
