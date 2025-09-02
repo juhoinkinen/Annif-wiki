@@ -135,4 +135,4 @@ An uncompressed JSON Lines file must have the extension `.jsonl`. It may be comp
 
 
 ---
-[[← System requirements|System-requirements]] | [[Project configuration →|Project-configuration]]
+[[← Subject vocabulary formats|Subject-vocabulary-formats]] | [[Project configuration →|Project-configuration]]
