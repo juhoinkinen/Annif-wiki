@@ -52,13 +52,11 @@ Before text pre-processing by an analyzer the text can modified by applying a tr
 
 # Vocabularies
 
-Most backends require a subject vocabulary. A vocabulary itself doesn't need any configuration, but the project must define an identifier for the vocabulary it uses. All projects with the same vocabulary identifier will share the same vocabulary, so the vocabulary only needs to be loaded (using the `load-vocab` command) for one of them.
+Most backends require a subject vocabulary. A vocabulary itself doesn't need any configuration, but the project must define an identifier for the vocabulary it uses. All projects with the same vocabulary identifier will share the same vocabulary, so the vocabulary only needs to be loaded (using the `load-vocab` command) once.
 
-A vocabulary can be multilingual, provided that it is loaded from a
-multilingual SKOS file. The language of the labels of subject suggestions
-is defined by the project's `language` setting, or it can be overridden in a
-project by giving the language code in parentheses after the vocabulary id
-(e.g. `vocab=lcsh(en)` in a Finnish language project).
+A vocabulary can be multilingual, provided that it is loaded from a multilingual SKOS or CSV file. The language of the labels of subject suggestions is defined by the project's `language` setting, or it can be overridden in a project by giving the language code in parentheses after the vocabulary id (e.g. `vocab=lcsh(en)` in a Finnish language project).
+
+Some subjects may be excluded from a vocabulary using rules; see [[Subject exclusion and inclusion]] for details.
 
 # Access levels
 
