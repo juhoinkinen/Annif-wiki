@@ -85,4 +85,4 @@ A new tag, e.g. `2024-04`, can be created with command
 
 ---
 
-[[← Language detection|Language-detection]] | [[Achieving good results →|Achieving-good-results]]
+[[← Subject exclusion and inclusion|Subject-exclusion-and-inclusion]] | [[Achieving good results →|Achieving-good-results]]
