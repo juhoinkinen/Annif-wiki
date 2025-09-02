@@ -6,7 +6,8 @@ Welcome to the Annif usage documentation!
 Get started with Annif, understand system requirements, and learn about supported corpus formats and configuration options.
 - [[Getting started]]: The first steps
 - [[System requirements]]: OS, hardware, and dependencies
-- [[Corpus formats]]: Supported input and vocabulary formats
+- [[Subject vocabulary formats]]: Supported formats for subject vocabularies
+- [[Corpus formats]]: Supported formats for documents used for training, evaluation etc.
 - [[Project configuration]]: How to set up and manage projects
 - [[Optional features and dependencies]]: Some Annif features and backends need installing extra dependencies
 - [[Backward compatibility between releases]]: What parts of Annif can and cannot change
