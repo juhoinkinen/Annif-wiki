@@ -50,4 +50,4 @@ fi	0.0857
 ```
 
 ---
-[[← Transforms|Transforms]] | [[🤗 Hugging Face Hub integration →|Hugging-Face-Hub-integration]]
+[[← Transforms|Transforms]] | [[Subject exclusion and inclusion →|Subject-exclusion-and-inclusion]]
