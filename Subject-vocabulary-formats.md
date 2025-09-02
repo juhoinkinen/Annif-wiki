@@ -24,3 +24,7 @@ http://example.org/thesaurus/subj3,Internet Protocol,Internet Protocol,42.42
 ## Subject vocabulary as SKOS
 
 A subject vocabulary can also be given as a SKOS/RDF file. All common RDF serializations (i.e. those supported by rdflib) are supported, including RDF/XML, Turtle and N-Triples.
+
+---
+
+[[← System requirements|System-requirements]] | [[Corpus formats →|Corpus-formats]]
