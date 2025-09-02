@@ -29,6 +29,7 @@ Features to tweak text inputs and help in workflows.
 - [[Analyzers]]: Tokenization, stemming, etc.
 - [[Transforms]]: Truncation and language filtering
 - [[Language detection]]: Automatic language identification with CLI or API methods
+- [[Subject exclusion and inclusion]]: Exclude certain subjects from a vocabulary
 - [[🤗 Hugging Face Hub integration|Hugging Face Hub integration]]: Share and reuse models via Hugging Face
 
 ## 🎯 Optimization Techniques
