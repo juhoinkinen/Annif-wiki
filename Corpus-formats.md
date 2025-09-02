@@ -8,7 +8,7 @@ A document corpus (or several) is needed for training statistical or machine lea
 A document in a corpus may contain the following information:
 
 * **Text**: The main text of the document
-* **Document ID**: An identifier for the document, used for keeping track of it
+* **Document ID**: An identifier for the document, used to keeping track of it in different contexts
 * **Metadata**: A collections of keys (e.g. `title`, `abstract`) and corresponding values representing aspects or parts of the document that could be useful for subject indexing
 * **Subjects**: One or more concepts from the subject vocabulary, usually chosen by a human indexer. Can be expressed either as URIs or as labels, depending on the corpus format.
 
