@@ -12,4 +12,4 @@
 
 ---
 
-[[← Getting started|Getting-started]] | [[Corpus formats →|Corpus-formats]]
+[[← Getting started|Getting-started]] | [[Subject vocabulary formats →|Subject-vocabulary-formats]]
