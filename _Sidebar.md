@@ -18,6 +18,7 @@
   * [[Analyzers]]
   * [[Transforms]]
   * [[Language detection]]
+  * [[Subject exclusion and inclusion]]
   * [[🤗 Hugging Face Hub integration|Hugging Face Hub integration]]
 * 🎯 Optimization Techniques
   * [[Achieving good results]]
