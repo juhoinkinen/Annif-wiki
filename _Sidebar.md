@@ -1,6 +1,7 @@
 * 🧑‍💻 Introduction & Getting Started
   * [[Getting started]]
   * [[System requirements]]
+  * [[Subject vocabulary formats]]
   * [[Corpus formats]]
   * [[Project configuration]]
   * [[Optional features and dependencies]]
