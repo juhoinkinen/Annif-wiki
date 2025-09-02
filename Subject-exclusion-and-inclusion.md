@@ -34,3 +34,7 @@ vocab=yso(exclude=*,include_collection=yso:p26574|yso:p26565)
 # STW Thesaurus, but without concepts of type zbwext:Thsys
 vocab=stw(exclude_type=zbwext:Thsys)
 ```
+
+---
+
+[[← Language detection|Language-detection]] | [[🤗 Hugging Face Hub integration →|Hugging-Face-Hub-integration]]
