@@ -125,7 +125,7 @@ An uncompressed CSV file must have the extension `.csv`. It may be compressed us
 
 ## JSON Lines file
 
-A document corpus is stored in a single UTF-8 encoded [JSON Lines](https://jsonlines.org/) file. This is a JSON-derived format where each line in the file is a separate JSON record. The records use the same JSON structure as the JSON files fulltext format above. Example:
+A document corpus is stored in a single UTF-8 encoded [JSON Lines](https://jsonlines.org/) file. This is a JSON-derived format where each line in the file is a separate JSON record. The records use the same JSON structure as the [JSON files](#json-files) fulltext format above. Example:
 
 ```json
 {"text": "RFC 791: Internet Protocol", "subjects": [{"uri": "http://example.org/thesaurus/subj1"}, {"uri": "http://example.org/thesaurus/subj3"}]}
