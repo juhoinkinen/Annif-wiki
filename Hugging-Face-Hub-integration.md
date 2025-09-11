@@ -69,19 +69,13 @@ The metadata of the Model Card that are automatically set include model task "te
 
 # Versioning projects
 
-Git branches and tags can be used for versioning Annif projects in Hugging Face Hub.
-Currently (by release [0.22](https://github.com/huggingface/huggingface_hub/releases/tag/v0.22.0)) the Hugging Face Hub commandline tool does not support accessing git branches or tags, but this will change in the future.
-However, the tags can be accessed and manipulated using the Hugging Face Hub Python client. For example, to list branches and tags in the NatLibFi/FintoAI-data-YSO repository, use the command
+Git branches and tags can be used for versioning Annif projects in Hugging Face Hub. For example, to list branches and tags in the NatLibFi/FintoAI-data-YSO repository, use the command
 
-    $ python -c "from huggingface_hub import HfApi; client=HfApi(); refs=client.list_repo_refs(repo_id='NatLibFi/FintoAI-data-YSO'); print([t.ref for t in refs.branches]); print([t.ref for t in refs.tags])"
+    $ hf repo tag list natlibfi/fintoai-data-yso
 
-A new branch, e.g. `release-2024-04`, can be created with command
+A new tag, e.g. `2024-04`, can be created with the command
 
-    $ python -c "from huggingface_hub import HfApi; client=HfApi(); client.create_branch(repo_id='NatLibFi/FintoAI-data-YSO', branch='release-2024-04')"
-
-A new tag, e.g. `2024-04`, can be created with command
-
-    $ python -c "from huggingface_hub import HfApi; client=HfApi(); client.create_tag(repo_id='NatLibFi/FintoAI-data-YSO', tag='2024-04')"
+    $ hf repo tag create natlibfi/fintoai-data-yso 2024-04
 
 ---
 
